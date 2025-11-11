@@ -43,6 +43,7 @@
 		"vitest": "^4.0.5"
 	},
 	"dependencies": {
+		"confusables": "^1.1.1",
 		"svelte-exmarkdown": "^5.0.2",
 		"unicode-text-decorator": "^0.1.1"
 	}

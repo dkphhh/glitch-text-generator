@@ -8,7 +8,7 @@ export function textFontVariant(text: string, style: FontName): string {
 export function randomFontVariant(text: string): string {
 	for (const char of text) {
 		const randomStyle = getRandomValueFromArray(FONT_STYLES);
-		text = text.replace(char, textFontVariant(char, randomStyle));
+		text = text.replaceAll(char, textFontVariant(char, randomStyle));
 	}
 	return text;
 }

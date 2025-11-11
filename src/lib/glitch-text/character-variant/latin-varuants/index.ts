@@ -1,5 +1,5 @@
 import { latinCharactersMap, baseLatinCharacters } from './const';
-import type { BaseLatinCharacters } from './type';
+
 import { getRandomValueFromArray } from '$lib/utils/common/tools';
 
 function getRandomLatinVariants(char: string): string {
@@ -7,14 +7,14 @@ function getRandomLatinVariants(char: string): string {
 		return char;
 	}
 
-	const latinVariant = latinCharactersMap[char as BaseLatinCharacters]['variants'];
+	const latinVariant = latinCharactersMap[char as BaseCharacters]['variants'];
 	const result = getRandomValueFromArray(latinVariant);
 	return result;
 }
 
 export function randomLatinizeText(text: string): string {
 	for (const char of text) {
-		text.replace(char, getRandomLatinVariants(char));
+		text.replaceAll(char, getRandomLatinVariants(char));
 	}
 
 	return text;

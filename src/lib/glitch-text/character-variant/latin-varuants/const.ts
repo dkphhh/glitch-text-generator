@@ -1,6 +1,6 @@
-import type { BaseLatinCharacters, LatinVariants } from './type';
+import type { LatinVariants } from './type';
 
-export const latinCharactersMap: Record<BaseLatinCharacters, LatinVariants> = {
+export const latinCharactersMap: Record<BaseCharacters, LatinVariants> = {
 	A: {
 		base: 'A',
 		variants: [
@@ -699,11 +699,9 @@ export const latinCharactersMap: Record<BaseLatinCharacters, LatinVariants> = {
 			'Ƹ',
 			'ᴢ',
 			'Ｚ',
-			'DZ',
-			'Dz',
 			'Ǳ',
-			'DŽ',
-			'Dž',
+			'Ž',
+			'ž',
 			'Ǆ'
 		]
 	},
@@ -729,9 +727,7 @@ export const latinCharactersMap: Record<BaseLatinCharacters, LatinVariants> = {
 			'ǯ',
 			'ƹ',
 			'ｚ',
-			'dz',
 			'ǳ',
-			'dž',
 			'ǆ'
 		]
 	}
