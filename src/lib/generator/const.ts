@@ -1,5 +1,3 @@
-import { getRandomSharpVariantChar } from './character-variant/sharp-style';
-import { obfuscate } from 'confusables';
 export const BASE_CHARACTERS: BaseCharacters[] = [
 	'A',
 	'B',
@@ -61,8 +59,3 @@ export const BASE_CHARACTERS_AND_NUMBERS: (BaseCharacters | BaseNumbers)[] = [
 	...BASE_CHARACTERS,
 	...BASE_NUMBERS
 ];
-
-export const STYLE_MAP: Record<string, (T: string) => string> = {
-	sharp: getRandomSharpVariantChar,
-	confused: obfuscate
-};

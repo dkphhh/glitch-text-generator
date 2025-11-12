@@ -14,18 +14,19 @@
 	} = $props();
 
 	// 默认 TDK 配置
-	const DEFAULT_TITLE = 'Elf Name Generator - Create Fantasy Elf Names Instantly';
-	const DEFAULT_TITLE_SUFFIX = 'Elf Name Generator';
+	const DEFAULT_TITLE = 'Glitch Text Generator - Create Zalgo & Glitchy Text (Copy & Paste)';
+	const DEFAULT_TITLE_SUFFIX = 'Glitch Text Generator';
 	const DEFAULT_DESCRIPTION =
-		'Generate unique fantasy elf names for your characters. Free elf name generator with meanings, multiple races, and customization options. Perfect for D&D, WoW, and fantasy writing.';
+		'Free online glitch text generator. Create scary, cursed, and cool glitchy text effects instantly. Perfect for Discord, Roblox, and more. Copy and paste easily.';
 	const DEFAULT_KEYWORDS = [
-		'elf name generator',
-		'fantasy name generator',
-		'dnd elf names',
-		'character name generator',
-		'elf names',
-		'd&d names',
-		'fantasy character names'
+		'glitch text generator',
+		'zalgo text',
+		'cursed text generator',
+		'cool text generator',
+		'glitchy text',
+		'glitch font generator',
+		'discord glitch text',
+		'roblox glitch text'
 	];
 	const SITE_URL = PUBLIC_BASE_URL;
 
@@ -82,7 +83,6 @@
 			name: DEFAULT_TITLE_SUFFIX,
 			description: DEFAULT_DESCRIPTION,
 			url: SITE_URL,
-			author: 'Dkphhh',
 			applicationCategory: 'UtilityApplication',
 			operatingSystem: 'Web',
 			offers: {

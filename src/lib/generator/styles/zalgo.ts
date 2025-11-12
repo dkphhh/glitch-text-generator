@@ -126,7 +126,7 @@ const zalgoMidArray: string[] = [
 
 const getRandomInt = (max: number): number => Math.floor(Math.random() * max);
 
-const isZalgo = (zalgoCount: number): boolean => {
+const zalgoFilter = (zalgoCount: number): boolean => {
 	// 线性概率：zalgoCount 越大，返回 true 的概率越大
 	// 假定最大值为 10（与其它代码一致），超过则视为 100% 概率
 	const MAX = 10;
@@ -137,7 +137,7 @@ const isZalgo = (zalgoCount: number): boolean => {
 
 /* Zalgo text */
 const addZalgoToChar = (character: string, zalgoCount: number, zalgoArray: string[]): string => {
-	if (!isZalgo(zalgoCount)) {
+	if (!zalgoFilter(zalgoCount)) {
 		return character;
 	}
 	for (let i = 0; i < zalgoCount; i++) {
@@ -165,8 +165,6 @@ const zalgoGeneration = (
 	if (zalgoUpCount > 10 || zalgoMidCount > 10 || zalgoDownCount > 10) {
 		return zalgoGeneration(text, 10, 10, 10);
 	}
-
-	console.log('Generating zalgo text with counts:', zalgoUpCount, zalgoMidCount, zalgoDownCount);
 
 	text = addZalgoToString(text, zalgoUpCount, zalgoUpArray);
 	text = addZalgoToString(text, zalgoMidCount, zalgoMidArray);

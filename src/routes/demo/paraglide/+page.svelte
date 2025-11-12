@@ -1,7 +1,8 @@
 <script lang="ts">
-	import { setLocale } from '$lib/paraglide/runtime';
+	import { setLocale, localizeHref } from '$lib/paraglide/runtime';
 
 	import { m } from '$lib/paraglide/messages.js';
+	import { resolve } from '$app/paths';
 </script>
 
 <h1>{m.hello_world({ name: 'SvelteKit User' })}</h1>
@@ -23,3 +24,4 @@
 		target="_blank">Sherlock i18n extension</a
 	> for a better i18n experience.
 </p>
+<a href={localizeHref(resolve('/'))}>back</a>
