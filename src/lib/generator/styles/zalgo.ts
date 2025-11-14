@@ -131,7 +131,7 @@ const zalgoFilter = (zalgoCount: number): boolean => {
 	// 假定最大值为 10（与其它代码一致），超过则视为 100% 概率
 	const MAX = 10;
 	if (!Number.isFinite(zalgoCount) || zalgoCount <= 0) return false;
-	const p = Math.min(zalgoCount, MAX) / MAX;
+	const p = Math.min(zalgoCount, MAX) / (MAX * 1.2);
 	return Math.random() < p;
 };
 

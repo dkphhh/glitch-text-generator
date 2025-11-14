@@ -1,4 +1,22 @@
+import type { FontName } from 'unicode-text-decorator';
+
 declare global {
+	/**
+	 * 提前定义好的 style 名称，可以是 undefined，选择 undefined 意味着不进行任何样式转换
+	 */
+	export type Style =
+		| 'zalgo'
+		| 'cool'
+		| 'cursed'
+		| 'flip'
+		| 'glitch'
+		| 'latin'
+		| 'hacker'
+		| 'hidden'
+		| 'unreadable'
+		| 'upsideDown'
+		| FontName;
+
 	export type BaseCharacters =
 		| 'a'
 		| 'A'

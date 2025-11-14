@@ -1,4 +1,3 @@
-import type { FontName } from 'unicode-text-decorator';
 import { styleText } from './styles/font-variant';
 import { coolifyText } from './styles/glitch-style/cool';
 import { cursedText } from './styles/glitch-style/cursed';
@@ -9,46 +8,48 @@ import { hackifyText } from './styles/glitch-style/hacker';
 import { hideText } from './styles/glitch-style/hidden';
 import { confusedText } from './styles/glitch-style/unreadable';
 import { upsideDownText } from './styles/glitch-style/upside-down';
-import { FONT_STYLES } from './styles/font-variant/const';
 import { zalgoGeneration } from './styles/zalgo';
+import { m } from '$lib/paraglide/messages.js';
 
-/**
- * 提前定义好的 style 名称，可以是 undefined，选择 undefined 意味着不进行任何样式转换
- */
-export type Style =
-	| undefined
-	| 'cool'
-	| 'cursed'
-	| 'flip'
-	| 'glitch'
-	| 'latin'
-	| 'hacker'
-	| 'hidden'
-	| 'unreadable'
-	| 'upsideDown'
-	| FontName;
-
-export const STYLE_LIST: string[] = [
-	'cool',
-	'cursed',
-	'flip',
-	'glitch',
-	'hidden',
-	'hacker',
-	'latin',
-	'unreadable',
-	'upsideDown',
-	...FONT_STYLES
-];
+export const STYLE_MAP: Record<Style, string> = {
+	zalgo: m.style_zalgo(),
+	cool: m.style_cool(),
+	cursed: m.style_cursed(),
+	flip: m.style_filp(),
+	glitch: m.style_glitch(),
+	latin: m.style_latin(),
+	hacker: m.style_hacker(),
+	hidden: m.style_hidden(),
+	unreadable: m.style_unreadable(),
+	upsideDown: m.style_upsideDown(),
+	bold_serif: m.style_bold_serif(),
+	italic_serif: m.style_italic_serif(),
+	bold_italic_serif: m.style_bold_italic_serif(),
+	script: m.style_script(),
+	bold_script: m.style_bold_script(),
+	fraktur: m.style_fraktur(),
+	bold_fraktur: m.style_bold_fraktur(),
+	double_struck: m.style_double_struck(),
+	sans_serif: m.style_sans_serif(),
+	bold_sans_serif: m.style_bold_sans_serif(),
+	italic_sans_serif: m.style_italic_sans_serif(),
+	bold_italic_sans_serif: m.style_bold_italic_sans_serif(),
+	monospace: m.style_monospace(),
+	regional_indicator: m.style_regional_indicator(),
+	circle: m.style_circle(),
+	black_circle: m.style_black_circle(),
+	square: m.style_squared(),
+	parenthesized: m.style_parenthesized(),
+	fullwidth: m.style_fullwidth()
+};
+export const STYLE_LIST: string[] = Object.keys(STYLE_MAP);
 
 export function stylizeText(
 	text: string,
 	style: Style,
 	zalgoOption: {
-		enabled: boolean;
 		intensity: number;
 	} = {
-		enabled: false,
 		intensity: 1
 	}
 ): string {
@@ -81,22 +82,18 @@ export function stylizeText(
 		case 'upsideDown':
 			result = upsideDownText(text);
 			break;
-		case undefined:
-			result = text;
+		case 'zalgo':
+			result = zalgoGeneration(
+				text,
+				zalgoOption.intensity,
+				zalgoOption.intensity,
+				zalgoOption.intensity
+			);
 			break;
 		default:
 			result = styleText(text, style);
 			break;
 	}
 
-	if (!zalgoOption.enabled) {
-		return result;
-	}
-
-	return zalgoGeneration(
-		result,
-		zalgoOption.intensity,
-		zalgoOption.intensity,
-		zalgoOption.intensity
-	);
+	return result;
 }

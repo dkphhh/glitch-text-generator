@@ -3,7 +3,10 @@
 	import { page } from '$app/state';
 	import favicon from '$lib/assets/favicon.svg';
 	import { locales, localizeHref } from '$lib/paraglide/runtime';
+	import Nav from '$lib/components/layout/Nav.svelte';
+
 	import Notification from '$lib/components/common/notification/Notification.svelte';
+	import Footer from '$lib/components/layout/Footer.svelte';
 	let { children } = $props();
 </script>
 
@@ -11,9 +14,12 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{@render children()}
-
 <Notification />
+<main class="min-h-screen">
+	<Nav />
+	{@render children()}
+	<Footer />
+</main>
 
 <div style="display:none">
 	{#each locales as locale (locale)}
