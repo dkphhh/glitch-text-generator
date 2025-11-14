@@ -32,7 +32,7 @@
 
 	/**
 	 * 生成最终的页面标题
-	 * 如果提供了自定义标题，格式为: "自定义标题 | Elf Name Generator"
+	 * 如果提供了自定义标题，格式为："自定义标题 | Elf Name Generator"
 	 * 否则使用默认标题
 	 */
 	let seoTitle = $derived.by(() => {

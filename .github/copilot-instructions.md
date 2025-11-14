@@ -73,7 +73,7 @@ class NotificationManager {
     $effect.root(() => {
       $effect(() => {
         if (updated.current) {
-          this.sentMessage({ message: ['有版本更新,请刷新页面'] });
+          this.sentMessage({ message: ['有版本更新, 请刷新页面'] });
         }
       });
     });
