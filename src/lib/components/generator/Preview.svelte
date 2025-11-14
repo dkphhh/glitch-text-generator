@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { stylizeText, STYLE_MAP } from '$lib/generator/style';
+	import { stylizeText, GENERATOR_NAME_MAP } from '$lib/generator/style';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
 	let {
 		previewStyle,
@@ -37,7 +37,7 @@
 	{#each Object.keys(previewStyleText) as style (style)}
 		{@const s = style as Style}
 		{@const outputText = previewStyleText[s]}
-		{@const previewTitle = STYLE_MAP[s]}
+		{@const previewTitle = GENERATOR_NAME_MAP[s]}
 		<PreviewCard {outputText} bind:inputText {previewTitle} />
 	{/each}
 </div>

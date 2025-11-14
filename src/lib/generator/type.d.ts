@@ -17,6 +17,14 @@ declare global {
 		| 'upsideDown'
 		| FontName;
 
+	export type SpecialGenerator =
+		| 'glitch-font'
+		| 'discord-glitch'
+		| 'roblox-glitch'
+		| 'minecraft-glitch';
+
+	export type GeneratorType = Style | SpecialGenerator;
+
 	export type BaseCharacters =
 		| 'a'
 		| 'A'

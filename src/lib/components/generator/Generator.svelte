@@ -2,7 +2,7 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
-	import { stylizeText, STYLE_LIST, STYLE_MAP } from '$lib/generator/style';
+	import { stylizeText, STYLE_LIST, GENERATOR_NAME_MAP } from '$lib/generator/style';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 	import { resolve } from '$app/paths';
 	import Preview from '$lib/components/generator/Preview.svelte';
@@ -85,8 +85,8 @@
 				<label class="select w-full">
 					<span class="label w-32">{m.style_label()}</span>
 					<select bind:value={selectedStyle}>
-						{#each Object.keys(STYLE_MAP) as style (style)}
-							{@const displayName = STYLE_MAP[style as Style]}
+						{#each Object.keys(GENERATOR_NAME_MAP) as style (style)}
+							{@const displayName = GENERATOR_NAME_MAP[style as Style]}
 							<option value={style}>{displayName}</option>
 						{/each}
 					</select>
@@ -117,7 +117,7 @@
 
 		<!-- Output -->
 		<PreviewCard previewTitle={m.output_label()} {outputText} bind:inputText />
-		<Preview previewStyle={PREVIEW_STYLE} bind:inputText />
+		<Preview previewStyle={PREVIEW_STYLE} bind:inputText {intensity} />
 	</div>
 
 	<a

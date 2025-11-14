@@ -29,15 +29,11 @@
 
 <div class="min-h-screen w-full">
 	<!-- 标题 -->
-	<Front />
-
+	<Front title={m.home_h1()} subtitle={m.home_subtitle()} />
 	<!-- Main Generator Tool -->
-
 	<Generator bind:inputText />
-
 	<!-- Features Section -->
 	<Features />
-
 	<!-- Specialized Generators -->
 	<SpecializedGenerators />
 	<!-- How to Use Section -->

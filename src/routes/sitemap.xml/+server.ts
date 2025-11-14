@@ -1,6 +1,5 @@
 import type { RequestHandler } from './$types';
 import { PUBLIC_BASE_URL } from '$env/static/public';
-import { ELF_RACE_LIST, ELF_GENDER_LIST, NAME_STYLE_LIST } from '$lib/elf-name-generator/constant';
 
 export const GET: RequestHandler = async () => {
 	const baseUrl = PUBLIC_BASE_URL;
@@ -29,15 +28,8 @@ export const GET: RequestHandler = async () => {
 		changefreq: 'weekly'
 	}));
 
-	// 动态生成风格生成器页面
-	const stylePages = NAME_STYLE_LIST.map((style) => ({
-		url: `/generator/${style}`,
-		priority: 0.8,
-		changefreq: 'weekly'
-	}));
-
 	// 合并所有页面
-	const pages = [...staticPages, ...genderPages, ...racePages, ...stylePages];
+	const pages = [...staticPages, ...genderPages, ...racePages];
 
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

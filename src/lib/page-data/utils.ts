@@ -46,7 +46,7 @@ async function getAllBlogPosts(): Promise<BlogPost[]> {
 		// 获取 Markdown 内容
 		const rawContent = await resolver();
 
-		// 解析 frontmatter
+		// 解析 front matter
 		const { data, content } = spiltFrontMatterAndContent<BlogFrontmatter>(rawContent);
 
 		posts.push({

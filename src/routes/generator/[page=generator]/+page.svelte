@@ -6,15 +6,6 @@
 	// 获取当前页面参数
 	const generatorType = $derived(page.params.page as string);
 
-	// 状态管理
-	let inputText = $state('');
-	let outputText = $state('');
-	let intensity = $state(5);
-	let zalgoUp = $state(5);
-	let zalgoMid = $state(5);
-	let zalgoDown = $state(5);
-	let selectedFont = $state<string>('bold_serif');
-
 	// 根据 generator 类型配置
 	type GeneratorConfig = {
 		titleKey: string;
