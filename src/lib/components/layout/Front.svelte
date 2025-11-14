@@ -4,7 +4,7 @@
 	let { title, subtitle }: { title: string; subtitle: string } = $props();
 </script>
 
-<section class="mx-auto w-full bg-base-200">
+<section class="mx-auto w-full">
 	<div class="hero w-full">
 		<div class="hero-content text-center">
 			<div class="max-w-4xl">

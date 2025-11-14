@@ -5,7 +5,7 @@
 	const year = new Date().getFullYear();
 </script>
 
-<footer class="footer bg-base-200 p-10 text-base-content sm:footer-horizontal">
+<footer class="footer p-10 text-base-content sm:footer-horizontal">
 	<aside>
 		<img src="/dkphhh.ico" class="size-16" alt="creater dkphhh icon" />
 		<p class="text-sm">

@@ -55,4 +55,4 @@
 	</div>
 </div>
 
-<div class="h-18 bg-base-200"></div>
+<div class="h-18"></div>

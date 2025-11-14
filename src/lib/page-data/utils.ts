@@ -72,7 +72,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 	return ALL_BLOG_POSTS.find((post) => post.slug === slug) || null;
 }
 
-type SinglePageType = 'privacy-policy' | 'terms-of-service';
+type SinglePageType = 'privacy-policy' | 'terms-of-service' | 'about' | 'guide';
 
 /**
  * 获取所有单页内容（隐私政策、服务条款等）
@@ -109,7 +109,8 @@ async function getAllSinglePages(pageType: SinglePageType): Promise<BlogPost[]> 
 }
 
 export const ALL_PRIVACY_POLICY_PAGE = await getAllSinglePages('privacy-policy');
-
+export const ALL_ABOUT_PAGE = await getAllSinglePages('about');
+export const ALL_GUIDE_PAGE = await getAllSinglePages('guide');
 export const ALL_TERMS_OF_SERVICE_PAGE = await getAllSinglePages('terms-of-service');
 
 export const ALL_BLOG_POSTS = await getAllBlogPosts();
@@ -117,6 +118,8 @@ export const ALL_BLOG_POSTS = await getAllBlogPosts();
 console.log(
 	'网站文章加载完成:\n',
 	`博客文章数量：${ALL_BLOG_POSTS.length} 篇\n`,
+	`关于页面：${ALL_ABOUT_PAGE.length} 篇\n`,
+	`使用指南页面：${ALL_GUIDE_PAGE.length} 篇\n`,
 	`隐私政策页面：${ALL_PRIVACY_POLICY_PAGE.length} 篇\n`,
 	`服务条款页面：${ALL_TERMS_OF_SERVICE_PAGE.length} 篇\n`
 );

@@ -3,7 +3,7 @@
 </script>
 
 {#snippet howTo(index: number, title: string, description: string)}
-	<div class="text-center">
+	<div class=" text-center">
 		<div
 			class="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary text-2xl font-bold text-primary-content"
 		>

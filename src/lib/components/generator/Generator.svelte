@@ -2,7 +2,7 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
-	import { stylizeText, STYLE_LIST, GENERATOR_NAME_MAP } from '$lib/generator/style';
+	import { stylizeText, STYLE_LIST, GENERATOR_NAME_MAP } from '$lib/generator/generator';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 	import { resolve } from '$app/paths';
 	import Preview from '$lib/components/generator/Preview.svelte';
@@ -10,7 +10,7 @@
 	// 选风格
 	let selectedStyle = $state<Style>('zalgo');
 
-	// zalgo强度
+	// zalgo 强度
 	let intensity = $state(5);
 
 	// 状态管理
@@ -25,8 +25,7 @@
 
 		if (selectedStyle && !STYLE_LIST.includes(selectedStyle)) {
 			notificationManager.sentMessage({
-				// TODO: i18n
-				message: ['Invalid style selected'],
+				message: [m.inavlid_style_selected()],
 				type: 'error'
 			});
 			return '';
@@ -65,12 +64,12 @@
 	];
 </script>
 
-<section class="flex w-full flex-col items-center gap-4 bg-base-200 px-0 pb-8 lg:px-4">
+<section class="flex w-full flex-col items-center gap-4 px-0 pb-8 lg:px-4">
 	<!-- 输入和输出区域 -->
 	<div class="flex w-full max-w-6xl flex-col items-center gap-4">
 		<!-- Input -->
 		<fieldset
-			class="sticky top-14 z-10 fieldset w-full gap-2 border border-base-300 bg-base-100 p-4 lg:p-8"
+			class="sticky top-14 z-10 fieldset w-full gap-2 border border-base-300 bg-base-200 p-4 lg:p-8"
 		>
 			<legend class="fieldset-legend">{m.input_label()}</legend>
 			<input
@@ -117,11 +116,12 @@
 
 		<!-- Output -->
 		<PreviewCard previewTitle={m.output_label()} {outputText} bind:inputText />
+		<!-- 其他样式预览 -->
 		<Preview previewStyle={PREVIEW_STYLE} bind:inputText {intensity} />
 	</div>
 
 	<a
 		href={localizeHref(resolve('/generator'))}
-		class="btn w-full max-w-6xl py-12 text-4xl font-light btn-xl">{m.more_style()}……</a
+		class="btn w-full max-w-6xl py-12 text-xl font-light btn-ghost btn-xl">{m.more_style()}……</a
 	>
 </section>

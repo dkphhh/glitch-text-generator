@@ -32,7 +32,7 @@
 	}
 </script>
 
-<div class="stats w-full rounded-none! border border-base-300 bg-base-100">
+<div class="stats w-full rounded border border-base-300 bg-base-200">
 	<div class="stat">
 		<div class="stat-title">{previewTitle}</div>
 		<div class="stat-value h-32 font-mono! text-sm/8! font-light! lg:text-base/20!">

@@ -1,177 +1,181 @@
-# AI Coding Agent Instructions for Glitch Text Generator
+# Glitch Text Generator - AI Coding Agent Instructions
 
 ## Project Overview
 
-A SvelteKit-based web application for generating Unicode "glitch" text effects using various character transformations: Zalgo text, confused characters, font variants, and style variants. Built with Svelte 5, TypeScript, TailwindCSS v4, daisyUI, and i18n support via Inlang/Paraglide.
+A **SvelteKit 2 + Svelte 5** application that generates glitch/stylized text using Unicode transformations. Supports 33+ text styles (Zalgo, cursed, flip, font variants, etc.) with **10 language localizations** via Paraglide.js i18n framework.
 
-## Architecture
+## Architecture & Key Patterns
 
-### Core Text Transformation Modules
+### Svelte 5 Runes (Critical)
 
-Three main text transformation systems in `src/lib/`:
+This project uses **Svelte 5 runes** - the new reactivity system. Never use Svelte 4 patterns:
 
-1. **`glitch-text/`** - Character-level transformations
-   - `zalgo.ts`: Adds combining diacritical marks above/below/through characters
-   - `style-text.ts`: Orchestrates multiple styles via `TEXT_STYLE_MAP` (random, sharp, confused, latin)
-   - `character-variant/glitch-styles/`: Style-specific transformations (sharp-style.ts, latin-style.ts)
-   - Use `deStyleText()` and `unzalgoText()` for reverse transformations
+- Use `$state()` for reactive variables (not `let x = ...`)
+- Use `$derived()` for computed values (not `$:`)
+- Use `$effect()` for side effects (not `$:` statements)
+- Use `$props()` for component props (not `export let`)
 
-2. **`font-variant/`** - Font-style Unicode variants
-   - Wraps `unicode-text-decorator` library
-   - `randomFontVariant()` applies random Unicode font styles to each character
+Example from `Generator.svelte`:
 
-3. **`i18n/`** - Internationalization constants
-   - `LangMAP` in `const.ts` maps locale codes to native language names
-   - See locales section below for actual message management
-
-### Internationalization (i18n)
-
-**Critical**: This project uses **Inlang/Paraglide** (NOT svelte-i18n or other libraries).
-
-**Message Management**:
-
-- Source messages: `messages/{locale}.json` (en, es, fr, de, zh, ja, ru, pt, id, ko)
-- Generated runtime: `src/lib/paraglide/` (auto-generated, DO NOT edit manually)
-- Config: `project.inlang/settings.json` defines baseLocale and available locales
-
-**Usage Pattern**:
-
-```typescript
-// Import messages
-import { m } from '$lib/paraglide/messages.js';
-import { setLocale } from '$lib/paraglide/runtime';
-
-// Use in components
-<p>{m.hello_world({ name: 'Alice' })}</p>
+```svelte
+let selectedStyle = $state<Style>('zalgo');
+let intensity = $state(5);
+let outputText = $derived.by(() => generateText());
 ```
 
-**Routing Integration**:
+### Generator System Architecture
 
-- `src/hooks.ts`: Uses `deLocalizeUrl()` for rerouting
-- `src/hooks.server.ts`: `paraglideMiddleware` injects locale into page HTML (`%paraglide.lang%` placeholder)
+**Core files**: `src/lib/generator/generator.ts`, `generatorData.ts`, `type.d.ts`
 
-**To add new messages**: Edit `messages/{locale}.json` files, then run build to regenerate paraglide runtime.
+1. **Generator Types** (`type.d.ts`): Global types defined as `Style`, `SpecialGenerator`, `GeneratorType`
+2. **Generator Data** (`generatorData.ts`): Maps generator keys to metadata (displayName, subtitle, description, urlPath) using Paraglide i18n keys
+3. **Text Processing** (`generator.ts`): Central `stylizeText()` function dispatches to style-specific transformers in `styles/` directory
+4. **Style Implementations**: Individual style logic in `styles/glitch-style/` (character maps) and `styles/font-variant/` (Unicode text decorators)
 
-### Svelte 5 Runes
+### Dynamic Routing with Param Matchers
 
-This project uses **Svelte 5 runes** (not legacy Svelte 4 patterns):
-
-- `$state()` for reactive state (not `let x = 0`)
-- `$derived()` / `$derived.by()` for computed values (not `$:`)
-- `$effect()` for side effects (not `$:` statements)
-- `$props()` for component props
-
-**Example from codebase** (`notificationManager.svelte.ts`):
+Uses SvelteKit's `[page=generator]` pattern with custom param matcher (`src/params/generator.ts`):
 
 ```typescript
-class NotificationManager {
-  message: string[] = $state([]);
-  type: 'info' | 'success' | 'error' | 'warning' = $state('info');
-  visible: boolean = $state(false);
-
-  constructor() {
-    $effect.root(() => {
-      $effect(() => {
-        if (updated.current) {
-          this.sentMessage({ message: ['有版本更新, 请刷新页面'] });
-        }
-      });
-    });
-  }
-}
+export const match = ((param: string) => {
+  return ALL_GENERATOR_KEY.includes(param);
+}) satisfies ParamMatcher;
 ```
 
-See `src/lib/components/common/seo/SeoTDK.svelte` for `$derived.by()` examples.
+Routes like `/generator/zalgo-text-generator` are validated against `ALL_GENERATOR_KEY`.
 
-## Development Workflows
+### I18n with Paraglide.js
+
+**Setup**: `project.inlang/settings.json` defines 10 locales, messages in `messages/{locale}.json`
+**Generated code**: `src/lib/paraglide/` (auto-generated, never edit directly)
+
+**Usage patterns**:
+
+- Import messages: `import { m } from '$lib/paraglide/messages.js'`
+- Localized navigation: `import { localizeHref } from '$lib/paraglide/runtime'`
+- Server middleware: `src/hooks.server.ts` injects `paraglideMiddleware` for locale detection
+- HTML lang attribute: Uses `%paraglide.lang%` placeholder replaced in `hooks.server.ts`
+
+**Adding new translations**: Edit JSON files in `messages/`, run `npm run dev` to regenerate Paraglide code.
+
+### Content Management System
+
+**Location**: `src/lib/page-data/content/` organized by section (blog, about, guide, etc.)
+**Processing**: `utils.ts` provides functions like `getAllBlogPosts()` that:
+
+1. Use Vite's `import.meta.glob('*.md', { query: '?raw' })` to load markdown files
+2. Parse frontmatter with `gray-matter` and `js-yaml`
+3. Return typed objects (`BlogPost`, `BlogFrontmatter`)
+
+**Frontmatter pattern** (see `types.d.ts`):
+
+```yaml
+---
+title: 'Post Title'
+date: '2024-01-01'
+description: '...'
+---
+```
+
+### Notification System
+
+**Global singleton**: `src/lib/components/common/notification/notificationManager.svelte.ts`
+
+```typescript
+notificationManager.sentMessage({
+  message: ['Error message here'],
+  type: 'error',  // 'info' | 'success' | 'error' | 'warning'
+  duration: 3000  // optional, milliseconds
+});
+```
+
+Uses Svelte 5 `$effect.root()` to monitor app updates and navigation.
+
+## Development Workflow
 
 ### Commands
 
-```bash
-npm run dev              # Start dev server
-npm run build            # Production build
-npm run preview          # Preview production build
-npm run check            # Type check with svelte-check
-npm run check:watch      # Watch mode type checking
-npm run lint             # Run ESLint + Prettier check
-npm run format           # Format code with Prettier
-npm run test:unit        # Run Vitest tests
-npm run test             # Run tests once (CI mode)
-```
+- **Dev server**: `npm run dev` (starts Vite dev server + Paraglide watch)
+- **Build**: `npm run build` (SSG build, all routes prerendered - see `+layout.ts`)
+- **Tests**: `npm run test` (Vitest unit tests, currently minimal setup)
+- **Linting**: `npm run lint` (ESLint + Prettier check)
+- **Type checking**: `npm run check` (svelte-check)
 
-### Testing
+### Build Configuration
 
-- Framework: Vitest configured in `vite.config.ts`
-- Test files: `src/**/*.{test,spec}.{js,ts}` (non-Svelte files only)
-- Node environment for server-side tests
-- **Important**: Tests require `expect.requireAssertions: true` - always include assertions
+- **Adapter**: `@sveltejs/adapter-auto` (detects deployment platform)
+- **Prerendering**: Enabled globally via `export const prerender = true` in `+layout.ts`
+- **Vite plugins**: Tailwind CSS v4 (`@tailwindcss/vite`), Paraglide (`paraglideVitePlugin`)
+
+### Testing Setup
+
+Uses **Vitest** with separate test projects:
+
+- Server environment for `.spec.ts` files
+- Excludes `.svelte.spec.ts` (browser tests not yet configured)
 
 ## Project-Specific Conventions
 
-### File Organization
-
-- **Reusable components**: `src/lib/components/common/`
-- **Business logic/utilities**: `src/lib/<module-name>/`
-- **Routes**: `src/routes/` (SvelteKit file-based routing)
-- **Static assets**: `static/` for public files
-
 ### Styling
 
-- **TailwindCSS v4** with plugins:
-  - `@tailwindcss/forms`
-  - `@tailwindcss/typography`
-  - DaisyUI for component library
-- Import in `src/app.css`: `@import 'tailwindcss';`
-- **Note**: Use Tailwind v4 syntax (not v3)
+- **Framework**: Tailwind CSS v4 + DaisyUI components
+- **Theme switching**: `ColorModeButton.svelte` manages light/dark mode
+- **Global styles**: `src/app.css`
 
-### TypeScript Patterns
+### File Naming
 
-- Global types in `src/lib/<module>/type.d.ts` files
-- Use `Record<K, V>` for typed object maps (see `TEXT_STYLE_MAP`, `LangMAP`)
-- Prefer strict typing: function signatures always include return types
+- Pages: `+page.svelte`
+- Server-only: `+page.server.ts`
+- Layouts: `+layout.svelte`
+- Type definitions: `type.d.ts` (global types, no imports needed)
 
-### ESLint Configuration
+### Component Organization
 
-- Flat config format (`eslint.config.js`)
-- TypeScript + Svelte integration via `typescript-eslint` and `eslint-plugin-svelte`
-- **Critical**: `no-undef` is disabled for TypeScript files (TypeScript handles this)
-- Svelte files use TypeScript parser with `projectService: true`
+```
+src/lib/components/
+├── common/        # Reusable UI (ColorModeButton, Notification, SEO)
+├── generator/     # Generator-specific components
+└── layout/        # Page sections (Nav, Footer, FAQ, Features)
+```
 
-### Common Utility Pattern
+### SEO Pattern
 
-See `src/lib/utils/common/tools.ts` for shared utilities like `getRandomValueFromArray()` used across transformation modules.
+`SeoTDK.svelte` component uses `$derived` to compute:
 
-## Integration Points
+- Title with site suffix
+- Meta descriptions with character limits
+- Canonical URLs with locale
+- OpenGraph tags
 
-### External Dependencies
+Usage: `<SeoTDK title={m.page_title()} description={m.page_description()} />`
 
-- **confusables**: Character confusion/obfuscation (Latin/IPA lookalikes)
-- **unicode-text-decorator**: Font variant transformations
-- **svelte-exmarkdown**: Markdown rendering in components
+## Key Dependencies
 
-### Build System
+- **Text processing**: `confusables` (character confusion detection), `unicode-text-decorator` (font variants)
+- **Markdown**: `svelte-exmarkdown` (Markdown rendering in Svelte), `gray-matter` (frontmatter parsing)
+- **Utilities**: `js-yaml` (YAML parsing for frontmatter)
 
-- **Vite 7** as build tool
-- **SvelteKit** with `@sveltejs/adapter-auto` for deployment
-- **Paraglide Vite Plugin** generates i18n runtime at build time
+## Common Pitfalls
 
-### Component Communication
+1. **Don't manually edit** `src/lib/paraglide/` - regenerated by Paraglide plugin
+2. **Always use `localizeHref()`** for internal links to maintain locale context
+3. **Generator configs** (`generatorData.ts`) must match keys in `type.d.ts` and param matcher
+4. **URL paths** must be unique across all generators (validated by `GENERATOR_URL_PATH_MAP`)
+5. **Svelte 5 syntax**: Never mix old reactivity (`$:`) with new runes (`$state`)
 
-- Use Svelte 5 runes for state management (no external store library)
-- See `notificationManager.svelte.ts` for reactive class pattern with `$state()`
+## Adding New Generators
 
-## Key Files to Reference
+1. Define type in `src/lib/generator/type.d.ts` (`Style` or `SpecialGenerator`)
+2. Add implementation in `src/lib/generator/styles/`
+3. Register in `ALL_GENERATOR_DATA` (`generatorData.ts`) with i18n keys
+4. Add translations to all 10 `messages/{locale}.json` files
+5. Create route config in `generator/[page=generator]/+page.svelte` if needs custom UI
 
-- **Text transformation API**: `src/lib/glitch-text/style-text.ts`
-- **Svelte 5 patterns**: `src/lib/components/common/notification/notificationManager.svelte.ts`
-- **i18n setup**: `src/hooks.server.ts`, `src/hooks.ts`
-- **Build config**: `vite.config.ts` (Paraglide plugin configuration)
-- **Type definitions**: `src/lib/glitch-text/type.d.ts` (BaseCharacters/BaseNumbers types)
+## SEO & Metadata Strategy
 
-## Anti-Patterns to Avoid
+Each generator has dedicated SEO metadata:
 
-- ❌ Don't manually edit `src/lib/paraglide/` - these are auto-generated
-- ❌ Don't use Svelte 4 syntax (`$:`, old reactivity patterns)
-- ❌ Don't import from `svelte-i18n` or similar - use Paraglide
-- ❌ Don't add global CSS imports beyond TailwindCSS plugins in `app.css`
-- ❌ Don't disable TypeScript strict checks without discussion
+- URL patterns: `{locale}/generator/{urlPath}` (e.g., `/en/generator/zalgo-text-generator`)
+- Parameterized page titles/descriptions via i18n keys
+- Canonical URLs handle locale prefixes automatically
+- Sitemap generation: `src/routes/sitemap.xml/+server.ts`

@@ -1,6 +1,6 @@
 import type { ParamMatcher } from '@sveltejs/kit';
-import { GENERATORS } from '$lib/generator/generator';
+import { ALL_GENERATOR_KEY } from '$lib/generator/generator';
 
-export const match = ((param: string) => {
-	return GENERATORS.includes(param);
+export const match = ((param: string): param is GeneratorType => {
+	return ALL_GENERATOR_KEY.includes(param);
 }) satisfies ParamMatcher;

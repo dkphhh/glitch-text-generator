@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { stylizeText, GENERATOR_NAME_MAP } from '$lib/generator/style';
+	import { stylizeText, GENERATOR_NAME_MAP } from '$lib/generator/generator';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
 	let {
 		previewStyle,
