@@ -14,8 +14,8 @@
 	} = $props();
 
 	// 默认 TDK 配置
-	const DEFAULT_TITLE = 'Glitch Text Generator - Create Zalgo & Glitchy Text (Copy & Paste)';
-	const DEFAULT_TITLE_SUFFIX = 'Glitch Text Generator';
+	const DEFAULT_TITLE = 'Glitch Text Generator - Create Zalgo & Glitchy Text - Copy & Paste';
+	const DEFAULT_TITLE_SUFFIX = 'Cool Font Generator - Copy & Paste';
 	const DEFAULT_DESCRIPTION =
 		'Free online glitch text generator. Create scary, cursed, and cool glitchy text effects instantly. Perfect for Discord, Roblox, and more. Copy and paste easily.';
 	const DEFAULT_KEYWORDS = [
@@ -32,36 +32,32 @@
 
 	/**
 	 * 生成最终的页面标题
-	 * 如果提供了自定义标题，格式为："自定义标题 | Elf Name Generator"
 	 * 否则使用默认标题
 	 */
-	let seoTitle = $derived.by(() => {
+	let seoTitle = (() => {
+		if (title && title.length <= 27) {
+			return title + ' - ' + DEFAULT_TITLE_SUFFIX;
+		}
+
 		if (title) {
-			return `${title} | ${DEFAULT_TITLE_SUFFIX}`;
+			return title;
 		}
 		return DEFAULT_TITLE;
-	});
+	})();
 
 	/**
 	 * 生成最终的页面描述
 	 * 优先使用自定义描述，否则使用默认描述
 	 */
-	let seoDescription = $derived.by(() => {
-		return description || DEFAULT_DESCRIPTION;
-	});
+	let seoDescription = description || DEFAULT_DESCRIPTION;
 
 	/**
 	 * 生成最终的关键词列表
 	 * 合并自定义关键词和默认关键词，去重
 	 */
-	let seoKeywords = $derived.by(() => {
-		if (keywords && keywords.length > 0) {
-			// 合并并去重
-			const combined = [...new Set([...keywords, ...DEFAULT_KEYWORDS])];
-			return combined.join(', ');
-		}
-		return DEFAULT_KEYWORDS.join(', ');
-	});
+	let seoKeywords = keywords
+		? [...new Set([...keywords, ...DEFAULT_KEYWORDS])].join(', ')
+		: DEFAULT_KEYWORDS.join(', ');
 
 	/**
 	 * 生成规范链接
@@ -80,7 +76,7 @@
 		{
 			'@context': 'https://schema.org',
 			'@type': 'WebApplication',
-			name: DEFAULT_TITLE_SUFFIX,
+			name: seoTitle,
 			description: DEFAULT_DESCRIPTION,
 			url: SITE_URL,
 			applicationCategory: 'UtilityApplication',

@@ -1,5 +1,18 @@
 <script lang="ts">
-	const showcaseText = ['₲łıꮏȼħ ₮єӿꮏ ₲єꮑєгⱥꮏѳг', 'Ǥⱡ⍳Łč৸ ₸€ҳŁ Ǥ€л€ɍმŁǿɍ', '₲łıŧςħ Ƭεӿŧ Ɠεηεɾɑŧθɾ '];
+	import { page } from '$app/state';
+	const showcaseText = [
+		'G̮̪ͥ̚lit͚̳ch ̘̦́͞Text̙̖ Gen̺͓̔̒er̖̎̃ͅator',
+		'₲łıꮏȼħ ₮єӿꮏ ₲єꮑєгⱥꮏѳг',
+		'Ǥⱡ⍳Łč৸ ₸€ҳŁ Ǥ€л€ɍმŁǿɍ',
+		'₲łıŧςħ Ƭεӿŧ Ɠεηεɾɑŧθɾ '
+	];
+	import { GENERATOR_URL_PATH_MAP } from '$lib/generator/generator';
+	const pageParams = $derived(page.params);
+	let isGeneratorPage = $derived.by(
+		() =>
+			pageParams.page !== undefined &&
+			Object.values(GENERATOR_URL_PATH_MAP).includes(pageParams.page)
+	);
 
 	let { title, subtitle }: { title: string; subtitle: string } = $props();
 </script>
@@ -10,15 +23,18 @@
 			<div class="max-w-4xl">
 				<h1 class="text-5xl font-bold">{title}</h1>
 				<p class="py-6">
-					{subtitle} 👇
+					{subtitle}
+					{isGeneratorPage ? '' : '👇'}
 				</p>
-				<span class="text-rotate leading-10 duration-6000">
-					<span class="">
-						{#each showcaseText as s (s)}
-							<span class="text-4xl">{s}</span>
-						{/each}
+				{#if !isGeneratorPage}
+					<span class="text-rotate leading-16 duration-6000">
+						<span class="">
+							{#each showcaseText as s (s)}
+								<span class="text-4xl">{s}</span>
+							{/each}
+						</span>
 					</span>
-				</span>
+				{/if}
 			</div>
 		</div>
 	</div>

@@ -10,6 +10,25 @@
 	import FAQ from '$lib/components/layout/FAQ.svelte';
 
 	let inputText: string = $state('Glitch Text');
+
+	// 预览样式列表
+	const PREVIEW_STYLE: Style[] = [
+		'zalgo',
+		'glitch',
+		'cursed',
+		'hacker',
+		'cool',
+		'flip',
+		'upsideDown',
+		'latin',
+		'script',
+		'bold_script',
+		'fraktur',
+		'bold_fraktur',
+		'double_struck',
+		'monospace',
+		'fullwidth'
+	];
 </script>
 
 <SeoTDK
@@ -32,7 +51,7 @@
 	<Front title={m.home_h1()} subtitle={m.home_subtitle()} />
 
 	<!-- Main Generator Tool -->
-	<Generator bind:inputText />
+	<Generator bind:inputText previewStyle={PREVIEW_STYLE} />
 
 	<!-- Features Section -->
 	<Features />

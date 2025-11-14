@@ -6,16 +6,22 @@
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 	import { resolve } from '$app/paths';
 	import Preview from '$lib/components/generator/Preview.svelte';
+
+	// 输入组件的参数
+	let {
+		inputText = $bindable(),
+		previewStyle,
+		preSetStyle
+	}: { inputText: string; previewStyle: Style[]; preSetStyle?: Style } = $props();
+
 	// ------- 用户选项 ---------
 	// 选风格
-	let selectedStyle = $state<Style>('zalgo');
+	let selectedStyle = $derived.by(() => {
+		return preSetStyle || 'zalgo';
+	});
 
 	// zalgo 强度
 	let intensity = $state(5);
-
-	// 状态管理
-	// 输入文本
-	let { inputText = $bindable() }: { inputText: string } = $props();
 
 	// 生成文本的函数
 	function generateText(): string {
@@ -43,25 +49,6 @@
 	let outputText = $derived.by(() => {
 		return generateText();
 	});
-
-	// 预览样式列表
-	const PREVIEW_STYLE: Style[] = [
-		'zalgo',
-		'glitch',
-		'cursed',
-		'hacker',
-		'cool',
-		'flip',
-		'upsideDown',
-		'latin',
-		'script',
-		'bold_script',
-		'fraktur',
-		'bold_fraktur',
-		'double_struck',
-		'monospace',
-		'fullwidth'
-	];
 </script>
 
 <section class="flex w-full flex-col items-center gap-4 px-0 pb-8 lg:px-4">
@@ -84,7 +71,7 @@
 				<label class="select w-full">
 					<span class="label w-32">{m.style_label()}</span>
 					<select bind:value={selectedStyle}>
-						{#each Object.keys(GENERATOR_NAME_MAP) as style (style)}
+						{#each STYLE_LIST as style (style)}
 							{@const displayName = GENERATOR_NAME_MAP[style as Style]}
 							<option value={style}>{displayName}</option>
 						{/each}
@@ -117,7 +104,7 @@
 		<!-- Output -->
 		<PreviewCard previewTitle={m.output_label()} {outputText} bind:inputText />
 		<!-- 其他样式预览 -->
-		<Preview previewStyle={PREVIEW_STYLE} bind:inputText {intensity} />
+		<Preview {previewStyle} bind:inputText {intensity} />
 	</div>
 
 	<a
