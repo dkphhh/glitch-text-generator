@@ -1,5 +1,14 @@
 {
 	"$schema": "https://inlang.com/schema/inlang-message-format",
+	"user_guide_title": "User Guide",
+	"blog_title": "Blog",
+	"about_us_title": "About Us",
+	"terms_of_service_title": "Terms of Service",
+	"privacy_policy_title": "Privacy Policy",
+	"let_us_talk_title": "Let's talk",
+	"resources_title": "Resources",
+	"back_to_blog": "Back to Blog",
+	"read_article": "Read",
 	"home_title": "Glitch Text Generator - Create Zalgo & Glitchy Text (Copy & Paste)",
 	"home_description": "Free online glitch text generator. Create scary, cursed, and cool glitchy text effects instantly. Perfect for Discord, Roblox, and more. Copy and paste easily.",
 	"nav_title": "₲łıŧȼħ Text Generator",
@@ -247,13 +256,5 @@
 	"generator_roblox_glitch_subtitle": "Compatible with Mobile & Desktop",
 	"generator_roblox_glitch_description": "Create glitch text for Roblox usernames and games. Works on mobile and desktop. Copy and paste directly into Roblox.",
 	"generator_minecraft_glitch_subtitle": "For Server Names, Chat & Signs",
-	"generator_minecraft_glitch_description": "Generate glitch text for Minecraft server names, chat, and signs. Compatible with Java and Bedrock editions.",
-
-	"user_guide_title": "User Guide",
-	"blog_title": "Blog",
-	"about_us_title": "About Us",
-	"terms_of_service_title": "Terms of Service",
-	"privacy_policy_title": "Privacy Policy",
-	"let_us_talk_title": "Let's talk",
-	"resources_title": "Resources"
+	"generator_minecraft_glitch_description": "Generate glitch text for Minecraft server names, chat, and signs. Compatible with Java and Bedrock editions."
 }

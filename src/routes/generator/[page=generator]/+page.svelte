@@ -23,7 +23,7 @@
 	// 输入文本状态，默认为 "Glitch Text"
 	let inputText = $state('Glitch Text');
 
-	// 通过url路径获取生成器类型，默认是 zalgo
+	// 通过 url 路径获取生成器类型，默认是 zalgo
 	let generatorKey: GeneratorType = $derived.by(() => {
 		if (!pathParam) {
 			console.warn('No generator type specified in the URL, defaulting to zalgo.');
@@ -45,7 +45,7 @@
 		return 'zalgo';
 	});
 
-	// 预览样式列表，排除当前生成器类型，最多显示12种
+	// 预览样式列表，排除当前生成器类型，最多显示 12 种
 	const PREVIEW_STYLE: Style[] = $derived.by(() => {
 		const otherStyles = STYLE_LIST.filter((style) => style !== styleKey) as Style[];
 		return [...otherStyles.slice(0, 12)];

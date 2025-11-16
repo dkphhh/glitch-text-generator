@@ -32,7 +32,7 @@
 				<GeneratorCard {path} {generatorName} {generatorSubtitle} />
 			{/each}
 			<GeneratorCard
-				path={localizeHref(resolve('/generator'))}
+				path={localizeHref(resolve('/generator/'))}
 				generatorName={m.generator_page_h1()}
 				generatorSubtitle={m.generator_page_subtitle()}
 			/>

@@ -56,7 +56,7 @@
 	<div class="flex w-full max-w-6xl flex-col items-center gap-4">
 		<!-- Input -->
 		<fieldset
-			class="sticky top-14 z-10 fieldset w-full gap-2 border border-base-300 bg-base-200 p-4 lg:p-8"
+			class="sticky top-14 z-10 fieldset w-full gap-2 border border-base-300 bg-base-200 p-4"
 		>
 			<legend class="fieldset-legend">{m.input_label()}</legend>
 			<input
@@ -70,7 +70,7 @@
 				<!-- 选择风格 -->
 				<label class="select w-full">
 					<span class="label w-32">{m.style_label()}</span>
-					<select bind:value={selectedStyle}>
+					<select bind:value={selectedStyle} class="h-fit">
 						{#each STYLE_LIST as style (style)}
 							{@const displayName = GENERATOR_NAME_MAP[style as Style]}
 							<option value={style}>{displayName}</option>

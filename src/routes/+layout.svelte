@@ -15,7 +15,7 @@
 </svelte:head>
 
 <Notification />
-<main class="min-h-screen">
+<main class="min-h-screen w-full">
 	<Nav />
 	{@render children()}
 	<Footer />

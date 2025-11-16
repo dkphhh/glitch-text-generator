@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { PUBLIC_BASE_URL } from '$env/static/public';
+	import { page } from '$app/state';
 
 	let {
 		title,
@@ -10,12 +11,15 @@
 		title?: string;
 		description?: string;
 		keywords?: string[];
+		/**
+		 * baseUrl 之后的规范链接部分，例如："/generator/zalgo"
+		 */
 		canonical?: string;
 	} = $props();
 
 	// 默认 TDK 配置
 	const DEFAULT_TITLE = 'Glitch Text Generator - Create Zalgo & Glitchy Text - Copy & Paste';
-	const DEFAULT_TITLE_SUFFIX = 'Cool Font Generator - Copy & Paste';
+	const DEFAULT_TITLE_SUFFIX = 'Glitch Text Generator - Copy & Paste';
 	const DEFAULT_DESCRIPTION =
 		'Free online glitch text generator. Create scary, cursed, and cool glitchy text effects instantly. Perfect for Discord, Roblox, and more. Copy and paste easily.';
 	const DEFAULT_KEYWORDS = [
@@ -64,9 +68,11 @@
 	 */
 	let canonicalUrl = $derived.by(() => {
 		if (canonical) {
+			// 如果提供了规范链接，则使用 baseUrl + canonical
 			return `${SITE_URL}${canonical}`;
 		}
-		return SITE_URL;
+		// 否则使用网站首页作为规范链接
+		return SITE_URL + page.url.pathname;
 	});
 
 	/**

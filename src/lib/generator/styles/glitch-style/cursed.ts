@@ -2,7 +2,7 @@ import { BASE_CHARACTERS_AND_NUMBERS } from '../../const';
 import { getRandomValueFromArray } from '$lib/utils/common/tools';
 
 /**
- * Sharp style character variant map,主要是货币符号，没有货币符号的字母和数字用了拉丁文的变体
+ * Sharp style character variant map，主要是货币符号，没有货币符号的字母和数字用了拉丁文的变体
  */
 export const CURSED_STYLE_MAP: Record<BaseSymbol, string[]> = {
 	'0': ['𝟘'],

@@ -72,26 +72,17 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
 	return ALL_BLOG_POSTS.find((post) => post.slug === slug) || null;
 }
 
-type SinglePageType = 'privacy-policy' | 'terms-of-service' | 'about' | 'guide';
-
-/**
- * 获取所有单页内容（隐私政策、服务条款等）
- */
-async function getAllSinglePages(pageType: SinglePageType): Promise<BlogPost[]> {
-	const modules = import.meta.glob<string>(`./content/${pageType}/*.md`, {
-		query: '?raw',
-		import: 'default'
-	});
-
+async function processSinglePages(
+	modules: Record<string, () => Promise<string>>,
+	basePath: string
+): Promise<BlogPost[]> {
 	const pages: BlogPost[] = [];
-
 	for (const [path, resolver] of Object.entries(modules)) {
 		const rawContent = await resolver();
 		const { data, content } = spiltFrontMatterAndContent<BlogFrontmatter>(rawContent);
+		const slug = path.replace(basePath, '').replace('.md', '');
 
-		const slug = path.replace('./content/', '').replace('.md', '');
-
-		const page: BlogPost = {
+		pages.push({
 			slug,
 			title: data.title,
 			description: data.description,
@@ -100,21 +91,54 @@ async function getAllSinglePages(pageType: SinglePageType): Promise<BlogPost[]> 
 			tags: data.tags,
 			language: data.language,
 			content
-		};
-
-		pages.push(page);
+		});
 	}
-
 	return pages;
 }
 
-export const ALL_PRIVACY_POLICY_PAGE = await getAllSinglePages('privacy-policy');
-export const ALL_ABOUT_PAGE = await getAllSinglePages('about');
-export const ALL_GUIDE_PAGE = await getAllSinglePages('guide');
-export const ALL_TERMS_OF_SERVICE_PAGE = await getAllSinglePages('terms-of-service');
+async function getAllPrivacyPolicyPages(): Promise<BlogPost[]> {
+	const modules = import.meta.glob<string>('./content/privacy-policy/*.md', {
+		query: '?raw',
+		import: 'default'
+	});
+	return processSinglePages(modules, './content/');
+}
+
+async function getAllAboutPages(): Promise<BlogPost[]> {
+	const modules = import.meta.glob<string>('./content/about/*.md', {
+		query: '?raw',
+		import: 'default'
+	});
+	return processSinglePages(modules, './content/');
+}
+
+async function getAllGuidePages(): Promise<BlogPost[]> {
+	const modules = import.meta.glob<string>('./content/guide/*.md', {
+		query: '?raw',
+		import: 'default'
+	});
+	return processSinglePages(modules, './content/');
+}
+
+async function getAllTermsOfServicePages(): Promise<BlogPost[]> {
+	const modules = import.meta.glob<string>('./content/terms-of-service/*.md', {
+		query: '?raw',
+		import: 'default'
+	});
+	return processSinglePages(modules, './content/');
+}
+
+export const ALL_PRIVACY_POLICY_PAGE = await getAllPrivacyPolicyPages();
+export const ALL_ABOUT_PAGE = await getAllAboutPages();
+export const ALL_GUIDE_PAGE = await getAllGuidePages();
+export const ALL_TERMS_OF_SERVICE_PAGE = await getAllTermsOfServicePages();
 
 export const ALL_BLOG_POSTS = await getAllBlogPosts();
-
+export const LATEST_3_BLOG_POSTS = ALL_BLOG_POSTS.sort((a, b) => {
+	const dateA = new Date(a.date).getTime();
+	const dateB = new Date(b.date).getTime();
+	return dateB - dateA;
+}).slice(0, 3);
 console.log(
 	'网站文章加载完成:\n',
 	`博客文章数量：${ALL_BLOG_POSTS.length} 篇\n`,

@@ -1,16 +1,13 @@
 <script lang="ts">
-	import { localizeHref } from '$lib/paraglide/runtime';
 	let {
 		path,
 		generatorName,
 		generatorSubtitle
 	}: { path: string; generatorName: string; generatorSubtitle: string } = $props();
-
-	const link = localizeHref(`/generator/${path}`);
 </script>
 
 <a
-	href={link}
+	href={path}
 	class="card rounded! border border-base-300 bg-base-200 transition-shadow hover:bg-base-300"
 >
 	<div class="card-body">

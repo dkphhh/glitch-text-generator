@@ -1,6 +1,6 @@
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
-import { ALL_TERMS_OF_SERVICE_PAGE } from '$lib/page-data/utils';
+import { ALL_TERMS_OF_SERVICE_PAGE } from '$lib/page-data/utils.server';
 
 export const load: PageServerLoad = async () => {
 	if (ALL_TERMS_OF_SERVICE_PAGE) {

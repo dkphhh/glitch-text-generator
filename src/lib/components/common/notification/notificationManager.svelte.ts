@@ -42,7 +42,7 @@ class NotificationManager implements NotificationMessage {
 	 * @param {NewNotificationMessage} newMessage - 包含新通知信息的对象。
 	 * @property {string[]} newMessage.message - 新通知的文本内容。
 	 * @property {"info" | "success" | "error" | "warning"} [newMessage.type] - (可选) 新通知的类型。
-	 * @property {number} [newMessage.duration] - (可选) 新通知的显示时长，单位：毫秒，1秒=1000毫秒。
+	 * @property {number} [newMessage.duration] - (可选) 新通知的显示时长，单位：毫秒，1 秒=1000 毫秒。
 	 */
 	sentMessage(newMessage: NewNotificationMessage) {
 		this.message = newMessage.message;
