@@ -26,6 +26,7 @@
 					{subtitle}
 					{isGeneratorPage ? '' : '👇'}
 				</p>
+				<!-- 在 Generator 页面不显示 -->
 				{#if !isGeneratorPage}
 					<span class="text-rotate leading-16 duration-6000">
 						<span class="">

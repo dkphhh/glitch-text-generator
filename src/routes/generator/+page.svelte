@@ -8,11 +8,14 @@
 		ALL_GENERATOR_KEY
 	} from '$lib/generator/generator';
 
+	import { resolve } from '$app/paths';
+
 	import Front from '$lib/components/layout/Front.svelte';
 	import GeneratorCard from '$lib/components/generator/GeneratorCard.svelte';
 	import HowTo from '$lib/components/layout/HowTo.svelte';
 	import Features from '$lib/components/layout/Features.svelte';
 	import FAQ from '$lib/components/layout/FAQ.svelte';
+	import { localizeUrl } from '$lib/paraglide/runtime';
 </script>
 
 <SeoTDK title={m.generator_page_title()} description={m.generator_page_description()} />
@@ -26,7 +29,9 @@
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{#each ALL_GENERATOR_KEY as key (key)}
 					{@const k = key as GeneratorType}
-					{@const path = GENERATOR_URL_PATH_MAP[k]}
+					{@const path = localizeUrl(
+						resolve(`/generator/${GENERATOR_URL_PATH_MAP[k]}`)
+					) as unknown as string}
 					{@const name = GENERATOR_NAME_MAP[k]}
 					{@const subtitle = GENERATOR_SUBTITLE_MAP[k]}
 

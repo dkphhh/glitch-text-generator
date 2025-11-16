@@ -20,7 +20,7 @@
 
 <SeoTDK title={m.blog_title()} description={m.blog_description()} />
 
-<div class="container max-w-4xl">
+<div class="container mx-auto max-w-4xl">
 	<Front title={m.blog_title()} subtitle={m.blog_subtitle()} />
 	<section class="grid grid-cols-1 gap-4 lg:grid-cols-3">
 		{#each localData as p (p.slug)}

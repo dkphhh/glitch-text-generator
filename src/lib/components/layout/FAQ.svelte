@@ -3,7 +3,7 @@
 </script>
 
 {#snippet qa(id: string, q: string, a: string, checked: boolean = false)}
-	<label for={id} class="collapse-plus collapse border border-base-300 bg-base-200">
+	<label for={id} class="collapse-plus collapse rounded border border-base-300 bg-base-200">
 		<input {id} type="radio" name="faq-accordion" {checked} />
 		<div class="collapse-title text-lg font-semibold">
 			{q}
