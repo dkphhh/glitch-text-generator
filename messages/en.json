@@ -158,99 +158,75 @@
 	"generator_page_title": "All Text Generators - Create Glitch, Zalgo, Cursed & More",
 	"generator_page_subtitle": "Explore All Our Text Generators that create Unique Text Effects like this",
 	"generator_page_description": "Explore all our text generators including glitch, zalgo, cursed, cool fonts, hacker text, and more. Create unique text effects easily.",
-
 	"generator_glitch_h1": "Glitch Text Generator",
 	"generator_glitch_subtitle": "Create Random Glitchy Text Effects",
 	"generator_glitch_description": "Generate random glitch text effects by mixing various Unicode transformations. Create unpredictable and unique glitchy text for maximum impact.",
-
 	"generator_latin_h1": "Latin Text Generator",
 	"generator_latin_subtitle": "Convert Text to Latin-like Characters",
 	"generator_latin_description": "Transform your text using Latin-inspired Unicode characters. Create stylized text with a classical Latin aesthetic using lookalike characters.",
-
 	"generator_hidden_h1": "Hidden Text Generator",
 	"generator_hidden_subtitle": "Create Invisible & Hidden Text Effects",
 	"generator_hidden_description": "Generate hidden or invisible text using Unicode characters. Create mysterious text effects that appear blank or hidden. Use for spoilers or secret messages.",
-
 	"generator_upsideDown_h1": "Upside Down Text Generator",
 	"generator_upsideDown_subtitle": "Flip Your Text Vertically",
 	"generator_upsideDown_description": "Turn your text upside down using Unicode characters. Create vertically flipped text that appears inverted. Perfect for fun social media posts and creative messages.",
-
 	"generator_bold_serif_h1": "Bold Serif Text Generator",
 	"generator_bold_serif_subtitle": "Unicode Bold Serif Font Style",
 	"generator_bold_serif_description": "Convert text to bold serif font using Unicode mathematical alphanumeric symbols. Create strong, classic text with bold serif styling.",
-
 	"generator_italic_serif_h1": "Italic Serif Text Generator",
 	"generator_italic_serif_subtitle": "Unicode Italic Serif Font Style",
 	"generator_italic_serif_description": "Transform text to italic serif font using Unicode characters. Add elegant, slanted serif styling to your text for a sophisticated look.",
-
 	"generator_bold_italic_serif_h1": "Bold Italic Serif Text Generator",
 	"generator_bold_italic_serif_subtitle": "Unicode Bold Italic Serif Font",
 	"generator_bold_italic_serif_description": "Apply both bold and italic serif styling to your text using Unicode. Combine strength and elegance for maximum typographic impact.",
-
 	"generator_script_h1": "Script Text Generator",
 	"generator_script_subtitle": "Unicode Cursive Script Font Style",
 	"generator_script_description": "Convert text to elegant script font using Unicode mathematical script characters. Create flowing, handwritten-style text perfect for fancy messages.",
-
 	"generator_bold_script_h1": "Bold Script Text Generator",
 	"generator_bold_script_subtitle": "Unicode Bold Script Font Style",
 	"generator_bold_script_description": "Transform text to bold script font using Unicode characters. Combine elegant cursive styling with bold weight for standout text.",
-
 	"generator_fraktur_h1": "Fraktur Text Generator",
 	"generator_fraktur_subtitle": "Unicode Gothic Fraktur Font Style",
 	"generator_fraktur_description": "Generate text in Fraktur (Gothic) font using Unicode characters. Create medieval or old German style text with traditional blackletter typography.",
-
 	"generator_bold_fraktur_h1": "Bold Fraktur Text Generator",
 	"generator_bold_fraktur_subtitle": "Unicode Bold Fraktur Font Style",
 	"generator_bold_fraktur_description": "Apply bold Fraktur styling to your text using Unicode. Create stronger Gothic blackletter text for more dramatic medieval effects.",
-
 	"generator_double_struck_h1": "Double Struck Text Generator",
 	"generator_double_struck_subtitle": "Unicode Blackboard Bold Font",
 	"generator_double_struck_description": "Transform text to double-struck (blackboard bold) font using Unicode mathematical symbols. Popular in mathematics and perfect for unique text styling.",
-
 	"generator_sans_serif_h1": "Sans Serif Text Generator",
 	"generator_sans_serif_subtitle": "Unicode Sans Serif Font Style",
 	"generator_sans_serif_description": "Convert text to sans serif font using Unicode mathematical symbols. Create clean, modern text without decorative strokes.",
-
 	"generator_bold_sans_serif_h1": "Bold Sans Serif Text Generator",
 	"generator_bold_sans_serif_subtitle": "Unicode Bold Sans Serif Font",
 	"generator_bold_sans_serif_description": "Apply bold sans serif styling using Unicode characters. Create strong, clean text perfect for headlines and emphasis.",
-
 	"generator_italic_sans_serif_h1": "Italic Sans Serif Text Generator",
 	"generator_italic_sans_serif_subtitle": "Unicode Italic Sans Serif Font",
 	"generator_italic_sans_serif_description": "Transform text to italic sans serif font using Unicode. Add modern slanted styling without decorative strokes for a sleek look.",
-
 	"generator_bold_italic_sans_serif_h1": "Bold Italic Sans Serif Text Generator",
 	"generator_bold_italic_sans_serif_subtitle": "Unicode Bold Italic Sans Serif",
 	"generator_bold_italic_sans_serif_description": "Combine bold and italic sans serif styling using Unicode characters. Create strong, modern text with both weight and slant for maximum impact.",
-
 	"generator_monospace_h1": "Monospace Text Generator",
 	"generator_monospace_subtitle": "Unicode Fixed-Width Font Style",
 	"generator_monospace_description": "Convert text to monospace font using Unicode characters. Create fixed-width text similar to code editors and typewriters.",
-
 	"generator_regional_indicator_h1": "Regional Indicator Text Generator",
 	"generator_regional_indicator_subtitle": "Unicode Flag-Style Letters",
 	"generator_regional_indicator_description": "Transform text using Unicode regional indicator symbols (the characters used in flag emojis). Create large, squared letter blocks for bold statements.",
-
 	"generator_circle_h1": "Circle Text Generator",
 	"generator_circle_subtitle": "Unicode Circled Letters & Numbers",
 	"generator_circle_description": "Generate text with circled letters and numbers using Unicode enclosed alphanumerics. Perfect for numbered lists and decorative text.",
-
 	"generator_black_circle_h1": "Black Circle Text Generator",
 	"generator_black_circle_subtitle": "Unicode Negative Circled Characters",
 	"generator_black_circle_description": "Create text with white letters on black circular backgrounds using Unicode. Generate high-contrast circled text for emphasis and decoration.",
-
 	"generator_square_h1": "Square Text Generator",
 	"generator_square_subtitle": "Unicode Squared Letters & Numbers",
 	"generator_square_description": "Transform text to squared characters using Unicode enclosed alphanumerics. Create boxed text perfect for technical documentation and emphasis.",
-
 	"generator_parenthesized_h1": "Parenthesized Text Generator",
 	"generator_parenthesized_subtitle": "Unicode Parenthesized Characters",
 	"generator_parenthesized_description": "Generate text with parentheses around each character using Unicode enclosed alphanumerics. Perfect for footnotes and subtle emphasis.",
-
 	"generator_fullwidth_h1": "Fullwidth Text Generator",
 	"generator_fullwidth_subtitle": "Unicode Full-Width Characters",
 	"generator_fullwidth_description": "Convert text to fullwidth Unicode characters commonly used in East Asian typography. Create wider, more spaced-out text for aesthetic vaporwave effects.",
-
 	"generator_discord_glitch_subtitle": "Optimized for Discord Usernames & Messages",
 	"generator_discord_glitch_description": "Generate glitch text optimized for Discord. Create eye-catching usernames and messages with our Discord-friendly glitch text tool.",
 	"generator_roblox_glitch_subtitle": "Compatible with Mobile & Desktop",

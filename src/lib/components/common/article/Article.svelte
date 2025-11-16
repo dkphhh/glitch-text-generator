@@ -42,7 +42,7 @@
 		<!-- 文章内容部分 -->
 		<MarkdownRender md={post.content} />
 	</article>
-	<!-- 展示3篇最近文章 -->
+	<!-- 展示 3 篇最近文章 -->
 	<div class="grid grid-cols-1 gap-4 lg:grid-cols-3">
 		{#each recommendPost as post (post.slug)}
 			{@const articleUrl = localizeHref(resolve(`/blog/${post.slug}`))}
