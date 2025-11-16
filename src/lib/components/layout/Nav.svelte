@@ -13,7 +13,7 @@
 	<li><a class="text-lg" href={localizeHref(resolve('/about'))}>{m.nav_about()}</a></li>
 {/snippet}
 
-<div class="navbar fixed top-0 z-50 h-12 glass shadow-sm">
+<nav class="navbar fixed top-0 z-50 h-12 glass shadow">
 	<div class="flex-1">
 		<a href={localizeHref(resolve('/'))} class="btn text-xl btn-ghost">{m.nav_title()}</a>
 	</div>
@@ -53,6 +53,6 @@
 			{@render linksList()}
 		</ul>
 	</div>
-</div>
+</nav>
 
 <div class="h-18"></div>

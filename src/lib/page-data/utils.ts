@@ -1,3 +1,10 @@
+/**
+ * 所有文章都放在 lib/page-data/content 目录下。
+ * 博客文章放在 lib/page-data/content/blog 目录下
+ * 其他单页放在对应的目录下，如 about、privacy-policy、terms-of-service、guide 等。
+ * 文章使用 Markdown 格式编写，front matter 使用 YAML 语法，包含 language 字段以支持多语言。
+ */
+
 import type { BlogPost, BlogFrontmatter } from './types';
 import matter from 'gray-matter';
 import yaml from 'js-yaml';

@@ -3,7 +3,7 @@
 </script>
 
 {#snippet feature(icon: string, title: string, description: string)}
-	<div class="card rounded! bg-base-200 shadow-lg">
+	<div class="card rounded! bg-base-200">
 		<div class="card-body items-center text-center">
 			<div class="mb-4 text-4xl">{icon}</div>
 			<h3 class="card-title text-lg">{title}</h3>

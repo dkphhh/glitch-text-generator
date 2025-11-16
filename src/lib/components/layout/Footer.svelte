@@ -5,9 +5,9 @@
 	const year = new Date().getFullYear();
 </script>
 
-<section >
-	<div class="divider px-10 divider-neutral"></div>
-	<footer class="footer p-10 text-base-content sm:footer-horizontal">
+<section class="px-4 py-8">
+	<div class="divider divider-neutral"></div>
+	<footer class="footer text-base-content sm:footer-horizontal">
 		<aside>
 			<img src="/dkphhh.ico" class="size-16" alt="creater dkphhh icon" />
 			<p class="text-sm">

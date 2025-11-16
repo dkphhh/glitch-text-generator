@@ -8,7 +8,7 @@
 	let { post, recommendPost }: { post: BlogPost; recommendPost: BlogPost[] } = $props();
 </script>
 
-<section class="container mx-auto max-w-4xl">
+<section class="container mx-auto max-w-4xl px-4">
 	<article class="flex flex-col items-center gap-16">
 		<!-- 文章 meta 部分 -->
 		<div class="mb-6 flex flex-col items-center gap-8 text-pretty">

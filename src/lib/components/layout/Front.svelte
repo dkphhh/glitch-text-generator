@@ -21,17 +21,17 @@
 	<div class="hero w-full">
 		<div class="hero-content text-center">
 			<div class="max-w-4xl">
-				<h1 class="text-5xl font-bold">{title}</h1>
+				<h1 class="text-2xl font-bold lg:text-4xl">{title}</h1>
 				<p class="py-6">
 					{subtitle}
 					{isGeneratorPage ? '' : '👇'}
 				</p>
 				<!-- 在 Generator 页面不显示 -->
 				{#if !isGeneratorPage}
-					<span class="text-rotate leading-16 duration-6000">
+					<span class="text-rotate text-2xl leading-16 duration-6000 lg:text-4xl">
 						<span class="">
 							{#each showcaseText as s (s)}
-								<span class="text-4xl">{s}</span>
+								<span class="">{s}</span>
 							{/each}
 						</span>
 					</span>

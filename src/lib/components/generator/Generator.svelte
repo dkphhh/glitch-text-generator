@@ -51,7 +51,7 @@
 	});
 </script>
 
-<section class="flex w-full flex-col items-center gap-4 px-0 pb-8 lg:px-4">
+<section class="flex w-full flex-col items-center gap-4 px-4 pb-8 lg:px-4">
 	<!-- 输入和输出区域 -->
 	<div class="flex w-full max-w-6xl flex-col items-center gap-4">
 		<!-- Input -->
