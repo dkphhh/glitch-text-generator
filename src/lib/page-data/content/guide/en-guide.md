@@ -177,12 +177,6 @@ Our **glitch font text** uses pure Unicode transformations:
 - **Enclosed Alphanumerics** (U+2460–U+24FF) for circled/squared styles
 - **Regional Indicators** (U+1F1E6–U+1F1FF) for flag-style letters
 
-### Key Libraries Used
-
-- `unicode-text-decorator` - Mathematical font transformations
-- `confusables` - Lookalike character obfuscation
-- Custom mapping dictionaries for special effects
-
 ### Why It Works Everywhere
 
 Unlike CSS or image-based text effects, our **glitch word generator** uses actual Unicode characters that render in any application supporting Unicode - including Discord, Roblox, Minecraft, Instagram, Twitter, TikTok, and more!

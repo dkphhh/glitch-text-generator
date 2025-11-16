@@ -11,6 +11,7 @@
 			{post.description}
 		</p>
 		<div class="card-actions justify-end">
+			<time datetime={post.date} class="badge badge-outline">{post.date}</time>
 			<a href={articleUrl} class="btn btn-primary">{m.read_article()}</a>
 		</div>
 	</div>

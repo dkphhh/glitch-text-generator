@@ -179,3 +179,8 @@ Each generator has dedicated SEO metadata:
 - Parameterized page titles/descriptions via i18n keys
 - Canonical URLs handle locale prefixes automatically
 - Sitemap generation: `src/routes/sitemap.xml/+server.ts`
+
+## Analytics & Monitoring
+
+- Google Analytics 
+- Microsoft Clarity

@@ -7,19 +7,15 @@
 	// 获取当前页面的文章
 	const locale = getLocale() as LangOptions;
 	let { data } = $props();
-	let localGuideData = $derived.by(() => {
-		const defaultGuideData = data.ALL_GUIDE_PAGE.find((p) => p.language === 'en') as BlogPost;
+	let localData = $derived.by(() => {
+		const defaultData = data.ALL_GUIDE_PAGE.find((p) => p.language === 'en') as BlogPost;
 		const local = data.ALL_GUIDE_PAGE.find((p) => p.language === locale);
 
-		return local || defaultGuideData;
+		return local || defaultData;
 	});
 </script>
 
-<SeoTDK
-	title={localGuideData.title}
-	description={localGuideData.description}
-	keywords={localGuideData.tags}
-/>
+<SeoTDK title={localData.title} description={localData.description} keywords={localData.tags} />
 <div class="py-8">
-	<Article post={localGuideData} recommendPost={data.LATEST_3_BLOG_POSTS} />
+	<Article post={localData} recommendPost={data.LATEST_3_BLOG_POSTS} />
 </div>
