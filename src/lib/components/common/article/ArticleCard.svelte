@@ -4,15 +4,15 @@
 	let { post, articleUrl }: { post: BlogPost; articleUrl: string } = $props();
 </script>
 
-<div class="card h-72 bg-base-100 card-border">
-	<div class="card-body">
+<div class="card bg-base-100 card-border">
+	<a class="card-body hover:bg-base-200" href={articleUrl}>
 		<h2 class="card-title">{post.title}</h2>
 		<p class="line-clamp-3 text-base text-base-content/70">
 			{post.description}
 		</p>
-		<div class="card-actions justify-end">
-			<time datetime={post.date} class="badge badge-outline">{post.date}</time>
-			<a href={articleUrl} class="btn btn-primary">{m.read_article()}</a>
+		<div class="card-actions items-center! justify-end">
+			<time datetime={post.date} class="badge badge-outline badge-sm">{post.date}</time>
+			<button type="button" class="btn btn-xs btn-primary">{m.read_article()}</button>
 		</div>
-	</div>
+	</a>
 </div>

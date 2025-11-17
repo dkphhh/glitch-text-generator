@@ -56,7 +56,7 @@
 	<div class="flex w-full max-w-6xl flex-col items-center gap-4">
 		<!-- Input -->
 		<fieldset
-			class="sticky top-14 z-10 fieldset w-full gap-2 border border-base-300 bg-base-200 p-4"
+			class="sticky top-14 z-10 fieldset w-full gap-2 rounded border-2 border-primary bg-base-200 p-4"
 		>
 			<legend class="fieldset-legend">{m.input_label()}</legend>
 			<input
@@ -79,7 +79,7 @@
 				</label>
 				<!--  zalgo  -->
 				<label class="input w-full">
-					<span class="label">{m.input_add_zalgo_effect()}:{intensity}</span>
+					<span class="label">{m.input_add_zalgo_intensity()}:{intensity}</span>
 					<input
 						type="range"
 						min="0"
@@ -109,6 +109,17 @@
 
 	<a
 		href={localizeHref(resolve('/generator'))}
-		class="btn w-full max-w-6xl py-12 text-xl font-light btn-ghost btn-xl">{m.more_style()}……</a
-	>
+		class=" btn min-w-90 rounded text-xl btn-xl btn-primary"
+		>{m.more_style()}
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="lucide lucide-step-forward-icon lucide-step-forward size-6 fill-none stroke-current stroke-2"
+			><path
+				d="M10.029 4.285A2 2 0 0 0 7 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z"
+			/><path d="M3 4v16" /></svg
+		>
+	</a>
 </section>

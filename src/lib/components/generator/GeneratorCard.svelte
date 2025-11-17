@@ -2,8 +2,10 @@
 	let {
 		path,
 		generatorName,
-		generatorSubtitle
-	}: { path: string; generatorName: string; generatorSubtitle: string } = $props();
+		generatorSubtitle,
+		preview
+	}: { path: string; generatorName: string; generatorSubtitle: string; preview?: string } =
+		$props();
 </script>
 
 <a
@@ -13,6 +15,11 @@
 	<div class="card-body">
 		<h3 class="card-title text-lg">{generatorName}</h3>
 		<p class="text-sm opacity-70">{generatorSubtitle}</p>
+		{#if preview}
+			<p class="max-h-8 rounded bg-base-100 text-center font-mono text-sm leading-8">
+				👉 {preview}
+			</p>
+		{/if}
 		<div class="card-actions justify-end">
 			<button class="btn btn-sm btn-primary">→</button>
 		</div>

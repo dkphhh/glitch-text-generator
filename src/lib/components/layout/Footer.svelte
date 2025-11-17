@@ -5,7 +5,7 @@
 	const year = new Date().getFullYear();
 </script>
 
-<section class="px-4 py-8">
+<section class="px-4 py-8 lg:px-8">
 	<div class="divider divider-neutral"></div>
 	<footer class="footer text-base-content sm:footer-horizontal">
 		<aside>

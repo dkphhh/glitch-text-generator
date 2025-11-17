@@ -5,7 +5,9 @@
 		GENERATOR_NAME_MAP,
 		GENERATOR_SUBTITLE_MAP,
 		GENERATOR_URL_PATH_MAP,
-		ALL_GENERATOR_KEY
+		ALL_GENERATOR_KEY,
+		getGeneratorStyle,
+		stylizeText
 	} from '$lib/generator/generator';
 
 	import { resolve } from '$app/paths';
@@ -34,8 +36,15 @@
 					) as unknown as string}
 					{@const name = GENERATOR_NAME_MAP[k]}
 					{@const subtitle = GENERATOR_SUBTITLE_MAP[k]}
+					{@const style = getGeneratorStyle(k)}
+					{@const previewText = stylizeText('Glitch Text', style)}
 
-					<GeneratorCard {path} generatorName={name} generatorSubtitle={subtitle} />
+					<GeneratorCard
+						{path}
+						generatorName={name}
+						generatorSubtitle={subtitle}
+						preview={previewText}
+					/>
 				{/each}
 			</div>
 		</div>

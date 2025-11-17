@@ -6,7 +6,8 @@
 	import {
 		GENERATOR_URL_PATH_MAP,
 		GENERATOR_NAME_MAP,
-		GENERATOR_SUBTITLE_MAP
+		GENERATOR_SUBTITLE_MAP,
+		stylizeText
 	} from '$lib/generator/generator';
 	// 工具列表配置
 	const selectedTools: Style[] = [
@@ -26,15 +27,16 @@
 		<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.tools_section()}</h2>
 		<div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each selectedTools as tool (tool)}
-				{@const path = GENERATOR_URL_PATH_MAP[tool]}
+				{@const path = localizeHref(resolve(`/generator/${GENERATOR_URL_PATH_MAP[tool]}/`))}
 				{@const generatorName = GENERATOR_NAME_MAP[tool]}
 				{@const generatorSubtitle = GENERATOR_SUBTITLE_MAP[tool]}
-				<GeneratorCard {path} {generatorName} {generatorSubtitle} />
+				{@const previewText = stylizeText('Glitch Text', tool)}
+				<GeneratorCard {path} {generatorName} {generatorSubtitle} preview={previewText} />
 			{/each}
 			<GeneratorCard
 				path={localizeHref(resolve('/generator/'))}
 				generatorName={m.generator_page_h1()}
-				generatorSubtitle={m.generator_page_subtitle()}
+				generatorSubtitle={m.generator_card_subtitle()}
 			/>
 		</div>
 	</div>

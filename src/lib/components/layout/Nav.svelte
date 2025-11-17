@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import { m } from '$lib/paraglide/messages.js';
+	import LanguageButton from '../LanguageButton.svelte';
 </script>
 
 {#snippet linksList()}
@@ -15,8 +16,13 @@
 
 <nav class="navbar fixed top-0 z-50 h-12 glass shadow">
 	<div class="flex-1">
-		<a href={localizeHref(resolve('/'))} class="btn text-xl btn-ghost">{m.nav_title()}</a>
+		<a href={localizeHref(resolve('/'))} class="btn text-xl btn-ghost btn-primary"
+			>{m.nav_title()}</a
+		>
 	</div>
+	<!-- 多语言按钮 -->
+	<LanguageButton />
+	<!-- 栏目选项 -->
 	<div class="flex-none">
 		<div class="drawer drawer-end lg:hidden">
 			<input id="menu-drawer" type="checkbox" class="drawer-toggle" />

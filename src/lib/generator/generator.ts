@@ -11,16 +11,14 @@ import { upsideDownText } from './styles/glitch-style/upside-down';
 import { zalgoGeneration } from './styles/zalgo';
 import { ALL_GENERATOR_DATA } from './generatorData';
 
-export const SPECIAL_GENERATORS_STYLE_MAP: Record<SpecialGenerator, Style> = {
+export const SPECIAL_GENERATORS_STYLE_MAP: Record<string, Style> = {
 	'discord-glitch': 'hacker',
 	'glitch-font': 'glitch',
 	'minecraft-glitch': 'unreadable',
 	'roblox-glitch': 'glitch'
 };
 
-export const SPECIAL_GENERATORS: SpecialGenerator[] = Object.keys(
-	SPECIAL_GENERATORS_STYLE_MAP
-) as SpecialGenerator[];
+const SPECIAL_GENERATORS: string[] = Object.keys(SPECIAL_GENERATORS_STYLE_MAP);
 
 export const GENERATOR_URL_PATH_MAP: Record<GeneratorType, string> = Object.entries(
 	ALL_GENERATOR_DATA
@@ -79,9 +77,21 @@ export const GENERATOR_PAGE_TITLE_MAP: Record<GeneratorType, string> = Object.en
 	{} as Record<GeneratorType, string>
 );
 
+export const GENERATOR_SEO_TITLE_MAP: Record<GeneratorType, string> = Object.entries(
+	ALL_GENERATOR_DATA
+).reduce(
+	(r, item) => {
+		const [key, data] = item;
+		const k = key as GeneratorType;
+		r[k] = data.seoTitle;
+		return r;
+	},
+	{} as Record<GeneratorType, string>
+);
+
 // 仅包含样式转换的生成器列表
 export const STYLE_LIST: string[] = Object.keys(GENERATOR_NAME_MAP).filter(
-	(n) => !SPECIAL_GENERATORS.includes(n as SpecialGenerator)
+	(n) => !SPECIAL_GENERATORS.includes(n)
 );
 
 // 所有生成器的 key 列表
@@ -111,7 +121,7 @@ export function stylizeText(
 	zalgoOption: {
 		intensity: number;
 	} = {
-		intensity: 1
+		intensity: 2
 	}
 ): string {
 	let result: string;
@@ -189,4 +199,16 @@ export function getGeneratorFromPath(path: string): GeneratorType {
 	}
 
 	return generator as GeneratorType;
+}
+
+export function getGeneratorStyle(generator: GeneratorType): Style {
+	if (SPECIAL_GENERATORS.includes(generator)) {
+		return SPECIAL_GENERATORS_STYLE_MAP[generator];
+	}
+
+	if (STYLE_LIST.includes(generator)) {
+		return generator as Style;
+	}
+
+	return 'zalgo';
 }

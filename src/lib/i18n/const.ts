@@ -1,4 +1,4 @@
-export const LangMAP: Record<LangOptions, string> = {
+export const LANG_MAP: Record<LangOptions, string> = {
 	en: 'English',
 	es: 'Español',
 	fr: 'français',
@@ -10,3 +10,5 @@ export const LangMAP: Record<LangOptions, string> = {
 	id: 'Bahasa Indonesia',
 	ko: '조선어'
 };
+
+export const LANG_LIST: LangOptions[] = Object.keys(LANG_MAP) as LangOptions[];

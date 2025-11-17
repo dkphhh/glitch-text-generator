@@ -66,9 +66,9 @@ function getRandomUpsideDownVariants(char: string): string {
 }
 
 export function upsideDownText(text: string): string {
-	// 将文本反转并转换每个字符
+	// 将文本垂直反转并转换每个字符
 	let result = '';
-	for (let i = text.length - 1; i >= 0; i--) {
+	for (let i = 0; i < text.length; i++) {
 		result += getRandomUpsideDownVariants(text[i]);
 	}
 	return result;

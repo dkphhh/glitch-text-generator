@@ -32,8 +32,8 @@
 </script>
 
 <SeoTDK
-	title={m.home_title()}
-	description={m.home_description()}
+	title={m.home_title_seo()}
+	description={m.home_description_seo()}
 	keywords={[
 		'glitch text generator',
 		'zalgo text',

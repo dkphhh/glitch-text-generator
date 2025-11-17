@@ -1,12 +1,12 @@
 <script lang="ts">
 	import Generator from '$lib/components/generator/Generator.svelte';
 	import {
-		SPECIAL_GENERATORS_STYLE_MAP,
-		SPECIAL_GENERATORS,
+		getGeneratorStyle,
 		STYLE_LIST,
 		GENERATOR_PAGE_TITLE_MAP,
 		GENERATOR_SUBTITLE_MAP,
 		GENERATOR_DESCRIPTION_MAP,
+		GENERATOR_SEO_TITLE_MAP,
 		getGeneratorFromPath
 	} from '$lib/generator/generator';
 	import { page } from '$app/state';
@@ -33,17 +33,7 @@
 	});
 
 	// 通过生成器类型获取对应的样式键
-	let styleKey: Style = $derived.by(() => {
-		if (SPECIAL_GENERATORS.includes(generatorKey as SpecialGenerator)) {
-			return SPECIAL_GENERATORS_STYLE_MAP[generatorKey as SpecialGenerator];
-		}
-
-		if (STYLE_LIST.includes(generatorKey)) {
-			return generatorKey as Style;
-		}
-
-		return 'zalgo';
-	});
+	let styleKey: Style = $derived(getGeneratorStyle(generatorKey));
 
 	// 预览样式列表，排除当前生成器类型，最多显示 12 种
 	const PREVIEW_STYLE: Style[] = $derived.by(() => {
@@ -54,6 +44,8 @@
 	// 当前生成器页面的 title
 	let pageTitle: string = $derived(GENERATOR_PAGE_TITLE_MAP[generatorKey]);
 
+	let seoTitle: string = $derived(GENERATOR_SEO_TITLE_MAP[generatorKey]);
+
 	let pageSubtitle: string = $derived(GENERATOR_SUBTITLE_MAP[generatorKey]);
 
 	let pageDescription: string = $derived(GENERATOR_DESCRIPTION_MAP[generatorKey]);
@@ -61,7 +53,7 @@
 	// 当前生成器页面的
 </script>
 
-<SeoTDK title={pageTitle} description={pageDescription} />
+<SeoTDK title={seoTitle} description={pageDescription} />
 <div class="min-h-screen w-full">
 	<Front title={pageTitle} subtitle={pageSubtitle} />
 	<Generator bind:inputText previewStyle={PREVIEW_STYLE} preSetStyle={styleKey} />

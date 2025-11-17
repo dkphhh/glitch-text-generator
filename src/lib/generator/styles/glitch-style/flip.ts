@@ -66,9 +66,9 @@ function getRandomFlippedVariants(char: string): string {
 }
 
 export function flipText(text: string): string {
-	// 镜面反转：反转文本顺序并转换每个字符
+	// 镜面反转每个字符
 	let result = '';
-	for (let i = text.length - 1; i >= 0; i--) {
+	for (let i = 0; i < text.length; i++) {
 		result += getRandomFlippedVariants(text[i]);
 	}
 	return result;
