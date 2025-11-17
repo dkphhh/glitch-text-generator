@@ -44,7 +44,8 @@
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.46.1",
 		"vite": "^7.1.10",
-		"vitest": "^4.0.5"
+		"vitest": "^4.0.5",
+		"wrangler": "^4.47.0"
 	},
 	"dependencies": {
 		"confusables": "^1.1.1",

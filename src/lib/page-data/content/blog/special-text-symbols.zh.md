@@ -27,7 +27,7 @@ language: 'zh'
 特殊文字符号：
 
 - [Z̴a̴l̴g̴o̴](/generator/zalgo-text-generator): `H̴̡̢e̴͎̺l̴̗̝l̴̝̫o̴̰̖ W̴̫̮o̴̗̟r̴̺̻l̴̼̮ḏ̴͓`
-- [哥特体：](/generator/fraktur)`𝕳𝖊𝖑𝖑𝖔 𝖂𝖔𝖗𝖑𝖉`
+- [哥特体：](/generator/fraktur-text-generator)`𝕳𝖊𝖑𝖑𝖔 𝖂𝖔𝖗𝖑𝖉`
 - [手写体](/generator/script-text-generator)：`𝓗𝓮𝓵𝓵𝓸 𝓦𝓸𝓻𝓵𝓭`
 - [镜像翻转](/generator/flip-text-generator)：`Hɘllo Woɿlb`
 - [圆圈](/generator/circle-text-generator)：`Ⓗⓔⓛⓛⓞ Ⓦⓞⓡⓛⓓ`

@@ -443,5 +443,5 @@ No registration, no download, start creating now!
 
 **Related articles**:
 
-- [Why Can Our Glitch Text Generator's Text Be Copied and Pasted Directly?](/blog/en-why-copy-paste-works)
-- [Best Glitch Text Generator: Create Stunning Glitch Text Effects Easily](/blog/en-best-glitch-text-generator)
+- [Why Can Our Glitch Text Generator's Text Be Copied and Pasted Directly?](/blog/why-copy-paste-works.en)
+- [Best Glitch Text Generator: Create Stunning Glitch Text Effects Easily](/blog/best-glitch-text-generator.en)

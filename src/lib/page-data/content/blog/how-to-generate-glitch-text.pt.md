@@ -443,5 +443,5 @@ Sem registro, sem download, comece a criar agora!
 
 **Artigos relacionados**:
 
-- [Por Que o Texto do Nosso Gerador de Texto Glitch Pode Ser Copiado e Colado Diretamente?](/blog/pt-why-copy-paste-works)
-- [Melhor Gerador de Texto Glitch: Crie Efeitos de Texto Glitch Incríveis com Facilidade](/blog/pt-best-glitch-text-generator)
+- [Por Que o Texto do Nosso Gerador de Texto Glitch Pode Ser Copiado e Colado Diretamente?](/blog/why-copy-paste-works.pt)
+- [Melhor Gerador de Texto Glitch: Crie Efeitos de Texto Glitch Incríveis com Facilidade](/blog/best-glitch-text-generator.pt)

@@ -1,0 +1,24 @@
+{
+    "$schema": "node_modules/wrangler/config-schema.json",
+    "name": "glitch-text-generator",
+    "main": "./dist/_worker.js/index.js",
+    "compatibility_date": "2025-11-17",
+    "compatibility_flags": [
+        "nodejs_compat"
+    ],
+    "workers_dev": false,
+    "routes": [
+        {
+            "pattern": "cooltext.app",
+            "custom_domain": true
+        },
+    ],
+    "assets": {
+        "binding": "ASSETS",
+        "directory": "./dist",
+        "not_found_handling": "404-page",
+    },
+    "observability": {
+        "enabled": true
+    }
+}

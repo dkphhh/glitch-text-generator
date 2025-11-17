@@ -443,5 +443,5 @@ Zalgo 文字正是利用这个机制，叠加多达几十个组合符号。
 
 **相关文章**：
 
-- [为什么我们的故障文字生成器生成的文字可以直接复制粘贴？](/blog/zh-why-copy-paste-works)
-- [什么是 Zalgo 文字？终极指南](/blog/zh-best-glitch-text-generator)
+- [为什么我们的故障文字生成器生成的文字可以直接复制粘贴？](/blog/why-copy-paste-works.zh)
+- [什么是 Zalgo 文字？终极指南](/blog/best-glitch-text-generator.zh)

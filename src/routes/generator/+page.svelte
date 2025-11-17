@@ -31,9 +31,7 @@
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{#each ALL_GENERATOR_KEY as key (key)}
 					{@const k = key as GeneratorType}
-					{@const path = localizeUrl(
-						resolve(`/generator/${GENERATOR_URL_PATH_MAP[k]}`)
-					) as unknown as string}
+					{@const path = localizeUrl(resolve(`/generator/${GENERATOR_URL_PATH_MAP[k]}`)).toString()}
 					{@const name = GENERATOR_NAME_MAP[k]}
 					{@const subtitle = GENERATOR_SUBTITLE_MAP[k]}
 					{@const style = getGeneratorStyle(k)}

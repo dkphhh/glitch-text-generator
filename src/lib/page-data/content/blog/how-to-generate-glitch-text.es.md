@@ -443,5 +443,5 @@ El texto Zalgo usa precisamente este mecanismo, apilando docenas de marcas combi
 
 **Artículos relacionados**:
 
-- [¿Por Qué el Texto de Nuestro Generador de Texto Glitch Se Puede Copiar y Pegar Directamente?](/blog/es-why-copy-paste-works)
-- [Mejor Generador de Texto Glitch: Crea Efectos de Texto Glitch Impresionantes Fácilmente](/blog/es-best-glitch-text-generator)
+- [¿Por Qué el Texto de Nuestro Generador de Texto Glitch Se Puede Copiar y Pegar Directamente?](/blog/why-copy-paste-works.es)
+- [Mejor Generador de Texto Glitch: Crea Efectos de Texto Glitch Impresionantes Fácilmente](/blog/best-glitch-text-generator.es)
