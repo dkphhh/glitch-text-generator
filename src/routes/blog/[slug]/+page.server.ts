@@ -1,11 +1,14 @@
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import { getPostBySlug, LATEST_3_BLOG_POSTS } from '$lib/page-data/utils';
+import { getPostBySlug, getThreeBlogPostsInLocale } from '$lib/page-data/utils';
+import { getLocale } from '$lib/paraglide/runtime';
 
 export const load = async ({ params }: Parameters<PageServerLoad>[0]) => {
-	const blogPost = await getPostBySlug(params.slug);
+	const blogPosts = await getPostBySlug(params.slug);
+	const locale = getLocale() as LangOptions;
+	const blogPost = blogPosts.filter((p) => p.language === locale)[0];
 	if (!blogPost) {
 		error(404, 'Blog post not found');
 	}
-	return { blogPost, LATEST_3_BLOG_POSTS };
+	return { blogPost, recentBlogPosts: getThreeBlogPostsInLocale(locale) };
 };

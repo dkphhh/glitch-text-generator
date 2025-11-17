@@ -443,5 +443,5 @@ Zalgo 텍스트는 정확히 이 메커니즘을 사용하여 수십 개의 결�
 
 **관련 글**:
 
-- [우리의 글리치 텍스트 생성기 텍스트를 직접 복사하고 붙여넣을 수 있는 이유는?](/blog/why-copy-paste-works.ko)
-- [최고의 글리치 텍스트 생성기: 놀라운 글리치 텍스트 효과를 쉽게 만들기](/blog/best-glitch-text-generator.ko)
+- [우리의 글리치 텍스트 생성기 텍스트를 직접 복사하고 붙여넣을 수 있는 이유는?](/blog/why-copy-paste-works)
+- [최고의 글리치 텍스트 생성기: 놀라운 글리치 텍스트 효과를 쉽게 만들기](/blog/best-glitch-text-generator)

@@ -54,7 +54,7 @@
 	<!-- 展示 3 篇最近文章 -->
 	<div class="mx-auto mt-16 flex flex-col items-center gap-8">
 		<a href={localizeHref(resolve('/blog'))} class="btn btn-ghost btn-primary">
-			<h2 class="text-2xl">{m.blog_more_posts()}</h2>
+			<span class="text-2xl">{m.blog_more_posts()}</span>
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
 				viewBox="0 0 24 24"

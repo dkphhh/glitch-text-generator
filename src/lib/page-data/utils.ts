@@ -39,7 +39,7 @@ function spiltFrontMatterAndContent<T>(markdownContent: string): {
  * 使用 Vite 的 import.meta.glob 动态导入所有 Markdown 文件
  */
 async function getAllBlogPosts(): Promise<BlogPost[]> {
-	const modules = import.meta.glob<string>('./content/blog/*.md', {
+	const modules = import.meta.glob<string>('./content/blog/**/*.md', {
 		query: '?raw',
 		import: 'default'
 	});
@@ -48,7 +48,7 @@ async function getAllBlogPosts(): Promise<BlogPost[]> {
 
 	for (const [path, resolver] of Object.entries(modules)) {
 		// 从文件路径提取 slug
-		const slug = path.replace('./content/blog/', '').replace('.md', '');
+		const slug = path.replace('./content/blog/', '').replace(/\/.*.md/, '');
 
 		// 获取 Markdown 内容
 		const rawContent = await resolver();
@@ -68,17 +68,36 @@ async function getAllBlogPosts(): Promise<BlogPost[]> {
 		});
 	}
 
-	// 按日期倒序排列
-	return posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+	return posts;
+}
+
+const ALL_BLOG_POSTS = await getAllBlogPosts();
+
+/**
+ * 根据 slug 获取单篇文章，返回这篇文章的多语言版本，需要在调用处过滤
+ */
+export async function getPostBySlug(slug: string): Promise<BlogPost[]> {
+	return ALL_BLOG_POSTS.filter((post) => post.slug === slug);
 }
 
 /**
- * 根据 slug 获取单篇文章
+ * 处理单篇页面模块并返回解析后的 BlogPost 列表。
+ *
+ * 遍历传入的 modules 映射（键为模块路径，值为返回原始文件内容的异步解析函数），
+ * 对每个模块调用解析函数以获取原始文本，然后使用 spiltFrontMatterAndContent<BlogFrontmatter>
+ * 将 frontmatter 与内容分离。通过从模块路径中移除 basePath 并删除 ".md" 后缀来生成 slug，
+ * 最终将解析得到的字段（title、description、date、author、tags、language、content）组装为 BlogPost 对象。
+ *
+ * @param modules - 一个 Record 映射：键为文件路径（例如绝对或相对路径），值为一个返回原始文件字符串的异步函数。
+ *                  该字符串应包含可被 spiltFrontMatterAndContent 解析的 frontmatter（例如 Markdown 文件）。
+ * @param basePath - 用于从模块路径中裁剪出相对 slug 的基准路径。函数会将模块路径中的该 basePath 移除并去掉 ".md" 后缀以生成 slug。
+ *
+ * @returns 一个 Promise，解析为 BlogPost 数组。每个 BlogPost 至少包含以下字段：
+ *          - slug: 从路径派生的标识符
+ *          - title, description, date, author, tags, language: 来自 frontmatter 的元数据
+ *          - content: frontmatter 之后的主体文本
+ *
  */
-export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
-	return ALL_BLOG_POSTS.find((post) => post.slug === slug) || null;
-}
-
 async function processSinglePages(
 	modules: Record<string, () => Promise<string>>,
 	basePath: string
@@ -103,54 +122,109 @@ async function processSinglePages(
 	return pages;
 }
 
-async function getAllPrivacyPolicyPages(): Promise<BlogPost[]> {
+export async function getPrivacyPolicyPage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/privacy-policy/*.md', {
 		query: '?raw',
 		import: 'default'
 	});
-	return processSinglePages(modules, './content/');
+	const allPages = await processSinglePages(modules, './content/');
+
+	const locale = allPages.find((p) => p.language === language);
+	const defaultLocale = allPages.find((p) => p.language === 'en');
+
+	return locale ? locale : defaultLocale!;
 }
 
-async function getAllAboutPages(): Promise<BlogPost[]> {
+export async function getAboutPage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/about/*.md', {
 		query: '?raw',
 		import: 'default'
 	});
-	return processSinglePages(modules, './content/');
+	const allPages = await processSinglePages(modules, './content/');
+
+	const locale = allPages.find((p) => p.language === language);
+	const defaultLocale = allPages.find((p) => p.language === 'en');
+
+	return locale ? locale : defaultLocale!;
 }
 
-async function getAllGuidePages(): Promise<BlogPost[]> {
+export async function getGuidePage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/guide/*.md', {
 		query: '?raw',
 		import: 'default'
 	});
-	return processSinglePages(modules, './content/');
+	const allPages = await processSinglePages(modules, './content/');
+
+	const locale = allPages.find((p) => p.language === language);
+	const defaultLocale = allPages.find((p) => p.language === 'en');
+
+	return locale ? locale : defaultLocale!;
 }
 
-async function getAllTermsOfServicePages(): Promise<BlogPost[]> {
+export async function getTermsOfServicePage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/terms-of-service/*.md', {
 		query: '?raw',
 		import: 'default'
 	});
-	return processSinglePages(modules, './content/');
+	const allPages = await processSinglePages(modules, './content/');
+
+	const locale = allPages.find((p) => p.language === language);
+	const defaultLocale = allPages.find((p) => p.language === 'en');
+
+	return locale ? locale : defaultLocale!;
 }
 
-export const ALL_PRIVACY_POLICY_PAGE = await getAllPrivacyPolicyPages();
-export const ALL_ABOUT_PAGE = await getAllAboutPages();
-export const ALL_GUIDE_PAGE = await getAllGuidePages();
-export const ALL_TERMS_OF_SERVICE_PAGE = await getAllTermsOfServicePages();
+/**
+ * 获取指定语言的最多三篇最新博客文章。
+ *
+ * 该函数从全局 ALL_BLOG_POSTS 中筛选出 language 字段与传入参数匹配的文章，
+ * 然后按文章的 date 字段进行降序排序
+ *
+ * @param language - 目标语言（LangOptions），用于筛选文章的 language 字段
+ * @returns 返回一个数组，包含按日期从新到旧排序的匹配语言的博客文章对象
+ *
+ * @remarks
+ * - date 字段通过 new Date(...) 进行解析，确保日期字符串可被正确解析以进行比较。
+ * - 函数对原始 ALL_BLOG_POSTS 进行非破坏性的筛选/排序操作（返回新数组的切片）。
+ *
+ */
+export function getAllBlogPostsInLocale(language: LangOptions) {
+	const locale = ALL_BLOG_POSTS.filter((p) => p.language === language);
 
-export const ALL_BLOG_POSTS = await getAllBlogPosts();
-export const LATEST_3_BLOG_POSTS = ALL_BLOG_POSTS.sort((a, b) => {
-	const dateA = new Date(a.date).getTime();
-	const dateB = new Date(b.date).getTime();
-	return dateB - dateA;
-}).slice(0, 3);
-console.log(
-	'网站文章加载完成:\n',
-	`博客文章数量：${ALL_BLOG_POSTS.length} 篇\n`,
-	`关于页面：${ALL_ABOUT_PAGE.length} 篇\n`,
-	`使用指南页面：${ALL_GUIDE_PAGE.length} 篇\n`,
-	`隐私政策页面：${ALL_PRIVACY_POLICY_PAGE.length} 篇\n`,
-	`服务条款页面：${ALL_TERMS_OF_SERVICE_PAGE.length} 篇\n`
-);
+	const defaultLocale = ALL_BLOG_POSTS.filter((p) => p.language === 'en');
+
+	const result = locale.length === 0 || !locale ? defaultLocale : locale;
+
+	return result.sort((a, b) => {
+		const dateA = new Date(a.date).getTime();
+		const dateB = new Date(b.date).getTime();
+		return dateB - dateA;
+	});
+}
+
+/**
+ * 获取指定语言的最多三篇最新博客文章。
+ *
+ * 该函数从全局 ALL_BLOG_POSTS 中筛选出 language 字段与传入参数匹配的文章，
+ * 然后按文章的 date 字段进行降序排序（使用 new Date(...) 解析日期），
+ * 最后返回排序后的前 3 项。如果可用文章少于 3 篇，则返回实际存在的数量。
+ *
+ * @param language - 目标语言（LangOptions），用于筛选文章的 language 字段
+ * @returns 返回一个数组，包含按日期从新到旧排序的最多三篇匹配语言的博客文章对象
+ *
+ * @remarks
+ * - date 字段通过 new Date(...) 进行解析，确保日期字符串可被正确解析以进行比较。
+ * - 函数对原始 ALL_BLOG_POSTS 进行非破坏性的筛选/排序操作（返回新数组的切片）。
+ *
+ */
+export function getThreeBlogPostsInLocale(language: LangOptions) {
+	return ALL_BLOG_POSTS.filter((p) => p.language === language)
+		.sort((a, b) => {
+			const dateA = new Date(a.date).getTime();
+			const dateB = new Date(b.date).getTime();
+			return dateB - dateA;
+		})
+		.slice(0, 3);
+}
+
+console.log('网站文章加载完成');

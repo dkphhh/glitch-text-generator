@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { getLocale } from '$lib/paraglide/runtime';
 	import Front from '$lib/components/layout/Front.svelte';
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
@@ -8,14 +7,7 @@
 	import ArticleCard from '$lib/components/common/article/ArticleCard.svelte';
 	let { data } = $props();
 
-	const locale = getLocale() as LangOptions;
-
-	const localData = $derived.by(() => {
-		const defaultData = data.ALL_BLOG_POSTS.filter((p) => p.language === 'en');
-		const local = data.ALL_BLOG_POSTS.filter((p) => p.language === locale);
-
-		return local || defaultData;
-	});
+	const localData = $derived(data.ALL_BLOG_POSTS);
 </script>
 
 <SeoTDK title={m.blog_title()} description={m.blog_description()} />

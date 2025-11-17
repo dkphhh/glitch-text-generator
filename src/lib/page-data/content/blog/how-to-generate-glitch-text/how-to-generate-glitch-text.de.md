@@ -443,5 +443,5 @@ Keine Registrierung, kein Download, jetzt mit der Erstellung beginnen!
 
 **Verwandte Artikel**:
 
-- [Warum kann der Text unseres Glitch-Text-Generators direkt kopiert und eingefügt werden?](/blog/why-copy-paste-works.de)
-- [Bester Glitch-Text-Generator: Erstellen Sie mühelos atemberaubende Glitch-Texteffekte](/blog/best-glitch-text-generator.de)
+- [Warum kann der Text unseres Glitch-Text-Generators direkt kopiert und eingefügt werden?](/blog/why-copy-paste-works)
+- [Bester Glitch-Text-Generator: Erstellen Sie mühelos atemberaubende Glitch-Texteffekte](/blog/best-glitch-text-generator)

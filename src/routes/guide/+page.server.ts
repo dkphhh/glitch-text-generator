@@ -1,6 +1,9 @@
 import type { PageServerLoad } from './$types';
-import { ALL_GUIDE_PAGE, LATEST_3_BLOG_POSTS } from '$lib/page-data/utils';
-
-export const load: PageServerLoad = () => {
-	return { ALL_GUIDE_PAGE, LATEST_3_BLOG_POSTS };
+import { getGuidePage, getThreeBlogPostsInLocale } from '$lib/page-data/utils';
+import { getLocale } from '$lib/paraglide/runtime';
+export const load: PageServerLoad = async () => {
+	return {
+		page: await getGuidePage(getLocale()),
+		recentBlogPosts: getThreeBlogPostsInLocale(getLocale())
+	};
 };

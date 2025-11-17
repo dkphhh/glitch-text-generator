@@ -443,5 +443,5 @@ Tidak perlu registrasi, tidak perlu unduhan, mulai buat sekarang!
 
 **Artikel terkait**:
 
-- [Mengapa Teks Generator Teks Glitch Kami Dapat Disalin dan Ditempel Langsung?](/blog/why-copy-paste-works.id)
-- [Generator Teks Glitch Terbaik: Buat Efek Teks Glitch yang Menakjubkan dengan Mudah](/blog/best-glitch-text-generator.id)
+- [Mengapa Teks Generator Teks Glitch Kami Dapat Disalin dan Ditempel Langsung?](/blog/why-copy-paste-works)
+- [Generator Teks Glitch Terbaik: Buat Efek Teks Glitch yang Menakjubkan dengan Mudah](/blog/best-glitch-text-generator)
