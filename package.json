@@ -1,11 +1,12 @@
 {
 	"name": "glitch-text-generator",
 	"private": true,
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"type": "module",
+	"homepage": "https://www.cooltext.app/",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "autocorrect --fix ./ && vite build",
 		"preview": "vite preview",
 		"deploy": "bun run build && wrangler deploy",
 		"prepare": "svelte-kit sync || echo ''",
@@ -14,7 +15,8 @@
 		"format": "prettier --write .",
 		"lint": "autocorrect --fix ./ && prettier --check . && eslint .",
 		"test:unit": "vitest",
-		"test": "npm run test:unit -- --run"
+		"test": "npm run test:unit -- --run",
+		"postbuild": "bunx svelte-sitemap --domain https://www.cooltext.app --out-dir .svelte-kit/cloudflare"
 	},
 	"devDependencies": {
 		"@eslint/compat": "^1.4.0",
@@ -41,6 +43,7 @@
 		"prettier-plugin-tailwindcss": "^0.7.1",
 		"svelte": "^5.41.0",
 		"svelte-check": "^4.3.3",
+		"svelte-sitemap": "^2.7.1",
 		"tailwindcss": "^4.1.14",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.46.1",

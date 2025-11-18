@@ -9,13 +9,14 @@
     "workers_dev": false,
     "routes": [
         {
-            "pattern": "cooltext.app",
+            "pattern": "www.cooltext.app",
             "custom_domain": true
         },
     ],
     "assets": {
         "binding": "ASSETS",
         "directory": ".svelte-kit/cloudflare",
+        "not_found_handling": "404-page"
     },
     "observability": {
         "enabled": true

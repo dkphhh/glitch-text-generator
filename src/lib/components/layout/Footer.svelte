@@ -2,6 +2,7 @@
 	import { resolve } from '$app/paths';
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
+	import Logo from '$lib/assets/dkphhh.ico';
 	const year = new Date().getFullYear();
 </script>
 
@@ -9,7 +10,7 @@
 	<div class="divider divider-neutral"></div>
 	<footer class="footer text-base-content sm:footer-horizontal">
 		<aside>
-			<img src="/dkphhh.ico" class="size-16" alt="creater dkphhh icon" />
+			<img src={Logo} class="size-16" alt="creater dkphhh icon" />
 			<p class="text-sm">
 				Made By <a href="https://dkphhh.me">DKPhhh</a> with ❤️
 				<br />
