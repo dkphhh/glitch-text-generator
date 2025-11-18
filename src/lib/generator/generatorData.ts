@@ -273,6 +273,14 @@ export const ALL_GENERATOR_DATA: Record<GeneratorType, GeneratorData> = {
 		seoTitle: m.generator_minecraft_glitch_title(),
 		description: m.generator_minecraft_glitch_description(),
 		urlPath: 'minecraft-glitch-text-generator'
+	},
+	'reveal-hidden': {
+		displayName: m.style_reveal_hidden(),
+		pageTitle: m.generator_reveal_hidden_h1(),
+		subtitle: m.generator_reveal_hidden_subtitle(),
+		seoTitle: m.generator_reveal_hidden_title(),
+		description: m.generator_reveal_hidden_description(),
+		urlPath: 'reveal-hidden-text'
 	}
 };
 

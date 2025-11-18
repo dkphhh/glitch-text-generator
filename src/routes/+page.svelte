@@ -3,12 +3,13 @@
 	import SeoTDK from '$lib/components/common/seo/SeoTDK.svelte';
 	import Generator from '$lib/components/generator/Generator.svelte';
 	import Front from '$lib/components/layout/Front.svelte';
-
+	import { COMMON_FEATURES } from '$lib/page-data/features';
 	import Features from '$lib/components/layout/Features.svelte';
 	import SpecializedGenerators from '$lib/components/layout/SpecializedGenerators.svelte';
 	import HowTo from '$lib/components/layout/HowTo.svelte';
 	import FAQ from '$lib/components/layout/FAQ.svelte';
-
+	import { COMMON_FAQS } from '$lib/page-data/faq';
+	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
 	let inputText: string = $state('Glitch Text');
 
 	// 预览样式列表
@@ -54,14 +55,14 @@
 	<Generator bind:inputText previewStyle={PREVIEW_STYLE} />
 
 	<!-- Features Section -->
-	<Features />
+	<Features features={COMMON_FEATURES} />
 
 	<!-- How to Use Section -->
-	<HowTo />
+	<HowTo howToList={COMMON_HOW_TO_USE} />
 
 	<!-- Specialized Generators -->
 	<SpecializedGenerators />
 
 	<!-- FAQ Section -->
-	<FAQ />
+	<FAQ faqList={COMMON_FAQS} />
 </div>

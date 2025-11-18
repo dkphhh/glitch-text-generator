@@ -15,8 +15,10 @@
 	import SeoTDK from '$lib/components/common/seo/SeoTDK.svelte';
 	import HowTo from '$lib/components/layout/HowTo.svelte';
 	import Features from '$lib/components/layout/Features.svelte';
+	import { COMMON_FEATURES } from '$lib/page-data/features';
 	import FAQ from '$lib/components/layout/FAQ.svelte';
-
+	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
+	import { COMMON_FAQS } from '$lib/page-data/faq';
 	// url 路径
 	let pathParam = $derived(page.params.page);
 
@@ -57,7 +59,7 @@
 <div class="min-h-screen w-full">
 	<Front title={pageTitle} subtitle={pageSubtitle} />
 	<Generator bind:inputText previewStyle={PREVIEW_STYLE} preSetStyle={styleKey} />
-	<Features />
-	<HowTo />
-	<FAQ />
+	<Features features={COMMON_FEATURES} />
+	<HowTo howToList={COMMON_HOW_TO_USE} />
+	<FAQ faqList={COMMON_FAQS} />
 </div>

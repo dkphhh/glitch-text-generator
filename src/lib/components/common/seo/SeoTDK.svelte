@@ -40,7 +40,17 @@
 	 * 生成最终的页面标题
 	 * 否则使用默认标题
 	 */
-	let seoTitle = title ? `${title} - ${DEFAULT_TITLE_SUFFIX}` : DEFAULT_TITLE;
+	let seoTitle = (() => {
+		if (title && title.length <= 40) {
+			return `${title} - ${DEFAULT_TITLE_SUFFIX}`;
+		}
+
+		if (title) {
+			return title;
+		}
+
+		return DEFAULT_TITLE;
+	})();
 
 	/**
 	 * 生成最终的页面描述

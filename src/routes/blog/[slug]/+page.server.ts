@@ -1,6 +1,6 @@
 import type { PageServerLoad } from './$types';
 import { error } from '@sveltejs/kit';
-import { getPostBySlug, getThreeBlogPostsInLocale } from '$lib/page-data/utils';
+import { getPostBySlug, getThreeBlogPostsInLocale } from '$lib/article/utils';
 import { getLocale } from '$lib/paraglide/runtime';
 
 export const load = async ({ params }: Parameters<PageServerLoad>[0]) => {

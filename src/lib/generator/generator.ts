@@ -5,7 +5,7 @@ import { flipText } from './styles/glitch-style/flip';
 import { glitchifyText } from './styles/glitch-style/glitch';
 import { latinizeText } from './styles/glitch-style/latin';
 import { hackifyText } from './styles/glitch-style/hacker';
-import { hideText } from './styles/glitch-style/hidden';
+import { hideText,revealText } from './styles/glitch-style/hidden';
 import { confusedText } from './styles/glitch-style/unreadable';
 import { upsideDownText } from './styles/glitch-style/upside-down';
 import { zalgoGeneration } from './styles/zalgo';
@@ -147,6 +147,9 @@ export function stylizeText(
 		case 'hidden':
 			result = hideText(text);
 			break;
+		case "reveal-hidden":
+			result = revealText(text);
+			break
 		case 'unreadable':
 			result = confusedText(text);
 			break;
@@ -212,3 +215,5 @@ export function getGeneratorStyle(generator: GeneratorType): Style {
 
 	return 'zalgo';
 }
+
+// TODO：再做一个解除生成器效果，恢复成正常文本的功能

@@ -13,6 +13,7 @@ declare global {
 		| 'latin'
 		| 'hacker'
 		| 'hidden'
+		| 'reveal-hidden'
 		| 'unreadable'
 		| 'upsideDown'
 		| FontName;

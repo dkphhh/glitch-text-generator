@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { BlogPost } from '$lib/page-data/types';
+	import type { BlogPost } from '$lib/article/types';
 	import { m } from '$lib/paraglide/messages';
 	import { resolve } from '$app/paths';
 	import { localizeHref } from '$lib/paraglide/runtime';

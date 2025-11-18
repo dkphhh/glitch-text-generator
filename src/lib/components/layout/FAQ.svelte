@@ -1,5 +1,8 @@
 <script lang="ts">
 	import { m } from '$lib/paraglide/messages.js';
+	import type { FAQProps } from '$lib/page-data/faq';
+
+	let { faqList }: { faqList: FAQProps[] } = $props();
 </script>
 
 {#snippet qa(id: string, q: string, a: string, checked: boolean = false)}
@@ -17,9 +20,10 @@
 <section class="container mx-auto max-w-4xl bg-base-100 px-4 py-12 md:py-16">
 	<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.faq_title()}</h2>
 	<div class="space-y-4">
-		{@render qa('faq-1', m.faq_what(), m.faq_what_answer(), true)}
-		{@render qa('faq-2', m.faq_how(), m.faq_how_answer())}
-		{@render qa('faq-3', m.faq_safe(), m.faq_safe_answer())}
-		{@render qa('faq-4', m.faq_platforms(), m.faq_platforms_answer())}
+		{#each faqList as faq, index (index)}
+			{@const isFirst = index === 0}
+			{@const faqId = `faq-${index}`}
+			{@render qa(faqId, faq.question, faq.answer, isFirst)}
+		{/each}
 	</div>
 </section>

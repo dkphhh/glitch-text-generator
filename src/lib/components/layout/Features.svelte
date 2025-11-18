@@ -1,5 +1,9 @@
 <script lang="ts">
 	import { m } from '$lib/paraglide/messages.js';
+
+	import type { FeatureProps } from '$lib/page-data/features';
+
+	let { features }: { features: FeatureProps[] } = $props();
 </script>
 
 {#snippet feature(icon: string, title: string, description: string)}
@@ -15,9 +19,8 @@
 <section class="container mx-auto px-4 py-12 md:py-16">
 	<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.features_title()}</h2>
 	<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-		{@render feature('⚡', m.feature_instant(), m.feature_instant_desc())}
-		{@render feature('📋', m.feature_copy(), m.feature_copy_desc())}
-		{@render feature('🎨', m.feature_styles(), m.feature_styles_desc())}
-		{@render feature('🆓', m.feature_free(), m.feature_free_desc())}
+		{#each features as f (f.title)}
+			{@render feature(f.icon, f.title, f.description)}
+		{/each}
 	</div>
 </section>

@@ -38,8 +38,6 @@
 		{@const s = style as Style}
 		{@const outputText = previewStyleText[s]}
 		{@const previewTitle = GENERATOR_NAME_MAP[s]}
-		<PreviewCard {outputText} bind:inputText {previewTitle} />
+		<PreviewCard {outputText} {previewTitle} />
 	{/each}
 </div>
-
-

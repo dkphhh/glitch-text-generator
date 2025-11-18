@@ -2,7 +2,12 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import { localizeHref } from '$lib/paraglide/runtime';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
-	import { stylizeText, STYLE_LIST, GENERATOR_NAME_MAP } from '$lib/generator/generator';
+	import {
+		stylizeText,
+		STYLE_LIST,
+		GENERATOR_NAME_MAP,
+		GENERATOR_URL_PATH_MAP
+	} from '$lib/generator/generator';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 	import { resolve } from '$app/paths';
 	import Preview from '$lib/components/generator/Preview.svelte';
@@ -49,6 +54,11 @@
 	let outputText = $derived.by(() => {
 		return generateText();
 	});
+
+	// 清除
+	function clear() {
+		inputText = '';
+	}
 </script>
 
 <section class="flex w-full flex-col items-center gap-4 px-4 pb-8 lg:px-4">
@@ -77,8 +87,8 @@
 						{/each}
 					</select>
 				</label>
-				<!--  zalgo  -->
-				<label class="input w-full">
+				<!--  zalgo 强度 -->
+				<label class="input w-full" hidden={selectedStyle !== 'zalgo'}>
 					<span class="label">{m.input_add_zalgo_intensity()}:{intensity}</span>
 					<input
 						type="range"
@@ -89,7 +99,28 @@
 						disabled={selectedStyle !== 'zalgo'}
 					/>
 				</label>
+				<!--TODO: 隐藏文字显影按钮 -->
+				<a
+					href={localizeHref(resolve(`/generator/${GENERATOR_URL_PATH_MAP['reveal-hidden']}`))}
+					hidden={selectedStyle !== 'hidden'}
+					class="btn btn-neutral">{m.style_reveal_hidden()}</a
+				>
+				<!-- 清除按钮 -->
+				<button onclick={clear} class="btn btn-accent" disabled={!outputText}>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-eraser-icon lucide-eraser size-4 fill-none stroke-current stroke-2"
+						><path
+							d="M21 21H8a2 2 0 0 1-1.42-.587l-3.994-3.999a2 2 0 0 1 0-2.828l10-10a2 2 0 0 1 2.829 0l5.999 6a2 2 0 0 1 0 2.828L12.834 21"
+						/><path d="m5.082 11.09 8.828 8.828" /></svg
+					>
 
+					{m.clear_button()}
+				</button>
+				<!-- 重新生成按钮 -->
 				<button
 					type="button"
 					class="btn btn-neutral"
@@ -102,7 +133,7 @@
 		</fieldset>
 
 		<!-- Output -->
-		<PreviewCard previewTitle={m.output_label()} {outputText} bind:inputText />
+		<PreviewCard previewTitle={m.output_label()} {outputText} />
 		<!-- 其他样式预览 -->
 		<Preview {previewStyle} bind:inputText {intensity} />
 	</div>

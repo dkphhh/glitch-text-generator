@@ -9,7 +9,7 @@
 		getGeneratorStyle,
 		stylizeText
 	} from '$lib/generator/generator';
-
+	import { COMMON_FAQS } from '$lib/page-data/faq';
 	import { resolve } from '$app/paths';
 
 	import Front from '$lib/components/layout/Front.svelte';
@@ -18,6 +18,8 @@
 	import Features from '$lib/components/layout/Features.svelte';
 	import FAQ from '$lib/components/layout/FAQ.svelte';
 	import { localizeUrl } from '$lib/paraglide/runtime';
+	import { COMMON_FEATURES } from '$lib/page-data/features';
+	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
 </script>
 
 <SeoTDK title={m.generator_page_title()} description={m.generator_page_description()} />
@@ -49,10 +51,10 @@
 	</section>
 
 	<!-- Features Section -->
-	<Features />
+	<Features features={COMMON_FEATURES} />
 
 	<!-- How to Use Section -->
-	<HowTo />
+	<HowTo howToList={COMMON_HOW_TO_USE} />
 
-	<FAQ />
+	<FAQ faqList={COMMON_FAQS} />
 </div>
