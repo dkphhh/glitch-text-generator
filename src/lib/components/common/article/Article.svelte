@@ -9,9 +9,9 @@
 </script>
 
 <section class="container mx-auto flex flex-col px-8 lg:px-0">
-	<article class="  mx-auto flex max-w-4xl flex-col items-center gap-8">
+	<article class="mx-auto flex max-w-4xl flex-col items-center gap-8">
 		<!-- 文章 meta 部分 -->
-		<div class="mb-8 flex flex-col items-center gap-8 text-pretty">
+		<div class="mb-8 flex flex-col items-center gap-8 text-wrap">
 			<!-- 返回到 blog 按钮 -->
 			<a class="btn btn-outline btn-sm btn-primary" href={localizeHref(resolve('/blog'))}>
 				<svg
@@ -27,7 +27,7 @@
 				{m.back_to_blog()}</a
 			>
 			<!-- 文章标题 -->
-			<h1 class="text-4xl font-bold">{post.title}</h1>
+			<h1 class="w-full text-4xl font-bold">{post.title}</h1>
 
 			<!-- 文章描述 -->
 			{#if post.description}

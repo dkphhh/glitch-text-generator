@@ -1,4 +1,5 @@
 User-agent: *
-Allow:/
+Allow: /
 
-Sitemap:https://www.cooltext.app/sitemap.xml
+Sitemap: https://cooltext.app/sitemap.xml
+

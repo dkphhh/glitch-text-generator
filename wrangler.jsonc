@@ -9,9 +9,13 @@
     "workers_dev": false,
     "routes": [
         {
-            "pattern": "www.cooltext.app",
+            "pattern": "cooltext.app",
             "custom_domain": true
         },
+        {
+            "pattern": "www.cooltext.app",
+            "custom_domain": true
+        }
     ],
     "assets": {
         "binding": "ASSETS",

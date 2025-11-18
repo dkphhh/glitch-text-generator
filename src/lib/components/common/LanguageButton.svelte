@@ -4,7 +4,12 @@
 </script>
 
 <div class="dropdown dropdown-end">
-	<button type="button" aria-label="select language" tabindex="0" class="btn m-1 btn-ghost">
+	<button
+		type="button"
+		aria-label="select language"
+		tabindex="0"
+		class="btn m-1 btn-ghost btn-xs lg:btn-lg"
+	>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			viewBox="0 0 24 24"

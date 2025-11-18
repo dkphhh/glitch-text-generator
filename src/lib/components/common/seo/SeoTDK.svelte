@@ -32,22 +32,15 @@
 		'discord glitch text',
 		'roblox glitch text'
 	];
+
+	// 网站基础 URL，e.g. https://www.example.com
 	const SITE_URL = PUBLIC_BASE_URL;
 
 	/**
 	 * 生成最终的页面标题
 	 * 否则使用默认标题
 	 */
-	let seoTitle = (() => {
-		if (title && title.length <= 27) {
-			return title + ' - ' + DEFAULT_TITLE_SUFFIX;
-		}
-
-		if (title) {
-			return title;
-		}
-		return DEFAULT_TITLE;
-	})();
+	let seoTitle = title ? `${title} - ${DEFAULT_TITLE_SUFFIX}` : DEFAULT_TITLE;
 
 	/**
 	 * 生成最终的页面描述
@@ -122,12 +115,35 @@
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
 	{@html schemaScript}
 
-	<!-- TODO:下面的内容都需要替换 -->
 	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-CB0W6K7F5X"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'G-CB0W6K7F5X');
+	</script>
+
+	<!-- google 站长工具 -->
 
 	<!-- Microsoft clarity -->
+	<script type="text/javascript">
+		(function (c, l, a, r, i, t, y) {
+			c[a] =
+				c[a] ||
+				function () {
+					(c[a].q = c[a].q || []).push(arguments);
+				};
+			t = l.createElement(r);
+			t.async = 1;
+			t.src = 'https://www.clarity.ms/tag/' + i;
+			y = l.getElementsByTagName(r)[0];
+			y.parentNode.insertBefore(t, y);
+		})(window, document, 'clarity', 'script', 'u7y85wmryq');
+	</script>
 
 	<!-- Adsense -->
-
-	<!-- bing 站长工具 -->
 </svelte:head>

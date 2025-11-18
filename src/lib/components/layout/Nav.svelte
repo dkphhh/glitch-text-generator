@@ -31,8 +31,9 @@
 
 <nav class="navbar fixed top-0 z-50 h-12 glass shadow">
 	<div class="flex-1">
-		<a href={localizeHref(resolve('/'))} class="flex flex-row items-center gap-2 p-0 lg:p-4">
-			<img src={Logo} class="size-8 sm:size-12" alt="creater dkphhh icon" />
+		<!-- flex flex-row items-center gap-2 p-0 lg:p-4 -->
+		<a href={localizeHref(resolve('/'))} class="btn btn-ghost btn-xs lg:gap-4 lg:btn-xl">
+			<img src={Logo} class="size-8 sm:size-10" alt="creater dkphhh icon" />
 			<div class="badge badge-sm badge-primary lg:badge-xl">{m.nav_title()}</div>
 		</a>
 	</div>
@@ -41,7 +42,7 @@
 	<!-- 栏目选项 -->
 	<div class="flex-none">
 		<div class="dropdown dropdown-end lg:hidden">
-			<div tabindex="0" role="button" class="btn m-1">
+			<div tabindex="0" role="button" class="btn m-1 btn-ghost btn-xs lg:btn-lg">
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
 					viewBox="0 0 24 24"
