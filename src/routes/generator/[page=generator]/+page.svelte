@@ -22,9 +22,6 @@
 	// url 路径
 	let pathParam = $derived(page.params.page);
 
-	// 输入文本状态，默认为 "Glitch Text"
-	let inputText = $state('Glitch Text');
-
 	// 通过 url 路径获取生成器类型，默认是 zalgo
 	let generatorKey: GeneratorType = $derived.by(() => {
 		if (!pathParam) {
@@ -41,6 +38,13 @@
 	const PREVIEW_STYLE: Style[] = $derived.by(() => {
 		const otherStyles = STYLE_LIST.filter((style) => style !== styleKey) as Style[];
 		return [...otherStyles.slice(0, 12)];
+	});
+
+	// 输入文本状态，默认为 "Glitch Text"
+	let inputText = $derived.by(() => {
+		return styleKey === 'reveal-hidden'
+			? '*‌﻿‌​﻿‎‏​﻿‏‍​﻿‏‍​﻿‌‏​‏‏‌​‍‌‌​﻿‌‏​﻿‌﻿​﻿‏‍​﻿‎‎**********'
+			: 'Glitch Text';
 	});
 
 	// 当前生成器页面的 title

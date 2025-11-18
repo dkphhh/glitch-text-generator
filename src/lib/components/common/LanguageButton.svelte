@@ -21,13 +21,13 @@
 			/><path d="M14 18h6" /></svg
 		>
 	</button>
-	<ul tabindex="-1" class="dropdown-content menu z-1 w-52 rounded bg-base-100 p-2 shadow-sm">
+	<ul tabindex="-1" class="dropdown-content menu z-1 w-52 rounded bg-base-300 p-2 shadow-sm">
 		{#each LANG_LIST as l (l)}
 			{@const langName = LANG_MAP[l]}
 			<li>
 				<button
 					type="button"
-					class="btn rounded btn-ghost btn-sm"
+					class="btn rounded btn-ghost"
 					aria-label={langName}
 					onclick={() => setLocale(l, { reload: true })}>{langName}</button
 				>

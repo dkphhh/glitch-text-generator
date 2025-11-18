@@ -4,29 +4,26 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import Logo from '$lib/assets/dkphhh.ico';
 	import LanguageButton from '../common/LanguageButton.svelte';
+
+	type navItem = {
+		href: string;
+		label: string;
+	};
+
+	const navItems: navItem[] = [
+		{ href: localizeHref(resolve('/generator')), label: m.nav_all_generators() },
+		{ href: localizeHref(resolve('/guide')), label: m.nav_use_guide() },
+		{ href: localizeHref(resolve('/blog')), label: m.nav_blog() },
+		{ href: localizeHref(resolve('/about')), label: m.nav_about() }
+	];
 </script>
 
-{#snippet linksList()}
-	<li>
-		<a class="btn rounded btn-ghost btn-sm lg:btn-lg" href={localizeHref(resolve('/generator'))}
-			>{m.nav_all_generators()}</a
-		>
-	</li>
-	<li>
-		<a class="btn rounded btn-ghost btn-sm lg:btn-lg" href={localizeHref(resolve('/guide'))}
-			>{m.nav_use_guide()}</a
-		>
-	</li>
-	<li>
-		<a class="btn rounded btn-ghost btn-sm lg:btn-lg" href={localizeHref(resolve('/blog'))}
-			>{m.nav_blog()}</a
-		>
-	</li>
-	<li>
-		<a class="btn rounded btn-ghost btn-sm lg:btn-lg" href={localizeHref(resolve('/about'))}
-			>{m.nav_about()}</a
-		>
-	</li>
+{#snippet linksList(items: navItem[])}
+	{#each items as item (item.href)}
+		<li>
+			<a class="btn rounded btn-ghost btn-md lg:btn-lg" href={item.href}>{item.label}</a>
+		</li>
+	{/each}
 {/snippet}
 
 <nav class="navbar fixed top-0 z-50 h-12 glass shadow">
@@ -41,6 +38,7 @@
 	<LanguageButton />
 	<!-- 栏目选项 -->
 	<div class="flex-none">
+		<!-- 移动设备 下拉菜单栏 -->
 		<div class="dropdown dropdown-end lg:hidden">
 			<div tabindex="0" role="button" class="btn m-1 btn-ghost btn-xs lg:btn-lg">
 				<svg
@@ -54,13 +52,14 @@
 			</div>
 			<ul
 				tabindex="-1"
-				class="dropdown-content menu z-1 w-52 rounded-box bg-base-100 p-2 shadow-sm"
+				class="dropdown-content menu z-1 w-52 rounded-box bg-base-300 p-2 shadow-sm"
 			>
-				{@render linksList()}
+				{@render linksList(navItems)}
 			</ul>
 		</div>
+		<!-- 大屏幕 横向菜单栏 -->
 		<ul class="menu menu-horizontal hidden px-1 lg:flex">
-			{@render linksList()}
+			{@render linksList(navItems)}
 		</ul>
 	</div>
 </nav>
