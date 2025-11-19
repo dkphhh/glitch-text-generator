@@ -23,7 +23,7 @@
 </script>
 
 <section class="py-12 md:py-16">
-	<div class="container mx-auto px-4">
+	<div class="container mx-auto">
 		<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.tools_section()}</h2>
 		<div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
 			{#each selectedTools as tool (tool)}

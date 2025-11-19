@@ -17,7 +17,7 @@
 <Notification />
 <main class="min-h-screen w-full">
 	<Nav />
-	{@render children()}
+	<div class="px-4 lg:px-8">{@render children()}</div>
 	<Footer />
 </main>
 

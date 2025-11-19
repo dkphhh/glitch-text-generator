@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { m } from '$lib/paraglide/messages.js';
 	import type { HowToProps } from '$lib/page-data/how-to';
-
 	let { howToList }: { howToList: HowToProps[] } = $props();
 </script>
 
@@ -17,7 +16,7 @@
 	</div>
 {/snippet}
 
-<section class="container mx-auto px-4 py-12 md:py-16">
+<section class="container mx-auto py-12 md:py-16">
 	<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.how_to_use()}</h2>
 	<div class="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
 		{#each howToList as ht, index (index)}

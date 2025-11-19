@@ -26,7 +26,7 @@
 	{/each}
 {/snippet}
 
-<nav class="navbar fixed top-0 z-50 h-12 glass shadow">
+<nav class="navbar fixed top-0 z-50 glass shadow">
 	<div class="flex-1">
 		<!-- flex flex-row items-center gap-2 p-0 lg:p-4 -->
 		<a href={localizeHref(resolve('/'))} class="btn btn-ghost btn-xs lg:gap-4 lg:btn-xl">

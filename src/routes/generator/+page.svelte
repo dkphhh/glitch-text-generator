@@ -28,7 +28,7 @@
 	<Front title={m.generator_page_h1()} subtitle={m.generator_page_subtitle()} />
 	<!-- 暂时所有的 generator -->
 	<section class="fieldset">
-		<div class="container mx-auto flex flex-col items-center gap-8 rounded px-16 py-8">
+		<div class="container mx-auto flex flex-col items-center gap-8 rounded pb-8">
 			<h2 class="fieldset-legend"><span class="text-lg">✨</span> {m.generator_page_h2()}</h2>
 			<div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
 				{#each ALL_GENERATOR_KEY as key (key)}

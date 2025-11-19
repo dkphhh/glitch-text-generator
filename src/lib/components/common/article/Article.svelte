@@ -8,34 +8,36 @@
 	let { post, recommendPost }: { post: BlogPost; recommendPost: BlogPost[] } = $props();
 </script>
 
-<section class="container mx-auto flex flex-col px-8 lg:px-0">
-	<article class="mx-auto flex max-w-4xl flex-col items-center gap-8">
+<section class="container mx-auto flex flex-col items-center">
+	<a
+		class="btn mb-16 btn-outline btn-sm btn-primary md:btn-md"
+		href={localizeHref(resolve('/blog'))}
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 24 24"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="lucide lucide-skip-back-icon lucide-skip-back size-4 fill-none stroke-current stroke-2"
+			><path
+				d="M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z"
+			/><path d="M3 20V4" /></svg
+		>
+		{m.back_to_blog()}</a
+	>
+	<article class="container prose prose-base max-w-4xl lg:prose-lg">
 		<!-- 文章 meta 部分 -->
-		<div class="mb-8 flex flex-col items-center gap-8 text-wrap">
-			<!-- 返回到 blog 按钮 -->
-			<a class="btn btn-outline btn-sm btn-primary" href={localizeHref(resolve('/blog'))}>
-				<svg
-					xmlns="http://www.w3.org/2000/svg"
-					viewBox="0 0 24 24"
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					class="lucide lucide-skip-back-icon lucide-skip-back size-4 fill-none stroke-current stroke-2"
-					><path
-						d="M17.971 4.285A2 2 0 0 1 21 6v12a2 2 0 0 1-3.029 1.715l-9.997-5.998a2 2 0 0 1-.003-3.432z"
-					/><path d="M3 20V4" /></svg
-				>
-				{m.back_to_blog()}</a
-			>
+		<div class="mb-8 flex flex-col items-center">
 			<!-- 文章标题 -->
-			<h1 class="w-full text-4xl font-bold">{post.title}</h1>
+			<h1>{post.title}</h1>
 
 			<!-- 文章描述 -->
 			{#if post.description}
-				<p class="text-base text-base-content/70">{post.description}</p>
+				<p class="opacity-70">{post.description}</p>
 			{/if}
 
 			<!-- 作者，发布时间 -->
-			<span class="text-sm font-light text-base-content/70">
+			<span class="text-sm opacity-70">
 				{post.author} @<time datetime={post.date}>{post.date}</time>
 			</span>
 		</div>
@@ -43,7 +45,7 @@
 		<!-- 文章内容部分 -->
 		<MarkdownRender md={post.content} />
 		<!-- tag 部分 -->
-		<div class="flex w-full flex-wrap items-center justify-start gap-2">
+		<div class="mt-8 flex w-full flex-wrap items-center justify-start gap-2">
 			<span class="text-base opacity-70">{m.blog_tags()}: </span>
 			{#each post.tags as tag (tag)}
 				<span class="badge badge-outline badge-sm">{tag}</span>

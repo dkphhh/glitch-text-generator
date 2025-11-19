@@ -10,14 +10,19 @@
 	} from '$lib/generator/generator';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 	import { resolve } from '$app/paths';
-	import Preview from '$lib/components/generator/Preview.svelte';
 
 	// 输入组件的参数
 	let {
 		inputText = $bindable(),
-		previewStyle,
+		inputTextInternal = $bindable(),
+		intensity = $bindable(),
 		preSetStyle
-	}: { inputText: string; previewStyle: Style[]; preSetStyle?: Style } = $props();
+	}: {
+		inputText: string;
+		inputTextInternal: string;
+		intensity: number;
+		preSetStyle?: Style;
+	} = $props();
 
 	// ------- 用户选项 ---------
 	// 选风格
@@ -25,12 +30,9 @@
 		return preSetStyle || 'zalgo';
 	});
 
-	// zalgo 强度
-	let intensity = $state(5);
-
 	// 生成文本的函数
 	function generateText(): string {
-		if (!inputText.trim()) {
+		if (!inputTextInternal.trim()) {
 			return '';
 		}
 
@@ -42,7 +44,7 @@
 			return '';
 		}
 
-		let result = inputText;
+		let result = inputTextInternal;
 
 		// 应用样式
 		result = stylizeText(result, selectedStyle, { intensity });
@@ -61,52 +63,61 @@
 	}
 </script>
 
-<section class="flex w-full flex-col items-center gap-4 px-4 pb-8 lg:px-4">
-	<!-- 输入和输出区域 -->
-	<div class="flex w-full max-w-6xl flex-col items-center gap-4">
-		<!-- Input -->
-		<fieldset
-			class="sticky top-14 z-10 fieldset w-full gap-2 rounded border-2 border-primary bg-base-200 p-4"
-		>
-			<legend class="fieldset-legend">{m.input_label()}</legend>
-			<input
-				id="input-text"
-				bind:value={inputText}
-				class="input w-full resize-none font-mono text-sm lg:text-base"
-				placeholder={m.input_placeholder()}
-			/>
-			<!-- 选项 -->
-			<div class="flex flex-col gap-2 lg:flex-row">
-				<!-- 选择风格 -->
-				<label class="select w-full">
-					<span class="label w-32">{m.style_label()}</span>
-					<select bind:value={selectedStyle} class="h-fit">
-						{#each STYLE_LIST as style (style)}
-							{@const displayName = GENERATOR_NAME_MAP[style as Style]}
-							<option value={style}>{displayName}</option>
-						{/each}
-					</select>
-				</label>
-				<!--  zalgo 强度 -->
-				<label class="input w-full" hidden={selectedStyle !== 'zalgo'}>
-					<span class="label">{m.input_add_zalgo_intensity()}:{intensity}</span>
-					<input
-						type="range"
-						min="0"
-						max="10"
-						bind:value={intensity}
-						class="range"
-						disabled={selectedStyle !== 'zalgo'}
-					/>
-				</label>
-				<!--TODO: 隐藏文字显影按钮 -->
+<section class="container mx-auto mb-8 flex max-w-6xl flex-col items-center gap-4">
+	<!-- Input -->
+	<fieldset
+		class="sticky top-14 z-10 fieldset w-full gap-2 rounded border-2 border-primary bg-base-200 p-4"
+	>
+		<legend class="fieldset-legend">{m.input_label()}</legend>
+		<input
+			id="input-text"
+			bind:value={inputText}
+			class="input w-full resize-none font-mono text-sm lg:text-base"
+			placeholder={m.input_placeholder()}
+		/>
+		<!-- 参数选项 -->
+		<div class="flex flex-col items-center justify-center gap-2 lg:flex-row">
+			<!-- 选择风格 -->
+			<label for="select-style" class="select w-full lg:flex-1">
+				<span class="label w-32">{m.style_label()}</span>
+				<select id="select-style" bind:value={selectedStyle} class="text-sm lg:text-base">
+					{#each STYLE_LIST as style (style)}
+						{@const displayName = GENERATOR_NAME_MAP[style as Style]}
+						<option value={style}>{displayName}</option>
+					{/each}
+				</select>
+			</label>
+			<!--  zalgo 强度 -->
+			<label
+				for="zalgo-intensity"
+				class="input w-full text-sm lg:flex-1 lg:text-base"
+				hidden={selectedStyle !== 'zalgo'}
+			>
+				<span class="label">{m.input_add_zalgo_intensity()}:{intensity}</span>
+				<input
+					id="zalgo-intensity"
+					type="range"
+					min="0"
+					max="10"
+					bind:value={intensity}
+					class="range w-full"
+					disabled={selectedStyle !== 'zalgo'}
+				/>
+			</label>
+			<!-- 按钮组 -->
+			<div class="flex w-full flex-col gap-2 lg:flex-1 lg:flex-row">
+				<!-- 显影按钮 -->
 				<a
 					href={localizeHref(resolve(`/generator/${GENERATOR_URL_PATH_MAP['reveal-hidden']}`))}
 					hidden={selectedStyle !== 'hidden'}
-					class="btn btn-neutral">{m.style_reveal_hidden()}</a
+					class="btn btn-sm btn-neutral lg:flex-1 lg:btn-md">{m.reveal_button()}</a
 				>
 				<!-- 清除按钮 -->
-				<button onclick={clear} class="btn btn-accent" disabled={!outputText}>
+				<button
+					onclick={clear}
+					class="btn btn-sm btn-accent lg:flex-1 lg:btn-md"
+					disabled={!outputText}
+				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 24 24"
@@ -123,34 +134,16 @@
 				<!-- 重新生成按钮 -->
 				<button
 					type="button"
-					class="btn btn-neutral"
+					class="btn btn-sm btn-neutral lg:flex-1 lg:btn-md"
 					onclick={() => {
 						inputText = inputText + '\u200B';
 						inputText = inputText.slice(0, -1);
 					}}>{m.generator_rerun()}</button
 				>
 			</div>
-		</fieldset>
+		</div>
+	</fieldset>
 
-		<!-- Output -->
-		<PreviewCard previewTitle={m.output_label()} {outputText} />
-		<!-- 其他样式预览 -->
-		<Preview {previewStyle} bind:inputText {intensity} />
-	</div>
-
-	<a
-		href={localizeHref(resolve('/generator'))}
-		class=" btn min-w-90 rounded text-xl btn-xl btn-primary"
-		>{m.more_style()}
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			viewBox="0 0 24 24"
-			stroke-linecap="round"
-			stroke-linejoin="round"
-			class="lucide lucide-step-forward-icon lucide-step-forward size-6 fill-none stroke-current stroke-2"
-			><path
-				d="M10.029 4.285A2 2 0 0 0 7 6v12a2 2 0 0 0 3.029 1.715l9.997-5.998a2 2 0 0 0 .003-3.432z"
-			/><path d="M3 4v16" /></svg
-		>
-	</a>
+	<!-- Output -->
+	<PreviewCard previewTitle={m.output_label()} {outputText} />
 </section>

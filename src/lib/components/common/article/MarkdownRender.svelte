@@ -8,7 +8,7 @@
 	const plugins = [gfmPlugin()];
 </script>
 
-<div class="mx-auto prose prose-base max-w-4xl lg:prose-lg">
+<div class="container prose prose-base max-w-4xl lg:prose-lg">
 	<Markdown {md} {plugins}>
 		{#snippet a(props)}
 			{@const { children, style, class: className, ...rest } = props}

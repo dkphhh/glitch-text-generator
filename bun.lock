@@ -4,11 +4,6 @@
   "workspaces": {
     "": {
       "name": "glitch-text-generator",
-      "dependencies": {
-        "confusables": "^1.1.1",
-        "svelte-exmarkdown": "^5.0.2",
-        "unicode-text-decorator": "^0.1.1",
-      },
       "devDependencies": {
         "@eslint/compat": "^1.4.0",
         "@eslint/js": "^9.38.0",
@@ -22,6 +17,7 @@
         "@tailwindcss/vite": "^4.1.14",
         "@types/js-yaml": "^4.0.9",
         "@types/node": "^24",
+        "confusables": "^1.1.1",
         "daisyui": "^5.5.3",
         "eslint": "^9.38.0",
         "eslint-config-prettier": "^10.1.8",
@@ -34,10 +30,12 @@
         "prettier-plugin-tailwindcss": "^0.7.1",
         "svelte": "^5.41.0",
         "svelte-check": "^4.3.3",
+        "svelte-exmarkdown": "^5.0.2",
         "svelte-sitemap": "^2.7.1",
         "tailwindcss": "^4.1.14",
         "typescript": "^5.9.3",
         "typescript-eslint": "^8.46.1",
+        "unicode-text-decorator": "^0.1.1",
         "vite": "^7.1.10",
         "vitest": "^4.0.5",
         "wrangler": "^4.49.0",

@@ -17,7 +17,7 @@
 	</label>
 {/snippet}
 
-<section class="container mx-auto max-w-4xl bg-base-100 px-4 py-12 md:py-16">
+<section class="container mx-auto max-w-4xl bg-base-100 py-12 md:py-16">
 	<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.faq_title()}</h2>
 	<div class="space-y-4">
 		{#each faqList as faq, index (index)}

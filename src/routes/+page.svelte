@@ -2,7 +2,6 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import SeoTDK from '$lib/components/common/seo/SeoTDK.svelte';
 	import Generator from '$lib/components/generator/Generator.svelte';
-	import Front from '$lib/components/layout/Front.svelte';
 	import { COMMON_FEATURES } from '$lib/page-data/features';
 	import Features from '$lib/components/layout/Features.svelte';
 	import SpecializedGenerators from '$lib/components/layout/SpecializedGenerators.svelte';
@@ -10,7 +9,17 @@
 	import FAQ from '$lib/components/layout/FAQ.svelte';
 	import { COMMON_FAQS } from '$lib/page-data/faq';
 	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
-	let inputText: string = $state('Glitch Text');
+	import Preview from '$lib/components/generator/Preview.svelte';
+	import Front from '$lib/components/layout/Front.svelte';
+	let inputText: string = $state('');
+
+	// 实际输入的文本
+	let inputTextInternal = $derived.by(() => {
+		return inputText ? inputText : 'Glitch Text';
+	});
+
+	// zalgo 强度
+	let intensity = $state(5);
 
 	// 预览样式列表
 	const PREVIEW_STYLE: Style[] = [
@@ -48,11 +57,12 @@
 />
 
 <div class="min-h-screen w-full">
-	<!-- 标题 -->
 	<Front title={m.home_h1()} subtitle={m.home_subtitle()} />
-
 	<!-- Main Generator Tool -->
-	<Generator bind:inputText previewStyle={PREVIEW_STYLE} />
+	<Generator bind:inputText bind:inputTextInternal bind:intensity />
+
+	<!-- Preview Section -->
+	<Preview previewStyle={PREVIEW_STYLE} inputText={inputTextInternal} {intensity} />
 
 	<!-- Features Section -->
 	<Features features={COMMON_FEATURES} />

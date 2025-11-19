@@ -10,7 +10,7 @@
 		getGeneratorFromPath
 	} from '$lib/generator/generator';
 	import { page } from '$app/state';
-
+	import Preview from '$lib/components/generator/Preview.svelte';
 	import Front from '$lib/components/layout/Front.svelte';
 	import SeoTDK from '$lib/components/common/seo/SeoTDK.svelte';
 	import HowTo from '$lib/components/layout/HowTo.svelte';
@@ -40,13 +40,6 @@
 		return [...otherStyles.slice(0, 12)];
 	});
 
-	// 输入文本状态，默认为 "Glitch Text"
-	let inputText = $derived.by(() => {
-		return styleKey === 'reveal-hidden'
-			? '*‌﻿‌​﻿‎‏​﻿‏‍​﻿‏‍​﻿‌‏​‏‏‌​‍‌‌​﻿‌‏​﻿‌﻿​﻿‏‍​﻿‎‎**********'
-			: 'Glitch Text';
-	});
-
 	// 当前生成器页面的 title
 	let pageTitle: string = $derived(GENERATOR_PAGE_TITLE_MAP[generatorKey]);
 
@@ -56,13 +49,30 @@
 
 	let pageDescription: string = $derived(GENERATOR_DESCRIPTION_MAP[generatorKey]);
 
-	// 当前生成器页面的
+	// 当前生成器页面的状态-------------------------
+
+	// 输入文本状态，默认为 "Glitch Text"
+	let inputText = $derived.by(() => {
+		return styleKey === 'reveal-hidden'
+			? '*‌﻿‌​﻿‎‏​﻿‏‍​﻿‏‍​﻿‌‏​‏‏‌​‍‌‌​﻿‌‏​﻿‌﻿​﻿‏‍​﻿‎‎**********'
+			: 'Glitch Text';
+	});
+
+	// 实际输入的文本
+	let inputTextInternal = $derived.by(() => {
+		return inputText ? inputText : 'Glitch Text';
+	});
+
+	// zalgo 强度
+	let intensity = $state(5);
 </script>
 
 <SeoTDK title={seoTitle} description={pageDescription} />
 <div class="min-h-screen w-full">
 	<Front title={pageTitle} subtitle={pageSubtitle} />
-	<Generator bind:inputText previewStyle={PREVIEW_STYLE} preSetStyle={styleKey} />
+	<Generator bind:inputText bind:inputTextInternal bind:intensity preSetStyle={styleKey} />
+	<!-- 其他样式预览 -->
+	<Preview previewStyle={PREVIEW_STYLE} inputText={inputTextInternal} {intensity} />
 	<Features features={COMMON_FEATURES} />
 	<HowTo howToList={COMMON_HOW_TO_USE} />
 	<FAQ faqList={COMMON_FAQS} />

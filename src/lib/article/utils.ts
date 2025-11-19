@@ -122,6 +122,12 @@ async function processSinglePages(
 	return pages;
 }
 
+/**
+ * 获取隐私政策页面的指定语言版本。
+ *
+ * @param language - 目标语言（LangOptions），用于选择对应 language 字段的隐私政策页面
+ * @returns 返回匹配语言的 BlogPost；如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
+ */
 export async function getPrivacyPolicyPage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/privacy-policy/*.md', {
 		query: '?raw',
@@ -135,6 +141,12 @@ export async function getPrivacyPolicyPage(language: LangOptions): Promise<BlogP
 	return locale ? locale : defaultLocale!;
 }
 
+/**
+ * 获取关于页面的指定语言版本。
+ * @param language - 目标语言（LangOptions），用于选择对应 language 字段的关于页面
+ * @returns 返回匹配语言的 BlogPost；如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
+ *
+ */
 export async function getAboutPage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/about/*.md', {
 		query: '?raw',
@@ -148,6 +160,12 @@ export async function getAboutPage(language: LangOptions): Promise<BlogPost> {
 	return locale ? locale : defaultLocale!;
 }
 
+/**
+ * 获取 guide 页面的指定语言版本。
+ *
+ * @param language - 目标语言（LangOptions），用于选择对应 language 字段的 guide 页面
+ * @returns 返回匹配语言的 BlogPost；如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
+ */
 export async function getGuidePage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/guide/*.md', {
 		query: '?raw',
@@ -161,12 +179,43 @@ export async function getGuidePage(language: LangOptions): Promise<BlogPost> {
 	return locale ? locale : defaultLocale!;
 }
 
+/**
+ * 获取 Terms Of Service 页面的指定语言版本。
+ *
+ * @param language - 目标语言（LangOptions），用于选择对应 language 字段的 Terms Of Service  页面
+ * @returns 返回匹配语言的 BlogPost；如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
+ */
 export async function getTermsOfServicePage(language: LangOptions): Promise<BlogPost> {
 	const modules = import.meta.glob<string>('./content/terms-of-service/*.md', {
 		query: '?raw',
 		import: 'default'
 	});
 	const allPages = await processSinglePages(modules, './content/');
+
+	const locale = allPages.find((p) => p.language === language);
+	const defaultLocale = allPages.find((p) => p.language === 'en');
+
+	return locale ? locale : defaultLocale!;
+}
+
+/**
+ * 获取指定页面的指定语言版本。
+ *
+ * @param pageType - 目标页面名称，格式为 "生成器 key" + “page”，例如：“zalgo”、“upsideDown”
+ * @param language - 目标语言（LangOptions）
+ * @returns 返回匹配语言的 BlogPost；如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
+ */
+export async function getGeneratorPageContent(
+	pageType: GeneratorType | 'home',
+	language: LangOptions
+): Promise<BlogPost> {
+	const path = `./page-content/${pageType}-page/*.md`;
+
+	const modules = import.meta.glob<string>(path, {
+		query: '?raw',
+		import: 'default'
+	});
+	const allPages = await processSinglePages(modules, './page-content/');
 
 	const locale = allPages.find((p) => p.language === language);
 	const defaultLocale = allPages.find((p) => p.language === 'en');

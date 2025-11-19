@@ -16,7 +16,7 @@
 	</div>
 {/snippet}
 
-<section class="container mx-auto px-4 py-12 md:py-16">
+<section class="container mx-auto py-12 md:py-16">
 	<h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m.features_title()}</h2>
 	<div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
 		{#each features as f (f.title)}
