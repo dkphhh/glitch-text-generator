@@ -1,13 +1,11 @@
 ---
-title: '斜体衬线字体文本生成器的原理'
+title: '如何生成斜衬线字符？为什么能直接复制粘贴使用？'
 description: '探索斜体衬线字体文本如何通过 Unicode 数学字母创造斜体衬线字体效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['斜体衬线字体', 'unicode', 'mathematical alphanumeric']
 language: 'zh'
 ---
-
-# 斜体衬线字体文本生成器的原理
 
 斜体衬线字体文本生成器创造出一种优雅的倾斜字体效果，结合了斜体的动感与衬线的传统美学。这种效果基于 Unicode 数学字母符号集中的特殊字符。
 

@@ -11,6 +11,14 @@
 	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
 	import Preview from '$lib/components/generator/Preview.svelte';
 	import Front from '$lib/components/layout/Front.svelte';
+	import Content from '$lib/components/layout/Content.svelte';
+
+	// 页面内容
+	let { data } = $props();
+
+	let pageData = $derived(data.content);
+
+	// 用户输入的文本
 	let inputText: string = $state('');
 
 	// 实际输入的文本
@@ -63,6 +71,8 @@
 
 	<!-- Preview Section -->
 	<Preview previewStyle={PREVIEW_STYLE} inputText={inputTextInternal} {intensity} />
+	<!-- 页面内容 -->
+	<Content post={pageData} />
 
 	<!-- Features Section -->
 	<Features features={COMMON_FEATURES} />

@@ -1,13 +1,11 @@
 ---
-title: '括号文本生成器的原理'
+title: '如何生成带括号的字符？为什么能直接复制粘贴使用？'
 description: '了解括号文本如何通过 Unicode 带括号字符创造轻度装饰的文字效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['括号', 'unicode', 'enclosed alphanumeric']
 language: 'zh'
 ---
-
-# 括号文本生成器的原理
 
 括号文本生成器创造出一种轻度装饰的文字效果，让每个字符都被括号包围。这种效果通过 Unicode 中的封闭式字母数字符号来实现，是最低调的装饰性字符之一。
 

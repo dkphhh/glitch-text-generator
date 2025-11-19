@@ -41,7 +41,7 @@
 	 * 否则使用默认标题
 	 */
 	let seoTitle = (() => {
-		if (title && title.length <= 40) {
+		if (title && title.length <= 30) {
 			return `${title} - ${DEFAULT_TITLE_SUFFIX}`;
 		}
 

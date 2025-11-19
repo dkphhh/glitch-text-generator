@@ -198,27 +198,36 @@ export async function getTermsOfServicePage(language: LangOptions): Promise<Blog
 	return locale ? locale : defaultLocale!;
 }
 
+// 预加载所有 page-content 目录下的内容
+const ALL_PAGE_CONTENT = await (async () => {
+	// 使用静态 glob 模式导入所有页面内容
+	const modules = import.meta.glob<string>('./page-content/**/*.md', {
+		query: '?raw',
+		import: 'default'
+	});
+
+	const allPages = await processSinglePages(modules, './page-content/');
+
+	return allPages;
+})();
+
 /**
  * 获取指定页面的指定语言版本。
  *
- * @param pageType - 目标页面名称，格式为 "生成器 key" + “page”，例如：“zalgo”、“upsideDown”
- * @param language - 目标语言（LangOptions）
- * @returns 返回匹配语言的 BlogPost；如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
+ * @param pageType - 目标页面名称，格式为 "生成器 key" + "page",例如:"zalgo"、"upsideDown"
+ * @param language - 目标语言 (LangOptions)
+ * @returns 返回匹配语言的 BlogPost;如果指定语言不存在，则返回英语 ('en') 的 BlogPost 作为默认值
  */
 export async function getGeneratorPageContent(
 	pageType: GeneratorType | 'home',
 	language: LangOptions
 ): Promise<BlogPost> {
-	const path = `./page-content/${pageType}-page/*.md`;
+	// 在运行时根据 pageType 和 language 进行过滤
+	const targetFolder = `${pageType}-page`;
+	const pagesInFolder = ALL_PAGE_CONTENT.filter((p) => p.slug.startsWith(targetFolder));
 
-	const modules = import.meta.glob<string>(path, {
-		query: '?raw',
-		import: 'default'
-	});
-	const allPages = await processSinglePages(modules, './page-content/');
-
-	const locale = allPages.find((p) => p.language === language);
-	const defaultLocale = allPages.find((p) => p.language === 'en');
+	const locale = pagesInFolder.find((p) => p.language === language);
+	const defaultLocale = pagesInFolder.find((p) => p.language === 'en');
 
 	return locale ? locale : defaultLocale!;
 }

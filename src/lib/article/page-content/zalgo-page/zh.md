@@ -1,13 +1,11 @@
 ---
-title: 'Zalgo 文本生成器的原理'
+title: '如何生成 Zalgo 文本？为什么能直接复制粘贴使用？'
 description: '了解 Zalgo 文本如何通过 Unicode 组合符号创造诡异的爬行效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['zalgo', 'unicode', 'combining characters']
 language: 'zh'
 ---
-
-# zalgo 文本生成器的原理
 
 zalgo 文本是互联网上最具辨识度的故障文本效果之一，那些看起来像是从字符中"爬出来"的符号让人印象深刻。这种独特的视觉效果完全基于 Unicode 的组合符号系统。
 

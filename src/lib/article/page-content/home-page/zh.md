@@ -1,12 +1,11 @@
 ---
-title: '如何生成故障文本'
+title: '如何生成故障文本？为什么能直接复制粘贴使用？'
 description: '深入探讨故障文本生成器背后的 Unicode 字符标准。'
 date: '2025-11-20'
 author: 'Admin'
 tags: ['glitch', 'text', 'generator']
 language: 'zh'
 ---
-
 
 故障文本（Glitch Text）是一种特殊的文字效果，它让普通文本看起来像是"损坏"或"被黑客入侵"了一样。你可能在社交媒体、游戏昵称或者艺术作品中见过这种充满神秘感的文字风格。
 

@@ -5,7 +5,7 @@ import { flipText } from './styles/glitch-style/flip';
 import { glitchifyText } from './styles/glitch-style/glitch';
 import { latinizeText } from './styles/glitch-style/latin';
 import { hackifyText } from './styles/glitch-style/hacker';
-import { hideText,revealText } from './styles/glitch-style/hidden';
+import { hideText, revealText } from './styles/glitch-style/hidden';
 import { confusedText } from './styles/glitch-style/unreadable';
 import { upsideDownText } from './styles/glitch-style/upside-down';
 import { zalgoGeneration } from './styles/zalgo';
@@ -31,6 +31,11 @@ export const GENERATOR_URL_PATH_MAP: Record<GeneratorType, string> = Object.entr
 	},
 	{} as Record<GeneratorType, string>
 );
+
+export const URL_PATH_GENERATOR_MAP = Object.fromEntries(
+	Object.entries(GENERATOR_URL_PATH_MAP).map(([k, v]) => [v, k])
+) as Record<string, GeneratorType>;
+
 export const GENERATOR_NAME_MAP: Record<GeneratorType, string> = Object.entries(
 	ALL_GENERATOR_DATA
 ).reduce(
@@ -147,9 +152,9 @@ export function stylizeText(
 		case 'hidden':
 			result = hideText(text);
 			break;
-		case "reveal-hidden":
+		case 'reveal-hidden':
 			result = revealText(text);
-			break
+			break;
 		case 'unreadable':
 			result = confusedText(text);
 			break;

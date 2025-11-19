@@ -1,13 +1,11 @@
 ---
-title: '粗体手写体文本生成器的原理'
+title: '如何生成粗手写体？为什么能直接复制粘贴使用？'
 description: '了解粗体手写体文本如何通过 Unicode 数学字母创造粗体手写体风格的文字效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['粗体手写体', 'unicode', 'mathematical alphanumeric']
 language: 'zh'
 ---
-
-# 粗体手写体文本生成器的原理
 
 粗体手写体文本生成器将优雅的手写体美学与粗体的视觉冲击力结合在一起，创造出一种既华丽又醒目的文字效果。
 

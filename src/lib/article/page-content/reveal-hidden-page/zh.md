@@ -1,13 +1,11 @@
 ---
-title: '显示隐藏文字工具的原理'
+title: '如何显示隐藏文字？原理是什么？'
 description: '了解显示隐藏文字工具如何检测和显示 Unicode 不可见字符。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['显示隐藏字符', 'unicode', 'invisible characters']
 language: 'zh'
 ---
-
-# 显示隐藏字符文本揭示工具的原理
 
 显示隐藏文字是一个实用的检测工具。它可以发现和显示文本中隐藏的不可见 Unicode 字符，帮助用户理解看似"空白"的文本中实际包含了什么内容。
 

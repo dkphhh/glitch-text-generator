@@ -1,13 +1,11 @@
 ---
-title: '手写体文本生成器的原理'
+title: '如何生成手写体字符？为什么能直接复制粘贴使用？'
 description: '探索手写体文本如何通过 Unicode 数学字母创造手写体风格的文字效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['手写体', 'unicode', 'mathematical alphanumeric']
 language: 'zh'
 ---
-
-# 手写体文本生成器的原理
 
 手写体文本生成器创造出一种优雅的手写字体效果，让数字文本呈现出流畅的书法美感。这种效果基于 Unicode 数学字母符号集中的花体字符。
 

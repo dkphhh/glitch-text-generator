@@ -1,13 +1,11 @@
 ---
-title: 'Discord 故障文本生成器的原理'
+title: '如何生成 Discord 故障文本，为什么能直接复制粘贴使用？'
 description: '了解 Discord 故障文本如何通过 Unicode 字符创造适用于 Discord 的故障文字效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['discord', '故障', 'unicode']
 language: 'zh'
 ---
-
-# Discord 故障文本生成器的原理
 
 Discord 故障文本生成器专门为 Discord 聊天平台优化，创造出在 Discord 环境中表现良好的故障文字效果。这种效果结合了多种 Unicode 技术，确保在 Discord 的特定渲染环境中呈现出最佳的视觉效果。
 

@@ -1,13 +1,11 @@
 ---
-title: '方框文本生成器的原理'
+title: '如何生成带方框的字符？为什么能直接复制粘贴使用？'
 description: '探索方框文本如何通过 Unicode 带方框字符创造方形装饰的文字效果。'
 date: '2025-01-20'
 author: 'Admin'
 tags: ['方框', 'unicode', 'enclosed alphanumeric']
 language: 'zh'
 ---
-
-# 方框文本生成器的原理
 
 方框文本生成器创造出一种现代简约的装饰效果，让每个字符都被包裹在一个方形框架中。这种效果通过 Unicode 中的封闭式字母数字符号来实现。
 

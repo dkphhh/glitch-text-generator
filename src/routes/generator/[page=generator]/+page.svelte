@@ -19,6 +19,7 @@
 	import FAQ from '$lib/components/layout/FAQ.svelte';
 	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
 	import { COMMON_FAQS } from '$lib/page-data/faq';
+	import Content from '$lib/components/layout/Content.svelte';
 	// url 路径
 	let pathParam = $derived(page.params.page);
 
@@ -65,12 +66,17 @@
 
 	// zalgo 强度
 	let intensity = $state(5);
+
+	// 页面文字内容
+	let { data } = $props();
+	let pageData = $derived(data.content);
 </script>
 
 <SeoTDK title={seoTitle} description={pageDescription} />
 <div class="min-h-screen w-full">
 	<Front title={pageTitle} subtitle={pageSubtitle} />
 	<Generator bind:inputText bind:inputTextInternal bind:intensity preSetStyle={styleKey} />
+	<Content post={pageData} />
 	<!-- 其他样式预览 -->
 	<Preview previewStyle={PREVIEW_STYLE} inputText={inputTextInternal} {intensity} />
 	<Features features={COMMON_FEATURES} />
