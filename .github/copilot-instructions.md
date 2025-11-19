@@ -34,7 +34,7 @@ let outputText = $derived.by(() => generateText());
 
 ### Dynamic Routing with Param Matchers
 
-Uses SvelteKit's `[page=generator]` pattern with custom param matcher (`src/params/generator.ts`):
+Uses SvelteKit's `[generator=generator]` pattern with custom param matcher (`src/params/generator.ts`):
 
 ```typescript
 export const match = ((param: string) => {

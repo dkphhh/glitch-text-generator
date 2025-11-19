@@ -66,7 +66,7 @@
 <section class="container mx-auto mb-8 flex max-w-6xl flex-col items-center gap-4">
 	<!-- Input -->
 	<fieldset
-		class="sticky top-14 z-10 fieldset w-full gap-2 rounded border-2 border-primary bg-base-200 p-4"
+		class="sticky top-14 z-10 fieldset w-full gap-2 rounded border-2 border-primary bg-base-200 p-4 lg:top-18"
 	>
 		<legend class="fieldset-legend">{m.input_label()}</legend>
 		<input

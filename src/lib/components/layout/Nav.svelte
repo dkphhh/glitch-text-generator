@@ -64,4 +64,4 @@
 	</div>
 </nav>
 
-<div class="h-18"></div>
+<div class="h-18 lg:h-24"></div>

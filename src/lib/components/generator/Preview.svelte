@@ -4,6 +4,7 @@
 	import { resolve } from '$app/paths';
 	import { m } from '$lib/paraglide/messages.js';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
+	import { page } from '$app/state';
 	let {
 		previewStyle,
 		inputText,
@@ -34,18 +35,13 @@
 
 		return previews;
 	});
+
+	let isGeneratorPage = $derived.by(() => {
+		return page.params.generator !== undefined;
+	});
 </script>
 
-<section class="container mx-auto flex max-w-6xl flex-col gap-4 pb-8">
-	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-		{#each Object.keys(previewStyleText) as style (style)}
-			{@const s = style as Style}
-			{@const outputText = previewStyleText[s]}
-			{@const previewTitle = GENERATOR_NAME_MAP[s]}
-			<PreviewCard {outputText} {previewTitle} />
-		{/each}
-	</div>
-
+{#snippet moreStyleButton()}
 	<a
 		href={localizeHref(resolve('/generator'))}
 		class="btn mx-auto w-fit min-w-90 rounded text-xl btn-xl btn-primary"
@@ -61,4 +57,21 @@
 			/><path d="M3 4v16" /></svg
 		>
 	</a>
+{/snippet}
+
+<section class="container mx-auto mb-8 flex max-w-6xl flex-col gap-4">
+	{#if isGeneratorPage}
+		{@render moreStyleButton()}
+	{/if}
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		{#each Object.keys(previewStyleText) as style (style)}
+			{@const s = style as Style}
+			{@const outputText = previewStyleText[s]}
+			{@const previewTitle = GENERATOR_NAME_MAP[s]}
+			<PreviewCard {outputText} {previewTitle} />
+		{/each}
+	</div>
+	{#if !isGeneratorPage}
+		{@render moreStyleButton()}
+	{/if}
 </section>
