@@ -232,5 +232,15 @@
 	"blog_subtitle": "关于故障文字、Unicode 和文字效果的文章，告诉你如何创建和使用故障文字、诅咒文字和特殊符号，就像下面这样",
 	"blog_description": "探索关于故障文字生成、Unicode 字符、文字效果等的文章和教程。了解如何在不同平台上创建和使用独特的文字样式。",
 	"blog_more_posts": "更多文章",
-	"blog_tags": "文章标签"
+	"blog_tags": "文章标签",
+	"generator_discord_glitch_title": "Discord 故障字符生成器 - Copy & Paste for Discord",
+	"error_back_home": "回到主页",
+	"error_go_back": "返回上一页",
+	"error_home_page": "主页",
+	"reveal_button": "显示隐藏文字",
+	"style_reveal_hidden": "显示隐藏文字",
+	"generator_reveal_hidden_h1": "显示隐藏文字工具",
+	"generator_reveal_hidden_subtitle": "将隐藏的不可见字符转换为可见文字，一键显示加密信息",
+	"generator_reveal_hidden_title": "显示隐藏文字工具，一键显示加密信息、隐藏信息、密文",
+	"generator_reveal_hidden_description": "使用我们的显示隐藏文字工具，将包含不可见字符的文字转换为可见形式。一键显示隐藏信息，适用于加密文本或隐藏消息。"
 }

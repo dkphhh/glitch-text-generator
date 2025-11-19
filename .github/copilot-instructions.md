@@ -58,6 +58,19 @@ Routes like `/generator/zalgo-text-generator` are validated against `ALL_GENERAT
 
 **Adding new translations**: Edit JSON files in `messages/`, run `npm run dev` to regenerate Paraglide code.
 
+**support languages**:
+
+    en: 'English',
+    es: 'Español',
+    fr: 'français',
+    de: 'Deutsch',
+    zh: '中文',
+    ja: '日本語',
+    ru: 'русский язык',
+    pt: 'Português',
+    id: 'Bahasa Indonesia',
+    ko: '조선어'
+
 ### Content Management System
 
 **Location**: `src/lib/page-data/content/` organized by section (blog, about, guide, etc.)
@@ -182,5 +195,5 @@ Each generator has dedicated SEO metadata:
 
 ## Analytics & Monitoring
 
-- Google Analytics 
+- Google Analytics
 - Microsoft Clarity

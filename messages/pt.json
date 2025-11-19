@@ -230,8 +230,17 @@
 	"generator_roblox_glitch_description": "Crie texto glitch para nomes de usuário e jogos do Roblox. Funciona em mobile e desktop. Copie e cole diretamente no Roblox.",
 	"generator_minecraft_glitch_subtitle": "Para Nomes de Servidor, Chat e Placas",
 	"generator_minecraft_glitch_description": "Gere texto glitch para nomes de servidor, chat e placas do Minecraft. Compatível com as edições Java e Bedrock.",
+	"generator_reveal_hidden_h1": "Revelar Texto Oculto",
+	"generator_reveal_hidden_subtitle": "Revelar Texto Oculto, Cole Mensagens Secretas Aqui, Você Verá o Texto Invisível",
+	"generator_reveal_hidden_title": "Revelar Texto Oculto - Detector e Removedor de Texto Invisível",
+	"generator_reveal_hidden_description": "Revele texto oculto ou invisível detectando e removendo caracteres Unicode invisíveis. Descubra mensagens secretas e torne o texto oculto visível novamente.",
 	"blog_subtitle": "Dicas de Geração de Texto, Truques e Guias de Estilo para Gerador de Texto Glitch, Ajude a Criar Efeitos de Texto Únicos Como Este",
 	"blog_description": "Domine a arte da geração de texto glitch com nosso blog. Obtenha tutoriais passo a passo para mais de 33 estilos de texto, guias específicos de plataforma para Discord/Roblox/Minecraft e dicas de especialistas para criar efeitos de texto Unicode únicos.",
 	"blog_more_posts": "Mais Postagens",
-	"blog_tags": "Tags"
+	"blog_tags": "Tags",
+	"error_back_home": "Voltar à Página Inicial",
+	"error_go_back": "Voltar",
+	"error_home_page": "Página Inicial",
+	"reveal_button": "Revelar",
+	"style_reveal_hidden": "Revelar Texto Oculto"
 }
