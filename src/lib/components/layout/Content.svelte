@@ -8,8 +8,8 @@
 <section
 	class="container mx-auto my-12 prose prose-base flex max-w-4xl flex-col items-center lg:prose-lg"
 >
-	<h2 class="px-6">{post.title}</h2>
-	<article class="rounded border border-base-300 bg-base-200 p-12">
+	<h2 class="px-2 lg:px-6">{post.title}</h2>
+	<article class="rounded border border-base-300 bg-base-200 p-4 lg:p-12">
 		<p class="opacity-70">{post.description}</p>
 		<MarkdownRender md={post.content} />
 	</article>

@@ -21,12 +21,11 @@
 	import { COMMON_FAQS } from '$lib/page-data/faq';
 	import Content from '$lib/components/layout/Content.svelte';
 	// url 路径
-	let pathParam = $derived(page.params.page);
+	let pathParam = $derived(page.params.generator);
 
 	// 通过 url 路径获取生成器类型，默认是 zalgo
 	let generatorKey: GeneratorType = $derived.by(() => {
 		if (!pathParam) {
-			console.warn('No generator type specified in the URL, defaulting to zalgo.');
 			return 'zalgo';
 		}
 		return getGeneratorFromPath(pathParam);

@@ -110,7 +110,19 @@
 				<a
 					href={localizeHref(resolve(`/generator/${GENERATOR_URL_PATH_MAP['reveal-hidden']}`))}
 					hidden={selectedStyle !== 'hidden'}
-					class="btn btn-sm btn-neutral lg:flex-1 lg:btn-md">{m.reveal_button()}</a
+					class="btn btn-sm btn-neutral lg:flex-1 lg:btn-md"
+				>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						viewBox="0 0 24 24"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="lucide lucide-eye-icon lucide-eye size-4 fill-none stroke-current stroke-2"
+						><path
+							d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"
+						/><circle cx="12" cy="12" r="3" /></svg
+					>
+					{m.reveal_button()}</a
 				>
 				<!-- 清除按钮 -->
 				<button

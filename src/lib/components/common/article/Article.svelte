@@ -10,7 +10,7 @@
 
 <section class="container mx-auto flex flex-col items-center">
 	<a
-		class="btn mb-16 btn-outline btn-sm btn-primary md:btn-md"
+		class="btn mb-12 btn-outline btn-sm btn-primary md:btn-md"
 		href={localizeHref(resolve('/blog'))}
 	>
 		<svg
@@ -25,7 +25,9 @@
 		>
 		{m.back_to_blog()}</a
 	>
-	<article class="container prose prose-base max-w-4xl lg:prose-lg">
+	<article
+		class="container prose prose-base flex max-w-4xl flex-col items-center text-pretty lg:prose-lg"
+	>
 		<!-- 文章 meta 部分 -->
 		<div class="mb-8 flex flex-col items-center">
 			<!-- 文章标题 -->

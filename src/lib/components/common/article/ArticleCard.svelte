@@ -4,7 +4,7 @@
 	let { post, articleUrl }: { post: BlogPost; articleUrl: string } = $props();
 </script>
 
-<div class="card bg-base-100 card-border">
+<div class="card border-base-300 bg-base-200 card-border">
 	<a class="card-body hover:bg-base-200" href={articleUrl}>
 		<h2 class="card-title">{post.title}</h2>
 		<p class="line-clamp-3 text-base text-base-content/70">

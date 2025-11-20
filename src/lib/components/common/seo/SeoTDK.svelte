@@ -2,6 +2,7 @@
 	import { PUBLIC_BASE_URL } from '$env/static/public';
 	import { page } from '$app/state';
 	import { dev } from '$app/environment';
+	import { locales, baseLocale, localizeHref } from '$lib/paraglide/runtime';
 
 	let {
 		title,
@@ -75,8 +76,37 @@
 			// 如果提供了规范链接，则使用 baseUrl + canonical
 			return `${SITE_URL}${canonical}`;
 		}
-		// 否则使用网站首页作为规范链接
+		// 否则使用当前页面路径
 		return SITE_URL + page.url.pathname;
+	});
+
+	/**
+	 * 语言代码映射到 ISO 639-1 和国家代码
+	 * 用于 hreflang 标签
+	 */
+	const LOCALE_TO_HREFLANG: Record<string, string> = {
+		en: 'en',
+		es: 'es',
+		fr: 'fr',
+		de: 'de',
+		zh: 'zh-CN',
+		ja: 'ja',
+		ru: 'ru',
+		pt: 'pt',
+		id: 'id',
+		ko: 'ko'
+	};
+
+	/**
+	 * 生成所有语言版本的 hreflang URLs
+	 */
+	let hreflangUrls = $derived.by(() => {
+		const currentPath = page.url.pathname;
+		return locales.map((locale) => ({
+			locale,
+			hreflang: LOCALE_TO_HREFLANG[locale] || locale,
+			url: `${SITE_URL}${localizeHref(currentPath, { locale })}`
+		}));
 	});
 
 	/**
@@ -109,6 +139,18 @@
 	<meta name="description" content={seoDescription} />
 	<meta name="keywords" content={seoKeywords} />
 	<link rel="canonical" href={canonicalUrl} />
+
+	<!-- Hreflang tags for multilingual SEO -->
+	{#each hreflangUrls as { hreflang, url } (hreflang)}
+		<link rel="alternate" {hreflang} href={url} />
+	{/each}
+
+	<!-- x-default for default language -->
+	<link
+		rel="alternate"
+		hreflang="x-default"
+		href={`${SITE_URL}${localizeHref(page.url.pathname, { locale: baseLocale })}`}
+	/>
 
 	<!-- Open Graph / Facebook -->
 	<meta property="og:type" content="website" />
