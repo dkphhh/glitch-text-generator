@@ -23,13 +23,13 @@
 	}
 </script>
 
-<div class="stats relative w-full rounded border border-base-300 bg-base-200">
+<div class="stats w-full rounded border border-base-300 bg-base-200">
 	<div class="stat">
 		<div class="stat-title">{previewTitle}</div>
 		<div class="stat-value h-32 overflow-auto font-mono! text-sm/8! font-light! lg:text-base/20!">
 			{outputText}
 		</div>
-		<div class="absolute right-4 bottom-4 stat-actions flex justify-end">
+		<div class="stat-actions flex justify-end">
 			<button onclick={copyToClipboard} class="btn btn-sm btn-neutral" disabled={!outputText}>
 				<svg
 					xmlns="http://www.w3.org/2000/svg"
