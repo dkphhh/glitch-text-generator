@@ -12,91 +12,91 @@ import { zalgoGeneration } from './styles/zalgo';
 import { ALL_GENERATOR_DATA } from './generatorData';
 
 export const SPECIAL_GENERATORS_STYLE_MAP: Record<string, Style> = {
-	'discord-glitch': 'hacker',
-	'glitch-font': 'glitch',
-	'minecraft-glitch': 'unreadable',
-	'roblox-glitch': 'glitch'
+        'discord-glitch': 'hacker',
+        'glitch-font': 'glitch',
+        'minecraft-glitch': 'unreadable',
+        'roblox-glitch': 'glitch'
 };
 
 const SPECIAL_GENERATORS: string[] = Object.keys(SPECIAL_GENERATORS_STYLE_MAP);
 
 export const GENERATOR_URL_PATH_MAP: Record<GeneratorType, string> = Object.entries(
-	ALL_GENERATOR_DATA
+        ALL_GENERATOR_DATA
 ).reduce(
-	(r, item) => {
-		const [key, data] = item;
-		const k = key as GeneratorType;
-		r[k] = data.urlPath;
-		return r;
-	},
-	{} as Record<GeneratorType, string>
+        (r, item) => {
+                const [key, data] = item;
+                const k = key as GeneratorType;
+                r[k] = data.urlPath;
+                return r;
+        },
+        {} as Record<GeneratorType, string>
 );
 
 export const URL_PATH_GENERATOR_MAP = Object.fromEntries(
-	Object.entries(GENERATOR_URL_PATH_MAP).map(([k, v]) => [v, k])
+        Object.entries(GENERATOR_URL_PATH_MAP).map(([k, v]) => [v, k])
 ) as Record<string, GeneratorType>;
 
 export const GENERATOR_NAME_MAP: Record<GeneratorType, string> = Object.entries(
-	ALL_GENERATOR_DATA
+        ALL_GENERATOR_DATA
 ).reduce(
-	(r, item) => {
-		const [key, data] = item;
-		const k = key as GeneratorType;
-		r[k] = data.displayName;
-		return r;
-	},
-	{} as Record<GeneratorType, string>
+        (r, item) => {
+                const [key, data] = item;
+                const k = key as GeneratorType;
+                r[k] = data.displayName;
+                return r;
+        },
+        {} as Record<GeneratorType, string>
 );
 export const GENERATOR_SUBTITLE_MAP: Record<GeneratorType, string> = Object.entries(
-	ALL_GENERATOR_DATA
+        ALL_GENERATOR_DATA
 ).reduce(
-	(r, item) => {
-		const [key, data] = item;
-		const k = key as GeneratorType;
-		r[k] = data.subtitle;
-		return r;
-	},
-	{} as Record<GeneratorType, string>
+        (r, item) => {
+                const [key, data] = item;
+                const k = key as GeneratorType;
+                r[k] = data.subtitle;
+                return r;
+        },
+        {} as Record<GeneratorType, string>
 );
 export const GENERATOR_DESCRIPTION_MAP: Record<GeneratorType, string> = Object.entries(
-	ALL_GENERATOR_DATA
+        ALL_GENERATOR_DATA
 ).reduce(
-	(r, item) => {
-		const [key, data] = item;
-		const k = key as GeneratorType;
-		r[k] = data.description;
-		return r;
-	},
-	{} as Record<GeneratorType, string>
+        (r, item) => {
+                const [key, data] = item;
+                const k = key as GeneratorType;
+                r[k] = data.description;
+                return r;
+        },
+        {} as Record<GeneratorType, string>
 );
 
 export const GENERATOR_PAGE_TITLE_MAP: Record<GeneratorType, string> = Object.entries(
-	ALL_GENERATOR_DATA
+        ALL_GENERATOR_DATA
 ).reduce(
-	(r, item) => {
-		const [key, data] = item;
-		const k = key as GeneratorType;
-		r[k] = data.pageTitle;
-		return r;
-	},
-	{} as Record<GeneratorType, string>
+        (r, item) => {
+                const [key, data] = item;
+                const k = key as GeneratorType;
+                r[k] = data.pageTitle;
+                return r;
+        },
+        {} as Record<GeneratorType, string>
 );
 
 export const GENERATOR_SEO_TITLE_MAP: Record<GeneratorType, string> = Object.entries(
-	ALL_GENERATOR_DATA
+        ALL_GENERATOR_DATA
 ).reduce(
-	(r, item) => {
-		const [key, data] = item;
-		const k = key as GeneratorType;
-		r[k] = data.seoTitle;
-		return r;
-	},
-	{} as Record<GeneratorType, string>
+        (r, item) => {
+                const [key, data] = item;
+                const k = key as GeneratorType;
+                r[k] = data.seoTitle;
+                return r;
+        },
+        {} as Record<GeneratorType, string>
 );
 
 // 仅包含样式转换的生成器列表
 export const STYLE_LIST: string[] = Object.keys(GENERATOR_NAME_MAP).filter(
-	(n) => !SPECIAL_GENERATORS.includes(n)
+        (n) => !SPECIAL_GENERATORS.includes(n)
 );
 
 // 所有生成器的 key 列表
@@ -121,60 +121,60 @@ export const ALL_GENERATOR_KEY = [...Object.keys(ALL_GENERATOR_DATA)];
  * const s2 = stylizeText('Hello', 'zalgo', { intensity: 2 });
  */
 export function stylizeText(
-	text: string,
-	style: Style,
-	zalgoOption: {
-		intensity: number;
-	} = {
-		intensity: 2
-	}
+        text: string,
+        style: Style,
+        zalgoOption: {
+                intensity: number;
+        } = {
+                        intensity: 2
+                }
 ): string {
-	let result: string;
-	switch (style) {
-		case 'cool':
-			result = coolifyText(text);
-			break;
-		case 'cursed':
-			result = cursedText(text);
-			break;
-		case 'flip':
-			result = flipText(text);
-			break;
-		case 'glitch':
-			result = glitchifyText(text);
-			break;
-		case 'latin':
-			result = latinizeText(text);
-			break;
-		case 'hacker':
-			result = hackifyText(text);
-			break;
-		case 'hidden':
-			result = hideText(text);
-			break;
-		case 'reveal-hidden':
-			result = revealText(text);
-			break;
-		case 'unreadable':
-			result = confusedText(text);
-			break;
-		case 'upsideDown':
-			result = upsideDownText(text);
-			break;
-		case 'zalgo':
-			result = zalgoGeneration(
-				text,
-				zalgoOption.intensity,
-				zalgoOption.intensity,
-				zalgoOption.intensity
-			);
-			break;
-		default:
-			result = styleText(text, style);
-			break;
-	}
+        let result: string;
+        switch (style) {
+                case 'cool':
+                        result = coolifyText(text);
+                        break;
+                case 'cursed':
+                        result = cursedText(text);
+                        break;
+                case 'flip':
+                        result = flipText(text);
+                        break;
+                case 'glitch':
+                        result = glitchifyText(text);
+                        break;
+                case 'latin':
+                        result = latinizeText(text);
+                        break;
+                case 'hacker':
+                        result = hackifyText(text);
+                        break;
+                case 'hidden':
+                        result = hideText(text);
+                        break;
+                case 'reveal-hidden':
+                        result = revealText(text);
+                        break;
+                case 'unreadable':
+                        result = confusedText(text);
+                        break;
+                case 'upsideDown':
+                        result = upsideDownText(text);
+                        break;
+                case 'zalgo':
+                        result = zalgoGeneration(
+                                text,
+                                zalgoOption.intensity,
+                                zalgoOption.intensity,
+                                zalgoOption.intensity
+                        );
+                        break;
+                default:
+                        result = styleText(text, style);
+                        break;
+        }
 
-	return result;
+        return result;
 }
 
 /**
@@ -190,35 +190,35 @@ export function stylizeText(
  * ```
  */
 export function getGeneratorFromPath(path: string): GeneratorType {
-	const ALL_URL_PATH = Object.values(GENERATOR_URL_PATH_MAP);
+        const ALL_URL_PATH = Object.values(GENERATOR_URL_PATH_MAP);
 
-	if (!ALL_URL_PATH.includes(path)) {
-		console.error(`Invalid generator path: ${path}. Defaulting to 'zalgo'.`);
-		return 'zalgo';
-	}
+        if (!ALL_URL_PATH.includes(path)) {
+                console.error(`Invalid generator path: ${path}. Defaulting to 'zalgo'.`);
+                return 'zalgo';
+        }
 
-	const generator = Object.entries(GENERATOR_URL_PATH_MAP).find(
-		([, urlPath]) => urlPath === path
-	)?.[0];
+        const generator = Object.entries(GENERATOR_URL_PATH_MAP).find(
+                ([, urlPath]) => urlPath === path
+        )?.[0];
 
-	if (!generator) {
-		console.error(`Style not found for path: ${path}. Defaulting to 'zalgo'.`);
-		return 'zalgo';
-	}
+        if (!generator) {
+                console.error(`Style not found for path: ${path}. Defaulting to 'zalgo'.`);
+                return 'zalgo';
+        }
 
-	return generator as GeneratorType;
+        return generator as GeneratorType;
 }
 
 export function getGeneratorStyle(generator: GeneratorType): Style {
-	if (SPECIAL_GENERATORS.includes(generator)) {
-		return SPECIAL_GENERATORS_STYLE_MAP[generator];
-	}
+        if (SPECIAL_GENERATORS.includes(generator)) {
+                return SPECIAL_GENERATORS_STYLE_MAP[generator];
+        }
 
-	if (STYLE_LIST.includes(generator)) {
-		return generator as Style;
-	}
+        if (STYLE_LIST.includes(generator)) {
+                return generator as Style;
+        }
 
-	return 'zalgo';
+        return 'zalgo';
 }
 
 // TODO：再做一个解除生成器效果，恢复成正常文本的功能
