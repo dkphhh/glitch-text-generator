@@ -1,1 +1,2 @@
 - [ ] 将 page-content 目录下的多语言内容补充网站
+- [ ] 增加 figlet 生成器，参考：https://github.com/patorjk/figlet.js

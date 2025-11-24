@@ -55,7 +55,7 @@ const upsideDownCharactersMap: Record<BaseCharacters, string[]> = {
 	z: ['z']
 };
 
-export const baseUpsideDownCharacters = Object.keys(upsideDownCharactersMap);
+const baseUpsideDownCharacters = Object.keys(upsideDownCharactersMap);
 
 function getRandomUpsideDownVariants(char: string): string {
 	if (!baseUpsideDownCharacters.includes(char)) return char;

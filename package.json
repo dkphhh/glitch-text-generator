@@ -13,7 +13,7 @@
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
-		"lint": "autocorrect --fix ./ && prettier --check . && eslint .",
+		"lint": "bun autocorrect --fix ./ && prettier --check . && eslint .",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
 		"postbuild": "bunx svelte-sitemap --domain https://cooltext.app --out-dir .svelte-kit/cloudflare"
@@ -31,6 +31,7 @@
 		"@tailwindcss/vite": "^4.1.17",
 		"@types/js-yaml": "^4.0.9",
 		"@types/node": "^24.10.1",
+		"autocorrect-node": "^2.14.0",
 		"confusables": "^1.1.1",
 		"daisyui": "^5.5.5",
 		"eslint": "^9.39.1",
@@ -52,7 +53,7 @@
 		"unicode-text-decorator": "^0.1.1",
 		"vite": "^7.2.4",
 		"vitest": "^4.0.12",
-		"wrangler": "^4.49.1",
+		"wrangler": "^4.50.0",
 		"zero-width-lib": "^1.1.0"
 	},
 	"dependencies": {}

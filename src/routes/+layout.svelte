@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import { page } from '$app/state';
-	import favicon from '$lib/assets/favicon.ico';
+	import favicon from '$lib/assets/favicon.png';
 	import { locales, localizeHref } from '$lib/paraglide/runtime';
 	import Nav from '$lib/components/layout/Nav.svelte';
 
@@ -27,4 +27,3 @@
 		<a href={localizeHref(page.url.pathname, { locale })}>{locale}</a>
 	{/each}
 </div>
-
