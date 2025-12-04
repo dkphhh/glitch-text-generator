@@ -16,13 +16,18 @@ declare global {
 		| 'reveal-hidden'
 		| 'unreadable'
 		| 'upsideDown'
+		| 'ascii-art'
 		| FontName;
 
 	export type SpecialGenerator =
 		| 'glitch-font'
 		| 'discord-glitch'
 		| 'roblox-glitch'
-		| 'minecraft-glitch';
+		| 'minecraft-glitch'
+		| 'cli-style'
+		| 'hacker-style'
+		| 'console-style'
+		| 'matrix-style';
 
 	export type GeneratorType = Style | SpecialGenerator;
 

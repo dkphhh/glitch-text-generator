@@ -31,7 +31,7 @@
 	});
 
 	// 生成文本的函数
-	function generateText(): string {
+	async function generateText(): Promise<string> {
 		if (!inputTextInternal.trim()) {
 			return '';
 		}
@@ -47,14 +47,14 @@
 		let result = inputTextInternal;
 
 		// 应用样式
-		result = stylizeText(result, selectedStyle, { intensity });
+		result = await stylizeText(result, selectedStyle, { intensity });
 
 		return result;
 	}
 
 	// 输出文本
-	let outputText = $derived.by(() => {
-		return generateText();
+	let outputText = $derived.by( async () => {
+		return await generateText();
 	});
 
 	// 清除

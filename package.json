@@ -56,5 +56,8 @@
 		"wrangler": "^4.50.0",
 		"zero-width-lib": "^1.1.0"
 	},
-	"dependencies": {}
+	"dependencies": {
+		"@types/figlet": "^1.7.0",
+		"figlet": "^1.9.4"
+	}
 }

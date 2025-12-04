@@ -10,6 +10,7 @@ import { confusedText } from './styles/glitch-style/unreadable';
 import { upsideDownText } from './styles/glitch-style/upside-down';
 import { zalgoGeneration } from './styles/zalgo';
 import { ALL_GENERATOR_DATA } from './generatorData';
+import { asciiStyleText } from './styles/ascii-art';
 
 export const SPECIAL_GENERATORS_STYLE_MAP: Record<string, Style> = {
 	'discord-glitch': 'hacker',
@@ -120,15 +121,16 @@ export const ALL_GENERATOR_KEY = [...Object.keys(ALL_GENERATOR_DATA)];
  * const s1 = stylizeText('Hello', 'cool');
  * const s2 = stylizeText('Hello', 'zalgo', { intensity: 2 });
  */
-export function stylizeText(
+export async function stylizeText(
 	text: string,
 	style: Style,
 	zalgoOption: {
 		intensity: number;
 	} = {
 		intensity: 2
-	}
-): string {
+	},
+	asciiStyle?: string
+): Promise<string> {
 	let result: string;
 	switch (style) {
 		case 'cool':
@@ -168,6 +170,9 @@ export function stylizeText(
 				zalgoOption.intensity,
 				zalgoOption.intensity
 			);
+			break;
+		case 'ascii-art':
+			result = await asciiStyleText(text, asciiStyle);
 			break;
 		default:
 			result = styleText(text, style);

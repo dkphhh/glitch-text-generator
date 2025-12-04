@@ -16,7 +16,7 @@
 	} = $props();
 
 	// 其他样式预览文本
-	let previewStyleText: Record<Style, string> = $derived.by(() => {
+	let previewStyleText: Promise<Record<Style, string>> = $derived.by(async () => {
 		if (!inputText.trim()) {
 			let result = {} as Record<Style, string>;
 			for (let style of previewStyle) {
@@ -30,7 +30,7 @@
 
 		for (let style of previewStyle) {
 			const s = style as Style;
-			previews[s] = stylizeText(inputText, s, { intensity: intensity });
+			previews[s] = await stylizeText(inputText, s, { intensity: intensity });
 		}
 
 		return previews;
@@ -66,7 +66,10 @@
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 		{#each Object.keys(previewStyleText) as style (style)}
 			{@const s = style as Style}
-			{@const outputText = previewStyleText[s]}
+			{@const outputText = (async () => {
+				const t = await previewStyleText;
+				return t[s];
+			})()}
 			{@const previewTitle = GENERATOR_NAME_MAP[s]}
 			<PreviewCard {outputText} {previewTitle} />
 		{/each}
