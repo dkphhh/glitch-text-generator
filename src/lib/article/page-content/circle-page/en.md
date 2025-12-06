@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Circled Letters? Why Can They Be Copied and Pasted Directly?'
 description: 'Explore how circled text creates circle-decorated text effects through Unicode enclosed characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['circled', 'unicode', 'enclosed alphanumeric']
 language: 'en'

@@ -1,7 +1,7 @@
 ---
 title: '如何生成空心圆圈字母？为什么能直接复制粘贴使用？'
 description: '探索空心圆圈文本如何通过 Unicode 带圈字符创造圆圈装饰的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['空心圆圈', 'unicode', 'enclosed alphanumeric']
 language: 'zh'

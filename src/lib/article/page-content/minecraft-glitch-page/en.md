@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Minecraft Glitch Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Learn how Minecraft glitch text creates glitch text effects suitable for Minecraft through Unicode characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['minecraft', 'glitch', 'unicode']
 language: 'en'

@@ -1,7 +1,7 @@
 ---
 title: '如何生成带方框的字符？为什么能直接复制粘贴使用？'
 description: '探索方框文本如何通过 Unicode 带方框字符创造方形装饰的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['方框', 'unicode', 'enclosed alphanumeric']
 language: 'zh'

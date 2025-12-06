@@ -1,7 +1,7 @@
 ---
 title: '如何生成手写体字符？为什么能直接复制粘贴使用？'
 description: '探索手写体文本如何通过 Unicode 数学字母创造手写体风格的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['手写体', 'unicode', 'mathematical alphanumeric']
 language: 'zh'

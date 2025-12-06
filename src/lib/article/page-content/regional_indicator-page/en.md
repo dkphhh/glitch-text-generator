@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Regional Indicator Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Explore how regional indicator text creates flag-style text effects through Unicode regional indicators.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['regional indicator', 'unicode', 'emoji']
 language: 'en'

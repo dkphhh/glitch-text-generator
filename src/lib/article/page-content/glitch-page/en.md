@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Glitch Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Explore how glitch text creates digital glitch visual effects through Unicode character replacement.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['glitch text', 'unicode', 'text effect']
 language: 'en'

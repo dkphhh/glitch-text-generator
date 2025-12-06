@@ -1,7 +1,7 @@
 ---
 title: '如何生成 Zalgo 文本？为什么能直接复制粘贴使用？'
 description: '了解 Zalgo 文本如何通过 Unicode 组合符号创造诡异的爬行效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['zalgo', 'unicode', 'combining characters']
 language: 'zh'

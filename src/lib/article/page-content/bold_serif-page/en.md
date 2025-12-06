@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Bold Serif Font Letters? Why Can They Be Copied and Pasted Directly?'
 description: 'Learn how bold serif font text creates bold serif font effects through Unicode mathematical alphanumerics.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['bold serif', 'unicode', 'mathematical alphanumeric']
 language: 'en'

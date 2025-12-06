@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Bold Sans-Serif Font? Why Can It Be Copied and Pasted Directly?'
 description: 'Explore how bold sans-serif font text creates bold sans-serif font effects through Unicode mathematical letters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['bold sans-serif', 'unicode', 'mathematical alphanumeric']
 language: 'en'

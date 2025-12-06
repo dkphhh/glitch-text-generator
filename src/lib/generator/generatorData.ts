@@ -29,6 +29,24 @@ export const ALL_GENERATOR_DATA: Record<GeneratorType, GeneratorData> = {
 		urlPath: 'glitch-text-generator',
 		category: 'glitch'
 	},
+	'ascii-art': {
+		displayName: m.style_ascii_art(),
+		pageTitle: m.generator_ascii_art_h1(),
+		subtitle: m.generator_ascii_art_subtitle(),
+		seoTitle: m.generator_ascii_art_title(),
+		description: m.generator_ascii_art_description(),
+		urlPath: 'ascii-art-generator',
+		category: 'ascii-art'
+	},
+	'cli-style': {
+		displayName: m.generator_cli_style_h1(),
+		pageTitle: m.generator_cli_style_h1(),
+		subtitle: m.generator_cli_style_subtitle(),
+		seoTitle: m.generator_cli_style_title(),
+		description: m.generator_cli_style_description(),
+		urlPath: 'cli-text-generator',
+		category: 'ascii-art'
+	},
 	hacker: {
 		displayName: m.style_hacker(),
 		pageTitle: m.generator_hacker_h1(),
@@ -272,6 +290,24 @@ export const ALL_GENERATOR_DATA: Record<GeneratorType, GeneratorData> = {
 		urlPath: 'fullwidth-text-generator',
 		category: 'font-variant'
 	},
+	'matrix-style': {
+		displayName: m.generator_matrix_style_h1(),
+		pageTitle: m.generator_matrix_style_h1(),
+		subtitle: m.generator_matrix_style_subtitle(),
+		seoTitle: m.generator_matrix_style_title(),
+		description: m.generator_matrix_style_description(),
+		urlPath: 'matrix-text-generator',
+		category: 'ascii-art'
+	},
+	'discord-ascii': {
+		displayName: m.style_discord_ascii(),
+		pageTitle: m.generator_discord_ascii_h1(),
+		subtitle: m.generator_discord_ascii_subtitle(),
+		seoTitle: m.generator_discord_ascii_title(),
+		description: m.generator_discord_ascii_description(),
+		urlPath: 'discord-ascii-art-generator',
+		category: 'ascii-art'
+	},
 	'glitch-font': {
 		displayName: m.style_glitch_font(),
 		pageTitle: m.generator_glitch_font_h1(),
@@ -317,24 +353,6 @@ export const ALL_GENERATOR_DATA: Record<GeneratorType, GeneratorData> = {
 		urlPath: 'reveal-hidden-text',
 		category: 'fun'
 	},
-	'ascii-art': {
-		displayName: m.style_ascii_art(),
-		pageTitle: m.generator_ascii_art_h1(),
-		subtitle: m.generator_ascii_art_subtitle(),
-		seoTitle: m.generator_ascii_art_title(),
-		description: m.generator_ascii_art_description(),
-		urlPath: 'ascii-art-generator',
-		category: 'ascii-art'
-	},
-	'cli-style': {
-		displayName: m.generator_cli_style_h1(),
-		pageTitle: m.generator_cli_style_h1(),
-		subtitle: m.generator_cli_style_subtitle(),
-		seoTitle: m.generator_cli_style_title(),
-		description: m.generator_cli_style_description(),
-		urlPath: 'cli-text-generator',
-		category: 'ascii-art'
-	},
 	'hacker-style': {
 		displayName: m.generator_hacker_style_h1(),
 		pageTitle: m.generator_hacker_style_h1(),
@@ -342,24 +360,6 @@ export const ALL_GENERATOR_DATA: Record<GeneratorType, GeneratorData> = {
 		seoTitle: m.generator_hacker_style_title(),
 		description: m.generator_hacker_style_description(),
 		urlPath: 'hacker-style-text-generator',
-		category: 'ascii-art'
-	},
-	'console-style': {
-		displayName: m.generator_console_style_h1(),
-		pageTitle: m.generator_console_style_h1(),
-		subtitle: m.generator_console_style_subtitle(),
-		seoTitle: m.generator_console_style_title(),
-		description: m.generator_console_style_description(),
-		urlPath: 'console-text-generator',
-		category: 'ascii-art'
-	},
-	'matrix-style': {
-		displayName: m.generator_matrix_style_h1(),
-		pageTitle: m.generator_matrix_style_h1(),
-		subtitle: m.generator_matrix_style_subtitle(),
-		seoTitle: m.generator_matrix_style_title(),
-		description: m.generator_matrix_style_description(),
-		urlPath: 'matrix-text-generator',
 		category: 'ascii-art'
 	}
 };
@@ -371,7 +371,7 @@ export const SPECIAL_GENERATORS: SpecialGenerator[] = [
 	'roblox-glitch',
 	'cli-style',
 	'hacker-style',
-	'console-style',
+	'discord-ascii',
 	'matrix-style'
 ];
 
@@ -379,13 +379,12 @@ export const SPECIAL_GENERATORS: SpecialGenerator[] = [
 
 export const ALL_CATEGORY: GeneratorCatgory[] = ['ascii-art', 'font-variant', 'fun', 'glitch'];
 
-export 	const CATEGORY_ICONS: Record<GeneratorCatgory, string> = {
+export const CATEGORY_ICONS: Record<GeneratorCatgory, string> = {
 	glitch: '⚡',
 	'font-variant': '🅰️',
 	fun: '🎭',
 	'ascii-art': '💻'
 };
-
 
 // 所有通过 font-variant 实现的字体样式
 export const FONT_VARIANT_GENERATOR = Object.entries(ALL_GENERATOR_DATA)

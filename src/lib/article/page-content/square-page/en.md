@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Squared Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Explore how squared text creates square-decorated text effects through Unicode squared characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['squared', 'unicode', 'enclosed alphanumeric']
 language: 'en'

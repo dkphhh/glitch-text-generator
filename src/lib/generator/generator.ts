@@ -18,7 +18,7 @@ export const SPECIAL_GENERATORS_STYLE_MAP: Record<SpecialGenerator, Style> = {
 	'minecraft-glitch': 'unreadable',
 	'roblox-glitch': 'glitch',
 	'cli-style': 'ascii-art',
-	'console-style': 'ascii-art',
+	'discord-ascii': 'ascii-art',
 	'hacker-style': 'ascii-art',
 	'matrix-style': 'ascii-art'
 };

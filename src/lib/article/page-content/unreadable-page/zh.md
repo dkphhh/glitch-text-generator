@@ -1,7 +1,7 @@
 ---
 title: '如何生成像乱码一样不可读的字符？为什么能直接复制粘贴使用？'
 description: '了解不可读文本如何通过极端的 Unicode 字符替换创造难以阅读的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['不可读', 'unicode', 'text effect']
 language: 'zh'

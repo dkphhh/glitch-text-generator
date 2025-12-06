@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Cool Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Explore how cool text creates stylish and trendy text effects through Unicode characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['cool', 'unicode', 'text effect']
 language: 'en'

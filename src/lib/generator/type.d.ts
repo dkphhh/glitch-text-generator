@@ -24,9 +24,9 @@ declare global {
 		| 'discord-glitch'
 		| 'roblox-glitch'
 		| 'minecraft-glitch'
+		| 'discord-ascii'
 		| 'cli-style'
 		| 'hacker-style'
-		| 'console-style'
 		| 'matrix-style';
 
 	type GeneratorType = Style | SpecialGenerator;

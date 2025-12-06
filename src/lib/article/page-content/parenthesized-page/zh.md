@@ -1,7 +1,7 @@
 ---
 title: '如何生成带括号的字符？为什么能直接复制粘贴使用？'
 description: '了解括号文本如何通过 Unicode 带括号字符创造轻度装饰的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['括号', 'unicode', 'enclosed alphanumeric']
 language: 'zh'

@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Discord Glitch Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Learn how Discord glitch text creates glitch text effects optimized for Discord through Unicode characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['discord', 'glitch', 'unicode']
 language: 'en'

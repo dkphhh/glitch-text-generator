@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Italic Serif Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Explore how italic serif font text creates italic serif font effects through Unicode mathematical letters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['italic serif', 'unicode', 'mathematical alphanumeric']
 language: 'en'

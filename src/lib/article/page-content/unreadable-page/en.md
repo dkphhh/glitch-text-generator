@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Unreadable Garbled Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Learn how unreadable text creates difficult-to-read text effects through extreme Unicode character replacement.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['unreadable', 'unicode', 'text effect']
 language: 'en'

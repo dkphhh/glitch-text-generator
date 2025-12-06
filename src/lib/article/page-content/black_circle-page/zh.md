@@ -1,7 +1,7 @@
 ---
 title: '如何生成带实心黑圈的字符？为什么能直接复制粘贴使用？'
 description: '一篇文章了解如何通过 Unicode 实心黑圈字符，创造黑底白字的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['实心黑圈字符', 'unicode', 'enclosed alphanumeric']
 language: 'zh'

@@ -1,7 +1,7 @@
 ---
 title: '如何生成诅咒字符？为什么能直接复制粘贴使用？'
 description: '了解诅咒文本如何通过混合多种 Unicode 技术创造诅咒般的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['诅咒', 'unicode', 'text effect']
 language: 'zh'

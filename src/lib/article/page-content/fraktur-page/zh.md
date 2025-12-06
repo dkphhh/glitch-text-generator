@@ -1,7 +1,7 @@
 ---
 title: '如何生成哥特体字符？为什么能直接复制粘贴使用？'
 description: '探索哥特体文本如何通过 Unicode 数学字母创造德式哥特字体效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['哥特体', 'unicode', 'mathematical alphanumeric']
 language: 'zh'

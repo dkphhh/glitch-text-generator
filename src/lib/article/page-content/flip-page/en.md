@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Mirrored Flip Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Learn how mirrored flip text achieves left-right mirrored text effects through Unicode characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['mirrored flip', 'unicode', 'text effect']
 language: 'en'

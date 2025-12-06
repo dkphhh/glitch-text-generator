@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Solid Black Circle Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Learn how to create white-on-black text effects through Unicode solid black circle characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['solid black circle', 'unicode', 'enclosed alphanumeric']
 language: 'en'

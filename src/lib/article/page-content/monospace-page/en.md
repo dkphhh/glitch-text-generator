@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Monospace Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Learn how monospace text creates monospace font effects through Unicode mathematical alphanumeric characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['monospace', 'unicode', 'mathematical alphanumeric']
 language: 'en'

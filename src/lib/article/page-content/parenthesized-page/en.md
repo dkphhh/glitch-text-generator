@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Parenthesized Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Learn how parenthesized text creates lightly decorated text effects through Unicode parenthesized characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['parenthesized', 'unicode', 'enclosed alphanumeric']
 language: 'en'

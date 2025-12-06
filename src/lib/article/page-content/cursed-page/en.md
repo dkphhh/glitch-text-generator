@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Cursed Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Learn how cursed text creates cursed-like text effects by combining multiple Unicode techniques.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['cursed', 'unicode', 'text effect']
 language: 'en'

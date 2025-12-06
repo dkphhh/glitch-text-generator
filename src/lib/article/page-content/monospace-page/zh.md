@@ -1,7 +1,7 @@
 ---
 title: '如何生成等宽字符文本？为什么能直接复制粘贴使用？'
 description: '了解等宽字符文本如何通过 Unicode 数学字母创造等宽字体效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['等宽字符', 'unicode', 'mathematical alphanumeric']
 language: 'zh'

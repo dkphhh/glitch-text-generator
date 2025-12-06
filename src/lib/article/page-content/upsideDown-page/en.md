@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Upside Down Flipped Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Explore how upside down flip text achieves upside-down text effects through Unicode characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['upside down flip', 'unicode', 'text effect']
 language: 'en'

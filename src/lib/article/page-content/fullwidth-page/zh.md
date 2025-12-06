@@ -1,7 +1,7 @@
 ---
 title: '如何生成全角字符？为什么能直接复制粘贴使用？'
 description: '了解全角字符文本如何通过 Unicode 全角字符创造宽体文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['全角字符', 'unicode', 'CJK']
 language: 'zh'

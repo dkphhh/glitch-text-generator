@@ -1,7 +1,7 @@
 ---
 title: '如何生成区域指示符？为什么能直接复制粘贴使用？'
 description: '探索区域指示符文本如何通过 Unicode 区域指示符创造旗帜风格的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['区域指示符', 'unicode', 'emoji']
 language: 'zh'

@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Latin Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Learn how Latin text creates unique text styles through Unicode Latin letter variants.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['latin', 'unicode', 'text effect']
 language: 'en'

@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Double-Struck Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Explore how double-struck text creates double-line outline font effects through Unicode mathematical letters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['double-struck', 'unicode', 'mathematical alphanumeric']
 language: 'en'

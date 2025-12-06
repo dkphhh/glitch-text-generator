@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Fullwidth Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Learn how fullwidth text creates wide-body text effects through Unicode fullwidth characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['fullwidth', 'unicode', 'CJK']
 language: 'en'

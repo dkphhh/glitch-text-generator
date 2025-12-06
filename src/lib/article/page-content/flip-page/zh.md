@@ -1,7 +1,7 @@
 ---
 title: '如何生成镜像翻转字符？为什么能直接复制粘贴使用？'
 description: '了解镜像翻转文本如何通过 Unicode 字符实现左右镜像翻转的文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['镜像翻转', 'unicode', 'text effect']
 language: 'zh'

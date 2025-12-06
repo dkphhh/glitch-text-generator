@@ -1,7 +1,7 @@
 ---
 title: '如何生成故障字体？为什么能直接复制粘贴使用？'
 description: '探索故障字体如何通过 Unicode 字符创造多样化的故障字体效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['故障字体', 'unicode', 'text effect']
 language: 'zh'

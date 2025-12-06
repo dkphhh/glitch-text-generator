@@ -1,7 +1,7 @@
 ---
 title: 'How to Reveal Hidden Text? What Is the Principle?'
 description: 'Learn how the reveal hidden text tool detects and displays Unicode invisible characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['reveal hidden text', 'unicode', 'invisible characters']
 language: 'en'

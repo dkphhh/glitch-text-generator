@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Hacker Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Explore how hacker fonts create hacker-style visual effects through Unicode characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['hacker font', 'unicode', 'text effect']
 language: 'en'

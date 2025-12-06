@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Bold Fraktur Characters? Why Can They Be Copied and Pasted Directly?'
 description: 'Learn how to create bold Fraktur font effects through Unicode mathematical letters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['bold fraktur', 'unicode', 'mathematical alphanumeric']
 language: 'en'

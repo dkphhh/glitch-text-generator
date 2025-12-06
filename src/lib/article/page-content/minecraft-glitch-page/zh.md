@@ -1,7 +1,7 @@
 ---
 title: '如何生成我的世界（Minecraft）故障文本生？为什么能直接复制粘贴使用？'
 description: '了解 Minecraft 故障文本如何通过 Unicode 字符创造适用于 Minecraft 的故障文字效果。'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['minecraft', '故障', 'unicode']
 language: 'zh'

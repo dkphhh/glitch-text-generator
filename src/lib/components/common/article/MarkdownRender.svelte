@@ -16,5 +16,40 @@
 				{@render children?.()}
 			</a>
 		{/snippet}
+
+		{#snippet h1(props)}
+			{@const { children, style, class: className, ...rest } = props}
+			<h2 {style} class={className} {...rest}>
+				{@render children?.()}
+			</h2>
+		{/snippet}
+
+		{#snippet h2(props)}
+			{@const { children, style, class: className, ...rest } = props}
+			<h3 {style} class={className} {...rest}>
+				{@render children?.()}
+			</h3>
+		{/snippet}
+
+		{#snippet h3(props)}
+			{@const { children, style, class: className, ...rest } = props}
+			<h4 {style} class={className} {...rest}>
+				{@render children?.()}
+			</h4>
+		{/snippet}
+
+		{#snippet h4(props)}
+			{@const { children, style, class: className, ...rest } = props}
+			<h5 {style} class={className} {...rest}>
+				{@render children?.()}
+			</h5>
+		{/snippet}
+
+		{#snippet h5(props)}
+			{@const { children, style, class: className, ...rest } = props}
+			<h6 {style} class={className} {...rest}>
+				{@render children?.()}
+			</h6>
+		{/snippet}
 	</Markdown>
 </div>

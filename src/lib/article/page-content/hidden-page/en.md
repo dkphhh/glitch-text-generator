@@ -1,7 +1,7 @@
 ---
 title: 'How to Generate Hidden Text? Why Can It Be Copied and Pasted Directly?'
 description: 'Explore how hidden text creates invisible text effects through Unicode invisible characters.'
-date: '2025-01-20'
+date: '2025-11-20'
 author: 'Admin'
 tags: ['hidden text', 'unicode', 'invisible characters']
 language: 'en'
