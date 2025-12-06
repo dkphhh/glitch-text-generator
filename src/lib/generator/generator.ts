@@ -1,22 +1,26 @@
 import { styleText } from './styles/font-variant';
-import { coolifyText } from './styles/glitch-style/cool';
-import { cursedText } from './styles/glitch-style/cursed';
-import { flipText } from './styles/glitch-style/flip';
-import { glitchifyText } from './styles/glitch-style/glitch';
-import { latinizeText } from './styles/glitch-style/latin';
-import { hackifyText } from './styles/glitch-style/hacker';
-import { hideText, revealText } from './styles/glitch-style/hidden';
-import { confusedText } from './styles/glitch-style/unreadable';
-import { upsideDownText } from './styles/glitch-style/upside-down';
-import { zalgoGeneration } from './styles/zalgo';
+import { coolifyText } from './styles/font-variant/cool';
+import { cursedText } from './styles/glitch/cursed';
+import { flipText } from './styles/fun/flip';
+import { glitchifyText } from './styles/glitch/glitch';
+import { latinizeText } from './styles/glitch/latin';
+import { hackifyText } from './styles/glitch/hacker';
+import { hideText, revealText } from './styles/fun/hidden';
+import { confusedText } from './styles/glitch/unreadable';
+import { upsideDownText } from './styles/fun/upside-down';
+import { zalgoGeneration } from './styles/glitch/zalgo';
 import { ALL_GENERATOR_DATA } from './generatorData';
 import { asciiStyleText } from './styles/ascii-art';
 
-export const SPECIAL_GENERATORS_STYLE_MAP: Record<string, Style> = {
+export const SPECIAL_GENERATORS_STYLE_MAP: Record<SpecialGenerator, Style> = {
 	'discord-glitch': 'hacker',
 	'glitch-font': 'glitch',
 	'minecraft-glitch': 'unreadable',
-	'roblox-glitch': 'glitch'
+	'roblox-glitch': 'glitch',
+	'cli-style': 'ascii-art',
+	'console-style': 'ascii-art',
+	'hacker-style': 'ascii-art',
+	'matrix-style': 'ascii-art'
 };
 
 const SPECIAL_GENERATORS: string[] = Object.keys(SPECIAL_GENERATORS_STYLE_MAP);
@@ -216,7 +220,7 @@ export function getGeneratorFromPath(path: string): GeneratorType {
 
 export function getGeneratorStyle(generator: GeneratorType): Style {
 	if (SPECIAL_GENERATORS.includes(generator)) {
-		return SPECIAL_GENERATORS_STYLE_MAP[generator];
+		return SPECIAL_GENERATORS_STYLE_MAP[generator as SpecialGenerator];
 	}
 
 	if (STYLE_LIST.includes(generator)) {

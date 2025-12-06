@@ -1,4 +1,4 @@
-import { styleText } from '../font-variant';
+import { styleText } from '.';
 import { getRandomValueFromArray } from '$lib/utils/common/tools';
 import { type FontName } from 'unicode-text-decorator';
 
