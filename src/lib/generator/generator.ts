@@ -133,7 +133,7 @@ export async function stylizeText(
 	} = {
 		intensity: 2
 	},
-	asciiStyle?: string
+	asciiOption?: { style: string }
 ): Promise<string> {
 	let result: string;
 	switch (style) {
@@ -176,7 +176,7 @@ export async function stylizeText(
 			);
 			break;
 		case 'ascii-art':
-			result = await asciiStyleText(text, asciiStyle);
+			result = await asciiStyleText(text, asciiOption?.style);
 			break;
 		default:
 			result = styleText(text, style);
@@ -229,4 +229,3 @@ export function getGeneratorStyle(generator: GeneratorType): Style {
 
 	return 'zalgo';
 }
-

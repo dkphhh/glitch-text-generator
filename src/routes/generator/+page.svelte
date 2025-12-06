@@ -11,7 +11,7 @@
 	} from '$lib/generator/generator';
 	import { COMMON_FAQS } from '$lib/page-data/faq';
 	import { resolve } from '$app/paths';
-
+	import { ASCII_ART_GENERATOR } from '$lib/generator/generatorData';
 	import Front from '$lib/components/layout/Front.svelte';
 	import GeneratorCard from '$lib/components/generator/GeneratorCard.svelte';
 	import HowTo from '$lib/components/layout/HowTo.svelte';
@@ -20,6 +20,14 @@
 	import { localizeUrl } from '$lib/paraglide/runtime';
 	import { COMMON_FEATURES } from '$lib/page-data/features';
 	import { COMMON_HOW_TO_USE } from '$lib/page-data/how-to';
+
+	async function generatePreview(style: Style) {
+		if (ASCII_ART_GENERATOR.includes(style)) {
+			return await stylizeText('ABC', style);
+		}
+
+		return await stylizeText('Glitch Text', style);
+	}
 </script>
 
 <SeoTDK title={m.generator_page_title()} description={m.generator_page_description()} />
@@ -37,7 +45,7 @@
 					{@const name = GENERATOR_NAME_MAP[k]}
 					{@const subtitle = GENERATOR_SUBTITLE_MAP[k]}
 					{@const style = getGeneratorStyle(k)}
-					{@const previewText = stylizeText('Glitch Text', style)}
+					{@const previewText = generatePreview(style)}
 
 					<GeneratorCard
 						{path}

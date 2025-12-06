@@ -1,3 +1,4 @@
+import { getRandomValueFromArray } from '$lib/utils/common/tools';
 import figlet from 'figlet';
 figlet.defaults({
 	font: 'Terrace', // default font
@@ -60,7 +61,7 @@ export const ASCII_ART_FONTS = [
 export async function asciiStyleText(text: string, font?: string) {
 	// 使用 figlet 生成 ASCII 艺术文本
 	if (!font || !ASCII_ART_FONTS.includes(font)) {
-		await asciiStyleText(text, 'Terrace');
+		await asciiStyleText(text, getRandomValueFromArray(ASCII_ART_FONTS));
 	}
 
 	const result = await figlet.text(text, {

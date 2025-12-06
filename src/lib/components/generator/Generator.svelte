@@ -65,7 +65,12 @@
 		let result = inputTextInternal;
 
 		// 应用样式
-		result = await stylizeText(result, selectedStyle, { intensity }, asciiArtFont);
+		result = await stylizeText(
+			result,
+			selectedStyle,
+			{ intensity },
+			{ style: asciiArtFont || 'Terrace' }
+		);
 
 		return result;
 	}

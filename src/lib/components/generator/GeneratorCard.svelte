@@ -4,8 +4,12 @@
 		generatorName,
 		generatorSubtitle,
 		preview
-	}: { path: string; generatorName: string; generatorSubtitle: string; preview?: Promise<string> } =
-		$props();
+	}: {
+		path: string;
+		generatorName: string;
+		generatorSubtitle: string;
+		preview?: Promise<string>;
+	} = $props();
 </script>
 
 <a
@@ -19,9 +23,10 @@
 			<span class="loading loading-sm loading-bars"></span>
 		{:then p}
 			{#if p}
-				<p class="max-h-8 rounded bg-base-100 text-center font-mono text-sm leading-8">
-					👉 {p}
-				</p>
+				{@const styles = p.length > 200 ? 'text-xs/tight ' : 'text-base'}
+				<div class="max-h-24 overflow-auto rounded bg-base-100">
+					<pre class="p-2 font-mono whitespace-pre {styles}">{p}</pre>
+				</div>
 			{/if}
 		{/await}
 		<div class="card-actions justify-end">
