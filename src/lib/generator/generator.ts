@@ -230,4 +230,3 @@ export function getGeneratorStyle(generator: GeneratorType): Style {
 	return 'zalgo';
 }
 
-// TODO：再做一个解除生成器效果，恢复成正常文本的功能

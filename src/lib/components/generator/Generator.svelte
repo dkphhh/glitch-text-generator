@@ -10,24 +10,34 @@
 	} from '$lib/generator/generator';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 	import { resolve } from '$app/paths';
-
+	import { ASCII_ART_FONTS } from '$lib/generator/styles/ascii-art';
 	// 输入组件的参数
 	let {
 		inputText = $bindable(),
 		inputTextInternal = $bindable(),
 		intensity = $bindable(),
-		preSetStyle
+		preSetStyle,
+		preSetAsciiArtFont
 	}: {
 		inputText: string;
 		inputTextInternal: string;
 		intensity: number;
 		preSetStyle?: Style;
+		preSetAsciiArtFont?: string;
 	} = $props();
 
 	// ------- 用户选项 ---------
 	// 选风格
 	let selectedStyle = $derived.by(() => {
 		return preSetStyle || 'zalgo';
+	});
+	// ascii 艺术字体选择
+	let asciiArtFont = $derived.by(() => {
+		if (ASCII_ART_FONTS.includes(preSetAsciiArtFont || 'Terrace')) {
+			return preSetAsciiArtFont;
+		}
+
+		return 'Terrace';
 	});
 
 	// 生成文本的函数
@@ -44,16 +54,24 @@
 			return '';
 		}
 
+		if (selectedStyle === 'ascii-art' && asciiArtFont && !ASCII_ART_FONTS.includes(asciiArtFont)) {
+			notificationManager.sentMessage({
+				message: [m.invalid_ascii_art_font_selected()],
+				type: 'error'
+			});
+			return '';
+		}
+
 		let result = inputTextInternal;
 
 		// 应用样式
-		result = await stylizeText(result, selectedStyle, { intensity });
+		result = await stylizeText(result, selectedStyle, { intensity }, asciiArtFont);
 
 		return result;
 	}
 
 	// 输出文本
-	let outputText = $derived.by( async () => {
+	let outputText = $derived.by(async () => {
 		return await generateText();
 	});
 
@@ -103,6 +121,19 @@
 					class="range w-full"
 					disabled={selectedStyle !== 'zalgo'}
 				/>
+			</label>
+			<!-- ASCII Art 字体选择 -->
+			<label
+				for="select-ascii-font"
+				class="select w-full lg:flex-1"
+				hidden={selectedStyle !== 'ascii-art'}
+			>
+				<span class="label">{m.ascii_art_font_label}</span>
+				<select id="select-ascii-font" bind:value={asciiArtFont} class="text-sm lg:text-base">
+					{#each ASCII_ART_FONTS as font (font)}
+						<option value={font}>{font}</option>
+					{/each}
+				</select>
 			</label>
 			<!-- 按钮组 -->
 			<div class="flex w-full flex-col gap-2 lg:flex-1 lg:flex-row">
@@ -172,5 +203,5 @@
 	</fieldset>
 
 	<!-- Output -->
-	<PreviewCard previewTitle={m.output_label()} {outputText} />
+	<PreviewCard previewTitle={(async () => m.output_label())()} {outputText} />
 </section>

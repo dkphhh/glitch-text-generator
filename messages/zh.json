@@ -263,5 +263,7 @@
 	"generator_matrix_style_h1": "黑客帝国风格文字生成器",
 	"generator_matrix_style_subtitle": "生成类似黑客帝国的数字雨风格 ASCII",
 	"generator_matrix_style_title": "黑客帝国风格文字生成器 - Matrix ASCII Art",
-	"generator_matrix_style_description": "创建受黑客帝国启发的 ASCII 艺术文字。使用特殊的字符组合模拟数字雨和赛博朋克风格的视觉效果。"
+	"generator_matrix_style_description": "创建受黑客帝国启发的 ASCII 艺术文字。使用特殊的字符组合模拟数字雨和赛博朋克风格的视觉效果。",
+	"invalid_ascii_art_font_selected": "选择了无效的 ASCII 艺术字体",
+	"ascii_art_font_label": "选择 ASCII 艺术字体"
 }

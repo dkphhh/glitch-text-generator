@@ -7,7 +7,7 @@ type GeneratorData = {
 	seoTitle: string;
 	description: string;
 	urlPath: string;
-	category: 'font-variant' | 'glitch' | 'fun' | 'ascii-art';
+	category: GeneratorCatgory;
 };
 
 export const ALL_GENERATOR_DATA: Record<GeneratorType, GeneratorData> = {
@@ -376,6 +376,8 @@ export const SPECIAL_GENERATORS: SpecialGenerator[] = [
 ];
 
 // -------------风格分类------------
+
+export const ALL_CATEGORY: GeneratorCatgory[] = ['ascii-art', 'font-variant', 'fun', 'glitch'];
 
 // 所有通过 font-variant 实现的字体样式
 export const FONT_VARIANT_GENERATOR = Object.entries(ALL_GENERATOR_DATA)

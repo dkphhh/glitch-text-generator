@@ -2,8 +2,25 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 
-	let { outputText, previewTitle }: { outputText: Promise<string>; previewTitle: string } =
+	let { outputText, previewTitle }: { outputText: Promise<string>; previewTitle: Promise<string> } =
 		$props();
+
+	// 根据文本长度动态计算样式类
+	let textSizeClass = $derived.by(async () => {
+		const text = await outputText;
+		if (!text) return 'text-xs/tight! lg:text-sm/tight!';
+
+		// 判断是否为 ASCII 艺术字（长文本或包含多行）
+		const isAsciiArt = text.length > 200 || text.split('\n').length > 5;
+
+		if (isAsciiArt) {
+			// ASCII 艺术字使用较小字体
+			return 'h-40! text-xs/tight! lg:text-sm/tight!';
+		} else {
+			// 普通文本使用较大字体
+			return 'h-24! text-xl/normal! lg:text-2xl/normal!';
+		}
+	});
 
 	// 复制到剪贴板
 	async function copyToClipboard() {
@@ -27,16 +44,32 @@
 
 <div class="stats w-full rounded border border-base-300 bg-base-200">
 	<div class="stat">
-		<div class="stat-title">
-			{previewTitle}
-		</div>
-		<div class="stat-value h-32 overflow-auto font-mono! text-sm/8! font-light! lg:text-base/20!">
-			{#await outputText}
+		{#await previewTitle}
+			<div class="stat-title mb-4">
 				<span class="loading loading-sm loading-bars"></span>
-			{:then text}
-				{text}
-			{/await}
-		</div>
+			</div>
+		{:then title}
+			<div class="stat-title mb-4">
+				{title}
+			</div>
+		{/await}
+		<!-- 文字预览区域 -->
+		{#await textSizeClass}
+			<div
+				class="stat-value h-24 overflow-auto font-mono! text-xs/tight! font-normal! whitespace-pre!"
+			>
+				<span class="loading loading-sm loading-bars"></span>
+			</div>
+		{:then sizeClass}
+			<div class="stat-value overflow-auto font-mono! font-normal! whitespace-pre! {sizeClass}">
+				{#await outputText}
+					<span class="loading loading-sm loading-bars"></span>
+				{:then text}
+					{text}
+				{/await}
+			</div>
+		{/await}
+		<!-- 复制按钮 -->
 		<div class="stat-actions flex justify-end">
 			{#await outputText}
 				<button disabled aria-label="Loading"

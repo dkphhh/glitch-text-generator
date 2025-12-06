@@ -4,7 +4,7 @@ declare global {
 	/**
 	 * 提前定义好的 style 名称，可以是 undefined，选择 undefined 意味着不进行任何样式转换
 	 */
-	export type Style =
+	type Style =
 		| 'zalgo'
 		| 'cool'
 		| 'cursed'
@@ -19,7 +19,7 @@ declare global {
 		| 'ascii-art'
 		| FontName;
 
-	export type SpecialGenerator =
+	type SpecialGenerator =
 		| 'glitch-font'
 		| 'discord-glitch'
 		| 'roblox-glitch'
@@ -29,9 +29,9 @@ declare global {
 		| 'console-style'
 		| 'matrix-style';
 
-	export type GeneratorType = Style | SpecialGenerator;
+	type GeneratorType = Style | SpecialGenerator;
 
-	export type BaseCharacters =
+	type BaseCharacters =
 		| 'a'
 		| 'A'
 		| 'b'
@@ -85,9 +85,11 @@ declare global {
 		| 'z'
 		| 'Z';
 
-	export type BaseNumbers = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
+	type BaseNumbers = '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9';
 
-	export type BaseSymbol = BaseCharacters | BaseNumbers;
+	type BaseSymbol = BaseCharacters | BaseNumbers;
+
+	type GeneratorCatgory = 'font-variant' | 'glitch' | 'fun' | 'ascii-art';
 }
 
 export {};

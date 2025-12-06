@@ -5,6 +5,7 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
 	import { page } from '$app/state';
+	import FeaturedPreview from './FeaturedPreview.svelte';
 	let {
 		previewStyle,
 		inputText,
@@ -39,6 +40,20 @@
 	let isGeneratorPage = $derived.by(() => {
 		return page.params.generator !== undefined;
 	});
+
+	let previewItems = $derived.by(() => {
+		const previewsPromise = previewStyleText;
+
+		return previewStyle.map((style) => {
+			const s = style as Style;
+
+			return {
+				key: s,
+				outputText: previewsPromise.then((previews) => previews[s]),
+				previewTitle: Promise.resolve(GENERATOR_NAME_MAP[s])
+			};
+		});
+	});
 </script>
 
 {#snippet moreStyleButton()}
@@ -63,15 +78,10 @@
 	{#if isGeneratorPage}
 		{@render moreStyleButton()}
 	{/if}
+	<FeaturedPreview {inputText} {intensity} />
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-		{#each Object.keys(previewStyleText) as style (style)}
-			{@const s = style as Style}
-			{@const outputText = (async () => {
-				const t = await previewStyleText;
-				return t[s];
-			})()}
-			{@const previewTitle = GENERATOR_NAME_MAP[s]}
-			<PreviewCard {outputText} {previewTitle} />
+		{#each previewItems as item (item.key)}
+			<PreviewCard outputText={item.outputText} previewTitle={item.previewTitle} />
 		{/each}
 	</div>
 	{#if !isGeneratorPage}

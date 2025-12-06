@@ -31,7 +31,6 @@
 
 	// 预览样式列表
 	const PREVIEW_STYLE: Style[] = [
-		'zalgo',
 		'glitch',
 		'cursed',
 		'hacker',
@@ -42,10 +41,8 @@
 		'script',
 		'bold_script',
 		'fraktur',
-		'bold_fraktur',
 		'double_struck',
-		'monospace',
-		'fullwidth'
+		'monospace'
 	];
 </script>
 
@@ -71,6 +68,7 @@
 
 	<!-- Preview Section -->
 	<Preview previewStyle={PREVIEW_STYLE} inputText={inputTextInternal} {intensity} />
+
 	<!-- 页面内容 -->
 	<Content post={pageData} />
 
