@@ -133,7 +133,7 @@
 				class="select w-full lg:flex-1"
 				hidden={selectedStyle !== 'ascii-art'}
 			>
-				<span class="label">{m.ascii_art_font_label}</span>
+				<span class="label">{m.ascii_art_font_label()}</span>
 				<select id="select-ascii-font" bind:value={asciiArtFont} class="text-sm lg:text-base">
 					{#each ASCII_ART_FONTS as font (font)}
 						<option value={font}>{font}</option>
@@ -208,5 +208,5 @@
 	</fieldset>
 
 	<!-- Output -->
-	<PreviewCard previewTitle={(async () => m.output_label())()} {outputText} />
+	<PreviewCard previewTitle={(async () => m.output_label())()} {outputText} style={selectedStyle} />
 </section>

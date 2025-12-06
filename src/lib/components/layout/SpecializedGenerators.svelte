@@ -9,6 +9,7 @@
 		GENERATOR_SUBTITLE_MAP,
 		stylizeText
 	} from '$lib/generator/generator';
+	import { ALL_GENERATOR_DATA } from '$lib/generator/generatorData';
 	// 工具列表配置
 	const selectedTools: Style[] = [
 		'glitch',
@@ -31,7 +32,14 @@
 				{@const generatorName = GENERATOR_NAME_MAP[tool]}
 				{@const generatorSubtitle = GENERATOR_SUBTITLE_MAP[tool]}
 				{@const previewText = stylizeText('Glitch Text', tool)}
-				<GeneratorCard {path} {generatorName} {generatorSubtitle} preview={previewText} />
+				{@const category = ALL_GENERATOR_DATA[tool].category}
+				<GeneratorCard
+					{path}
+					{generatorName}
+					{generatorSubtitle}
+					preview={previewText}
+					{category}
+				/>
 			{/each}
 			<GeneratorCard
 				path={localizeHref(resolve('/generator/'))}

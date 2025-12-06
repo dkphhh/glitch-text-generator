@@ -2,25 +2,11 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import { notificationManager } from '$lib/components/common/notification/notificationManager.svelte';
 
-	let { outputText, previewTitle }: { outputText: Promise<string>; previewTitle: Promise<string> } =
-		$props();
-
-	// 根据文本长度动态计算样式类
-	let textSizeClass = $derived.by(async () => {
-		const text = await outputText;
-		if (!text) return 'text-xs/tight! lg:text-sm/tight!';
-
-		// 判断是否为 ASCII 艺术字（长文本或包含多行）
-		const isAsciiArt = text.length > 200 || text.split('\n').length > 5;
-
-		if (isAsciiArt) {
-			// ASCII 艺术字使用较小字体
-			return 'h-40! text-xs/tight! lg:text-sm/tight!';
-		} else {
-			// 普通文本使用较大字体
-			return 'h-24! text-xl/normal! lg:text-2xl/normal!';
-		}
-	});
+	let {
+		outputText,
+		previewTitle,
+		style
+	}: { outputText: Promise<string>; previewTitle: Promise<string>; style?: Style } = $props();
 
 	// 复制到剪贴板
 	async function copyToClipboard() {
@@ -54,19 +40,33 @@
 			</div>
 		{/await}
 		<!-- 文字预览区域 -->
-		{#await textSizeClass}
+		{#await outputText}
 			<div
 				class="stat-value h-24 overflow-auto font-mono! text-xs/tight! font-normal! whitespace-pre!"
 			>
 				<span class="loading loading-sm loading-bars"></span>
 			</div>
-		{:then sizeClass}
-			<div class="stat-value overflow-auto font-mono! font-normal! whitespace-pre! {sizeClass}">
-				{#await outputText}
-					<span class="loading loading-sm loading-bars"></span>
-				{:then text}
-					{text}
-				{/await}
+		{:then text}
+			{@const isAscii = style === 'ascii-art'}
+			{@const isZalgo = style === 'zalgo'}
+			{@const isEmpty = !text}
+			<div
+				class={[
+					'stat-value overflow-auto font-mono font-normal whitespace-pre',
+					{
+						'text-xs': isEmpty,
+						'leading-tight': isEmpty || (!isEmpty && isAscii),
+						'lg:text-sm': isEmpty,
+						'h-40': (!isEmpty && isAscii) || (!isEmpty && isZalgo),
+						'text-[8px] lg:text-[10px]': !isEmpty && isAscii,
+						'h-24': !isEmpty && !isAscii,
+						'text-xl': !isEmpty && !isAscii,
+						'leading-normal': !isEmpty && !isAscii,
+						'lg:text-2xl': !isEmpty && !isAscii
+					}
+				]}
+			>
+				{text}
 			</div>
 		{/await}
 		<!-- 复制按钮 -->

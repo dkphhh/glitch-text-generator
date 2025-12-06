@@ -5,7 +5,7 @@
 	import { m } from '$lib/paraglide/messages.js';
 	import PreviewCard from '$lib/components/generator/PreviewCard.svelte';
 	import { page } from '$app/state';
-	import FeaturedPreview from './FeaturedPreview.svelte';
+
 	let {
 		previewStyle,
 		inputText,
@@ -16,7 +16,43 @@
 		intensity: number;
 	} = $props();
 
-	// 其他样式预览文本
+	const FEATURED_STYLES: Style[] = ['zalgo', 'ascii-art'];
+
+	// Featured styles preview text
+	let featuredPreviewStyleText: Promise<Record<Style, string>> = $derived.by(async () => {
+		if (!inputText.trim()) {
+			let result = {} as Record<Style, string>;
+			for (let style of FEATURED_STYLES) {
+				const s = style as Style;
+				result[s] = '';
+			}
+			return result;
+		}
+
+		const previews = {} as Record<Style, string>;
+
+		for (let style of FEATURED_STYLES) {
+			const s = style as Style;
+			previews[s] = await stylizeText(inputText, s, { intensity: intensity });
+		}
+
+		return previews;
+	});
+
+	let featuredPreviewItems = $derived.by(() => {
+		const previewsPromise = featuredPreviewStyleText;
+
+		return FEATURED_STYLES.map((style) => {
+			const s = style as Style;
+			return {
+				key: s,
+				outputText: previewsPromise.then((previews) => previews[s]),
+				previewTitle: Promise.resolve(GENERATOR_NAME_MAP[s])
+			};
+		});
+	});
+
+	// Other styles preview text
 	let previewStyleText: Promise<Record<Style, string>> = $derived.by(async () => {
 		if (!inputText.trim()) {
 			let result = {} as Record<Style, string>;
@@ -78,10 +114,32 @@
 	{#if isGeneratorPage}
 		{@render moreStyleButton()}
 	{/if}
-	<FeaturedPreview {inputText} {intensity} />
+
+	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+		{#each featuredPreviewItems as item (item.key)}
+			{#if item.key === 'zalgo'}
+				<div>
+					<PreviewCard
+						outputText={item.outputText}
+						previewTitle={item.previewTitle}
+						style={item.key}
+					/>
+				</div>
+			{:else}
+				<div class="sm:col-span-1 lg:col-span-2">
+					<PreviewCard
+						outputText={item.outputText}
+						previewTitle={item.previewTitle}
+						style={item.key}
+					/>
+				</div>
+			{/if}
+		{/each}
+	</div>
+
 	<div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
 		{#each previewItems as item (item.key)}
-			<PreviewCard outputText={item.outputText} previewTitle={item.previewTitle} />
+			<PreviewCard outputText={item.outputText} previewTitle={item.previewTitle} style={item.key} />
 		{/each}
 	</div>
 	{#if !isGeneratorPage}

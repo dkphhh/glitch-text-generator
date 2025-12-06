@@ -1,39 +1,147 @@
 # Missing Translation Keys Report
 
-- Generated at: 2025-11-21T17:40:36.348Z
+- Generated at: 2025-12-06T07:10:52.746Z
 - Messages directory: `/Users/dkphhh/dev/glitch-text-generator/messages`
-- Total unique keys discovered: 243
+- Total unique keys discovered: 266
 
 | Locale | Missing count | Status |
 | --- | ---: | --- |
-| en - English | 0 | ✅ All keys present |
-| es - Español | 0 | ✅ All keys present |
-| fr - français | 0 | ✅ All keys present |
-| de - Deutsch | 0 | ✅ All keys present |
+| en - English | 23 | ❌ Missing keys |
+| es - Español | 23 | ❌ Missing keys |
+| fr - français | 23 | ❌ Missing keys |
+| de - Deutsch | 23 | ❌ Missing keys |
 | zh - 中文 | 0 | ✅ All keys present |
-| ja - 日本語 | 0 | ✅ All keys present |
-| ru - русский язык | 0 | ✅ All keys present |
-| pt - Português | 0 | ✅ All keys present |
-| id - Bahasa Indonesia | 0 | ✅ All keys present |
-| ko - 조선어 | 0 | ✅ All keys present |
+| ja - 日本語 | 23 | ❌ Missing keys |
+| ru - русский язык | 23 | ❌ Missing keys |
+| pt - Português | 23 | ❌ Missing keys |
+| id - Bahasa Indonesia | 23 | ❌ Missing keys |
+| ko - 조선어 | 23 | ❌ Missing keys |
 
 ---
 
 ### en - English
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/en.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### es - Español
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/es.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### fr - français
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/fr.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### de - Deutsch
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/de.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### zh - 中文
 
@@ -41,20 +149,155 @@
 
 ### ja - 日本語
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/ja.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### ru - русский язык
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/ru.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### pt - Português
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/pt.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### id - Bahasa Indonesia
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/id.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art
 
 ### ko - 조선어
 
-✅ This locale contains all known translation keys.
+- Source: /Users/dkphhh/dev/glitch-text-generator/messages/ko.json
+- Missing keys: 23
+
+Missing key list:
+
+- ascii_art_font_label
+- generator_ascii_art_description
+- generator_ascii_art_h1
+- generator_ascii_art_subtitle
+- generator_ascii_art_title
+- generator_cli_style_description
+- generator_cli_style_h1
+- generator_cli_style_subtitle
+- generator_cli_style_title
+- generator_console_style_description
+- generator_console_style_h1
+- generator_console_style_subtitle
+- generator_console_style_title
+- generator_hacker_style_description
+- generator_hacker_style_h1
+- generator_hacker_style_subtitle
+- generator_hacker_style_title
+- generator_matrix_style_description
+- generator_matrix_style_h1
+- generator_matrix_style_subtitle
+- generator_matrix_style_title
+- invalid_ascii_art_font_selected
+- style_ascii_art

@@ -379,6 +379,14 @@ export const SPECIAL_GENERATORS: SpecialGenerator[] = [
 
 export const ALL_CATEGORY: GeneratorCatgory[] = ['ascii-art', 'font-variant', 'fun', 'glitch'];
 
+export 	const CATEGORY_ICONS: Record<GeneratorCatgory, string> = {
+	glitch: '⚡',
+	'font-variant': '🅰️',
+	fun: '🎭',
+	'ascii-art': '💻'
+};
+
+
 // 所有通过 font-variant 实现的字体样式
 export const FONT_VARIANT_GENERATOR = Object.entries(ALL_GENERATOR_DATA)
 	.filter(([, v]) => v.category === 'font-variant')

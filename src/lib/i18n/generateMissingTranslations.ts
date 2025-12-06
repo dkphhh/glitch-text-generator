@@ -241,3 +241,5 @@ if (import.meta.main) {
 		process.exitCode = 1;
 	});
 }
+
+await generateMissingTranslationsReport();

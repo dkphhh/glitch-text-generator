@@ -16,6 +16,7 @@
 		"lint": "bun autocorrect --fix ./ && prettier --check . && eslint .",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
+		"missing-translations": "bun run src/lib/i18n/generateMissingTranslations.ts",
 		"postbuild": "bunx svelte-sitemap --domain https://cooltext.app --out-dir .svelte-kit/cloudflare"
 	},
 	"devDependencies": {

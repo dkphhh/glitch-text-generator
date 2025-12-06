@@ -26,6 +26,6 @@ vite.config.ts.timestamp-*
 src/lib/paraglide
 
 playground.ts
-
+static/fonts/flf
 doc
 dist

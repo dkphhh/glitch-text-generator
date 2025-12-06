@@ -11,7 +11,7 @@
 	} from '$lib/generator/generator';
 	import { COMMON_FAQS } from '$lib/page-data/faq';
 	import { resolve } from '$app/paths';
-	import { ASCII_ART_GENERATOR } from '$lib/generator/generatorData';
+	import { ASCII_ART_GENERATOR, ALL_GENERATOR_DATA } from '$lib/generator/generatorData';
 	import Front from '$lib/components/layout/Front.svelte';
 	import GeneratorCard from '$lib/components/generator/GeneratorCard.svelte';
 	import HowTo from '$lib/components/layout/HowTo.svelte';
@@ -46,12 +46,14 @@
 					{@const subtitle = GENERATOR_SUBTITLE_MAP[k]}
 					{@const style = getGeneratorStyle(k)}
 					{@const previewText = generatePreview(style)}
+					{@const category = ALL_GENERATOR_DATA[k].category}
 
 					<GeneratorCard
 						{path}
 						generatorName={name}
 						generatorSubtitle={subtitle}
 						preview={previewText}
+						{category}
 					/>
 				{/each}
 			</div>
